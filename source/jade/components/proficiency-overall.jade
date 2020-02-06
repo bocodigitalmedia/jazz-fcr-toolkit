@@ -1,0 +1,27 @@
+section#representative(layout-padding)
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(flex="45" ng-click="ctrl.selectedRegionId = null" ng-switch="$root.Users.active.group.level")
+      span(ng-bind-html="ctrl.title | trust")
+      span(ng-switch-when="2" ng-bind-html="::$root.locale.components.proficiencyOverall.employee | trust")
+      //- &nbsp;Employee
+      span(ng-switch-when="3" ng-bind-html="::$root.locale.components.proficiencyOverall.district | trust")
+      //- &nbsp;District
+      span(ng-switch-when="4" ng-bind-html="::$root.locale.components.proficiencyOverall.region | trust")
+      //- &nbsp;Region
+
+    div(flex="10" layout-align="center top")
+      button.back(ng-click="ctrl.selectedRegionId = null" ng-if="$root.Users.superUser && ctrl.selectedRegionId" ng-bind-html="::$root.locale.components.proficiencyOverall.back | trust") Back
+
+  //- ================================================================================================
+
+  md-content(ng-if="!ctrl.noData && !ctrl.dataLoading")
+
+    .content.representative
+      .data
+        highchart(id="chart-representative" config="ctrl.config")
+
+  .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noData | trust")
+  .data-loading(ng-if="ctrl.dataLoading && !ctrl.noData" flex layout="row" layout-align="center center" ng-bind-html="::$root.locale.global.loading | trust")

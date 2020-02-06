@@ -1,0 +1,71 @@
+section#completed(ng-class="{ 'pad': ctrl.noData || !ctrl.dataLoading }" layout="column" layout-padding)
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind-html="ctrl.title | trust")
+
+  //- ================================================================================================
+
+  md-content(ng-if="!ctrl.noData && !ctrl.dataLoading")
+    md-table-container
+
+      table(md-table)
+
+        thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
+          tr(md-row)
+            //- th(md-column md-order-by="payload.evaluatee.email")
+            //-   span Employee
+            th(md-column md-order-by="payload.fieldRideStart")
+              span(ng-bind-html="::$root.locale.components.completed.fieldRideStart | trust")
+              //- FCR Start Date
+            th(md-column md-order-by="payload.timestamp")
+              span(ng-bind-html="::$root.locale.components.completed.timestamp | trust")
+              //- FCR Completion Date
+            th(md-column md-order-by="payload.average")
+              span(ng-bind-html="::$root.locale.components.completed.average | trust")
+              //- Rating
+            th(md-column md-order-by="payload.ratingMin")
+              span(ng-bind-html="::$root.locale.components.completed.ratingMin | trust")
+              //- Min Rating
+            th(md-column md-order-by="payload.ratingMax")
+              span(ng-bind-html="::$root.locale.components.completed.ratingMax | trust")
+              //- Max Rating
+            th(md-column md-order-by="payload.daysInField")
+              span(ng-bind-html="::$root.locale.components.completed.daysInField | trust")
+              //- Total Days
+            th(md-column md-order-by="payload.evaluator.email")
+              span(ng-bind-html="::$root.locale.components.completed.evaluator | trust")
+              //- Evaluator
+            th(md-column width="1%")
+
+        tbody(md-body)
+
+          tr.clickable(md-row ng-repeat="form in ctrl.completedForms | orderBy: ctrl.query.order | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click="$root.Forms.openForm(form.payload.evaluatee.id, form.payload.submissionId)")
+            //- td(md-cell) {{ form.payload.evaluatee.email | shorten }}
+            td(md-cell) {{ form.payload.fieldRideStart | date:'M/d/yyyy' }}
+            td(md-cell) {{ form.payload.timestamp | date:'M/d/yyyy' }}
+            td(md-cell) {{ form.payload.average | number:2 }}
+            td(md-cell) {{ form.payload.ratingMin }}
+            td(md-cell) {{ form.payload.ratingMax }}
+            td(md-cell) {{ form.payload.daysInField }}
+            td(md-cell) {{ form.payload.evaluator.email | shorten }}
+            td(md-cell width="1%")
+              md-menu
+                md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')
+                  md-icon(md-menu-origin md-svg-icon='images/md-svg/more_vert.svg')
+                md-menu-content(width='4')
+                  md-menu-item
+                    md-button(ng-click='$root.Forms.openForm(form.payload.evaluatee.id, form.payload.submissionId)')
+                      md-icon(md-svg-icon='images/md-svg/open_in_new.svg' md-menu-align-target)
+                      span(ng-bind-html="::$root.locale.global.viewFcr | trust")
+                      //- View FCR
+                  md-menu-item
+                    md-button(ng-click='$root.Forms.printForm(form.payload.evaluatee.id, form.payload.submissionId)')
+                      md-icon(md-svg-icon='images/md-svg/picture_as_pdf.svg' md-menu-align-target)
+                      span(ng-bind-html="::$root.locale.global.downloadFcr | trust")
+                      //- Download FCR
+    md-table-pagination(md-label="{page: '{{$root.locale.global.rows | trust}}:', rowsPerPage: '{{$root.locale.global.rowsPerPage | trust}}:', of: '{{$root.locale.global.of | trust}}'}" md-limit="ctrl.query.limit" md-limit-options="ctrl.query.limitOptions" md-page="ctrl.query.page" md-total="{{ ctrl.completedForms.length }}" md-on-paginate="ctrl.paginate" md-page-select)
+
+  .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noData | trust")
+  .data-loading(ng-if="ctrl.dataLoading && !ctrl.noData" flex layout="row" layout-align="center center" ng-bind-html="::$root.locale.global.loading | trust")

@@ -1,0 +1,82 @@
+section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind-html="ctrl.title | trust")
+    span(flex)
+    form(ng-if="!ctrl.noData && !ctrl.dataLoading" autocomplete="off")
+      md-input-container.md-block
+        label(ng-bind-html="::$root.locale.components.evaluatees.filter | trust")
+        //- Filter by Employee
+        input(ng-model="filter.evaluatee" name="employee")
+
+  //- ================================================================================================
+
+  md-content(ng-if="!ctrl.noData && !ctrl.dataLoading")
+    md-table-container
+
+      table(md-table)
+
+        thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
+          tr(md-row)
+            th(md-column md-order-by="evaluatee")
+              span(ng-bind-html="::$root.locale.components.evaluatees.evaluatee | trust")
+              //- Employee
+            th(md-column md-order-by="evaluator")
+              span(ng-bind-html="::$root.locale.components.evaluatees.evaluator | trust")
+              //- Evaluator
+            th(md-column md-order-by="lastCompletedDate")
+              span(ng-bind-html="::$root.locale.components.evaluatees.lastCompletedDate | trust")
+              //- Date of Last<br>Completed FCR
+            th(md-column md-order-by="avgRating")
+              span(ng-bind-html="::$root.locale.components.evaluatees.avgRating | trust")
+              //- Avg.<br>Rating
+            th(md-column md-order-by="minRating")
+              span(ng-bind-html="::$root.locale.components.evaluatees.minRating | trust")
+              //- Min<br>Rating
+            th(md-column md-order-by="maxRating")
+              span(ng-bind-html="::$root.locale.components.evaluatees.maxRating | trust")
+              //- Max<br>Rating
+            th(md-column md-order-by="totalDays")
+              span(ng-bind-html="::$root.locale.components.evaluatees.totalDays | trust")
+              //- Total<br>Days
+            th(md-column md-order-by="totalCompleted")
+              span(ng-bind-html="::$root.locale.components.evaluatees.totalCompleted | trust")
+              //- # Completed<br>FCRs
+            th(md-column width="1%")
+
+        tbody(md-body)
+
+          //- ng-repeat="student in (filterResult = (students | filter: search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit as fStudents))"
+          //- tr(md-row ng-repeat="data in (filterResult = (ctrl.tableData | filter:filter:strict | orderBy: ctrl.query.order | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit as fTableData))")
+          tr.clickable(md-row ng-repeat="data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click="ctrl.viewEmployeeData(data.evaluateeId)")
+            td(md-cell) {{ data.evaluatee | shorten }}
+            td(md-cell) {{ data.evaluator | shorten }}
+            td(md-cell) {{ data.lastCompletedDate | date:'M/d/yyyy' }}
+            td(md-cell) {{ data.avgRating | number:2 }}
+            td(md-cell) {{ data.minRating }}
+            td(md-cell) {{ data.maxRating }}
+            td(md-cell) {{ data.totalDays }}
+            td(md-cell) {{ data.totalCompleted }}
+            td(md-cell width="1%")
+              md-menu
+                md-button.md-icon-button(aria-label='Open interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')
+                  md-icon(md-menu-origin md-svg-icon='images/md-svg/more_vert.svg')
+                md-menu-content(width='4')
+                  md-menu-item
+                    md-button(ng-click='ctrl.viewEmployeeData(data.evaluateeId)')
+                      md-icon(md-svg-icon='images/md-svg/donut_large.svg' md-menu-align-target)
+                      span(ng-bind-html="::$root.locale.components.evaluatees.data | trust")
+                      //- View Employee Data
+                  md-menu-item
+                    md-button(ng-click='ctrl.viewEmployeeFCRs(data.evaluateeId)')
+                      md-icon(md-svg-icon='images/md-svg/library_books.svg')
+                      span(ng-bind-html="::$root.locale.components.evaluatees.allFcrs | trust")
+                      //- View All Employee's Completed FCRs
+
+    //- md-table-pagination(ng-hide="ctrl.pagination == 'hide'" md-limit="ctrl.query.limit" md-limit-options="ctrl.query.limitOptions" md-page="ctrl.query.page" md-total="{{filter.evaluatee ? filterResult.length : fTableData.length}}" md-on-paginate="ctrl.paginate()" md-page-select)
+    md-table-pagination(ng-hide="ctrl.pagination == 'hide'" md-limit="ctrl.query.limit" md-limit-options="ctrl.query.limitOptions" md-page="ctrl.query.page" md-total="{{ctrl.tableData.length}}" md-on-paginate="ctrl.paginate()" md-page-select md-label="{page: '{{$root.locale.global.rows | trust}}:', rowsPerPage: '{{$root.locale.global.rowsPerPage | trust}}:', of: '{{$root.locale.global.of | trust}}'}")
+
+  .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noData | trust")
+  .data-loading(ng-if="ctrl.dataLoading && !ctrl.noData" flex layout="row" layout-align="center center" ng-bind-html="::$root.locale.global.loading | trust")

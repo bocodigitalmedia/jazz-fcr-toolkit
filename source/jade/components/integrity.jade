@@ -1,0 +1,21 @@
+section#integrity(layout="column" layout-padding)
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind-html="ctrl.title | trust")
+
+  //- ================================================================================================
+
+  md-content(ng-if="!ctrl.noData && !ctrl.dataLoading" layout="column" layout-align="center center")
+
+    .data
+      .chart-container(layout="column" layout-align="center center")
+        label(ng-bind-html="::$root.locale.components.integrity.compliance | trust")
+        //- Average Compliance
+        .chart
+          highchart(id="chart-integrity" config="ctrl.config")
+          #integrity-percentage
+
+  .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noData | trust")
+  .data-loading(ng-if="ctrl.dataLoading && !ctrl.noData" flex layout="row" layout-align="center center" ng-bind-html="::$root.locale.global.loading | trust")

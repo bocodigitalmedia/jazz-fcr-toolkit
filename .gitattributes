@@ -1,0 +1,2 @@
+source/coffee/defaults.coffee merge=ours
+.gitignore merge=ours

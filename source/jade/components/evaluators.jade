@@ -1,0 +1,66 @@
+section#evaluators(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind-html="ctrl.title | trust")
+    span(flex)
+    form(ng-if="!ctrl.noData && !ctrl.dataLoading" autocomplete="off")
+      md-input-container.md-block
+        label(ng-bind-html="::$root.locale.components.evaluators.filter | trust")
+        //- Filter by Evaluator
+        input(ng-model="filter.evaluator" name="evaluator")
+
+  //- ================================================================================================
+
+  md-content.evaluators(ng-if="!ctrl.noData && !ctrl.dataLoading")
+    md-table-container
+
+      table(md-table)
+
+        thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
+          tr(md-row)
+            th(md-column md-order-by="evaluator")
+              span(ng-bind-html="::$root.locale.components.evaluators.evaluator | trust")
+              //- Evaluator
+            th(md-column md-order-by="totalCompleted")
+              span(ng-bind-html="::$root.locale.components.evaluators.totalCompleted | trust")
+              //- # Completed FCRs
+            th(md-column md-order-by="lastCompletedDate")
+              span(ng-bind-html="::$root.locale.components.evaluators.lastCompletedDate | trust")
+              //- Last Completed FCR
+            th(md-column md-order-by="timeToSubmit.inDays")
+              span(ng-bind-html="::$root.locale.components.evaluators.timeToSubmit | trust")
+              //- Avg. # Days for Submission
+            th(md-column md-order-by="district")
+              span(ng-bind-html="::$root.locale.components.evaluators.district | trust")
+              //- District
+            th(md-column md-order-by="region" ng-if="$root.defaults.hasRegions")
+              span(ng-bind-html="::$root.locale.components.evaluators.region | trust")
+              //- Region
+            th(md-column width="1%")
+
+        tbody(md-body)
+
+          tr.clickable(md-row ng-repeat="data in ctrl.filteredForms = (ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict) | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewDistrictData(data.evaluatorId)')
+            td(md-cell) {{ data.evaluator | shorten }}
+            td(md-cell) {{ data.totalCompleted }}
+            td(md-cell) {{ data.lastCompletedDate | date:'M/d/yyyy' }}
+            td(md-cell) {{ data.timeToSubmit.inDays }}
+            td(md-cell) {{ data.district }}
+            td(md-cell ng-if="$root.defaults.hasRegions") {{ data.region }}
+            td(md-cell width="1%")
+              md-menu
+                md-button.md-icon-button(aria-label='Open interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')
+                  md-icon(md-menu-origin md-svg-icon='images/md-svg/more_vert.svg')
+                md-menu-content(width='4')
+                  md-menu-item
+                    md-button(ng-click='ctrl.viewDistrictData(data.evaluatorId)')
+                      md-icon(md-svg-icon='images/md-svg/donut_large.svg' md-menu-align-target)
+                      span(ng-bind-html="::$root.locale.components.evaluators.districtData | trust")
+                      //- View District Data
+
+    md-table-pagination(ng-hide="ctrl.pagination == 'hide'" md-limit="ctrl.query.limit" md-limit-options="ctrl.query.limitOptions" md-page="ctrl.query.page" md-total="{{ctrl.tableData.length}}" md-on-paginate="ctrl.paginate()" md-page-select md-label="{page: '{{$root.locale.global.rows | trust}}:', rowsPerPage: '{{$root.locale.global.rowsPerPage | trust}}:', of: '{{$root.locale.global.of | trust}}'}")
+
+  .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noData | trust")
+  .data-loading(ng-if="ctrl.dataLoading && !ctrl.noData" flex layout="row" layout-align="center center" ng-bind-html="::$root.locale.global.loading | trust")

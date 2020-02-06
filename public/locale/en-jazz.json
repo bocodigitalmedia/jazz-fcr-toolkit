@@ -1,0 +1,349 @@
+{
+  "global": {
+    "disclaimer": "Confidential purposes only&ndash;not for promotional use",
+    "viewFcr": "View FCR",
+    "downloadFcr": "Download FCR",
+    "loading": "Data loading...",
+    "cancel": "Cancel",
+    "next": "Next",
+    "download": "Download",
+    "inReview": "In Review",
+    "noComments": "No Comments",
+    "na": "N/A",
+    "close": "Close",
+    "rowsPerPage": "Rows per page",
+    "page": "Page",
+    "of": "of",
+    "noData": "No data to show.",
+    "noForms": "No forms to review at this time.",
+    "clearFilter": "Clear Filter",
+    "startEnd": "Start Date - End Date"
+  },
+  "components": {
+    "completed": {
+      "fieldRideStart": "FCR Start<br>Date",
+      "timestamp": "FCR Completion<br>Date",
+      "average": "Rating",
+      "ratingMin": "Min<br>Rating",
+      "ratingMax": "Max<br>Rating",
+      "daysInField": "Total<br>Days",
+      "evaluator": "Evaluator"
+    },
+    "employeeReview": {
+      "fcrStart": "FCR Start<br>Date",
+      "fcrSubmission": "FCR Submission<br>Date",
+      "district": "District",
+      "dm": "District<br>Manager"
+    },
+    "evaluatees": {
+      "filter": "Filter by Employee",
+      "evaluatee" :"Employee",
+      "evaluator" :"Evaluator",
+      "lastCompletedDate" :"Date of Last<br>Completed FCR",
+      "avgRating" :"Avg.<br>Rating",
+      "minRating" :"Min<br>Rating",
+      "maxRating" :"Max<br>Rating",
+      "totalDays" :"Total<br>Days",
+      "totalCompleted" :"# Completed<br>FCRs",
+      "data": "View Employee Data",
+      "allFcrs": "View All Employee's Completed FCRs"
+    },
+    "evaluators": {
+      "filter": "Filter by Evaluator",
+      "evaluator": "Evaluator",
+      "totalCompleted": "# Completed<br>FCRs",
+      "lastCompletedDate": "Last Completed<br>FCR",
+      "timeToSubmit": "Avg. # Days<br>for Submission",
+      "district": "District",
+      "region": "Region",
+      "districtData": "View District Data"
+    },
+    "fcr": {
+      "common": {
+        "rating1": "Rating 1-4",
+        "rating2": "Lowest - Highest",
+        "comments": "Comments",
+        "yes": "YES",
+        "no": "NO",
+        "followUp": "SMART Objective Date Follow Up",
+        "acceptFCR": "Accept FCR",
+        "rejectFCR": "Reject FCR",
+        "completedFCRs": "Completed FCRs",
+        "evaluatedBy": "Evaluated by",
+        "completed": "Completed"
+      },
+      "userDetails": {
+        "completed": "Completed",
+        "fieldRideStart": "Field Ride Start Date",
+        "fieldRideEnd": "Field Ride End Date",
+        "contactDays": "# Contact Days",
+        "overallCalls": "Overall # of<br />Calls Observed",
+        "lastFCR": "Date of last FCR"
+      },
+      "form": {
+        "sectionA": {
+          "sectionTitle": "Alignment to Brand Strategy",
+          "sectionTitleNote": "MANDATORY",
+          "data1": "Times Observed",
+          "competency1": "Delivered 24-hour lasting symptom control message AND painted a vivid picture of appropriate adult asthma, including specific symptoms",
+          "competency2": "Delivered BOTH coverage & affordability messaging AND engaged HCP about their experience",
+          "competency3": "Leveraged the strong confidence vs. Symbicort, maintaining a competitive mindset throughout the calls",
+          "competency4": "Delivered Action-Oriented Close vs Symbicort"
+        },
+        "sectionB": {
+          "sectionTitle": "Sales Effectiveness",
+          "sectionTitleNote": "MANDATORY",
+          "data1": "# of Calls Observed",
+          "data2": "# Calls Met Commercially Oriented Object",
+          "data3": "# Calls Discussed<br />Source of Business",
+          "data4": "# Calls Closed For Behavioral Change",
+          "data5": "# Calls Achieved<br />Good Sell Outcome",
+          "competency1": "Overall Quality Global Selling Model"
+        },
+        "sectionC": {
+          "sectionTitle": "Selling Ways",
+          "competencyTitle1" : "Business Acumen",
+          "competencyTitle2" : "Scientific Knowledge",
+          "competencyTitle3" : "Customer Engagement",
+          "competency1": "Diagnose",
+          "competency2": "Build Your Plan | Resource Utilization",
+          "competency3": "Execute &amp; Evaluate Process",
+          "competency4": "Disease State",
+          "competency5": "Product",
+          "competency6": "Promotion/Selling",
+          "competency7": "Prepare to Sell",
+          "competency8": "Open the Sales Call",
+          "competency9": "Uncover Opportunities",
+          "competency10": "Align Brand and Handle Objections",
+          "competency11": "Close with Commitment",
+          "competency12": "Total Office Call",
+          "competency13": "Analyze Call and Plan Next Steps",
+          "competency14": "Payer Pull Through"
+        },
+        "sectionD": {
+          "sectionTitle": "Accountability",
+          "competency1": "Initiative | Seize Opportunity",
+          "competency2": "Drive Performance",
+          "competency3": "Coachability",
+          "competency4": "Personal Development"
+        },
+        "sectionE": {
+          "sectionTitle": "Synergy & Partnership",
+          "competency1": "Effective Collaboration",
+          "competency2": "Builds Trust",
+          "competency3": "Effective Communication"
+        },
+        "sectionF": {
+          "sectionTitle": "Administration",
+          "competency1": "Expense Management",
+          "competency2": "Sample Management",
+          "competency3": "Fleet Management",
+          "competency4": "Report Timeliness",
+          "competency5": "Recording of Activity in CRM"
+        },
+        "sectionG": {
+          "sectionTitle": "Integrity",
+          "competency1": "Compliance"
+        },
+        "sectionH": {
+          "sectionTitle": "SMART Objectives",
+          "competency1": "SMART Objective #1",
+          "competency2": "SMART Objective #2"
+        },
+        "sectionI": {
+          "sectionTitle": "Territory/District Performance Discussion"
+        },
+        "sectionJ": {
+          "sectionTitle": "Overall Comments"
+        }
+      }
+    },
+    "glance": {
+      "avgProficiency": "Average Proficiency",
+      "manager": "Manager",
+      "completedFcrs": "# Completed FCRs",
+      "district": "District",
+      "lastFcr": "Date of Last FCR Completed",
+      "submission": "Avg. Days for FCR Submission",
+      "numEmployees": "# Employees",
+      "dateLastFcr": "Date of Last<br>Completed FCR",
+      "avgRating": "Avg.<br>Rating",
+      "minRating": "Min<br>Rating",
+      "maxRating": "Max<br>Rating",
+      "totalDays": "Total<br>Days",
+      "employeeData": "View Employee Data",
+      "employeeFcrs": "View Employee FCRs",
+      "regionalManager": "Regional Manager",
+      "teamManager": "Team Manager",
+      "districtManager": "District Manager",
+      "numReps": "# Reps",
+      "viewDistrictData": "View District Data",
+      "teamDirector": "Team Director",
+      "region": "Region",
+      "viewRegionalData": "View Regional Data",
+      "overallAvg": "Overall Avg"
+    },
+    "integrity": {
+      "compliance": "Average Compliance"
+    },
+    "proficiencyOverall": {
+      "employee": "&nbsp;Employee",
+      "district": "&nbsp;District",
+      "region": "&nbsp;Region",
+      "back" : "Back"
+    },
+    "proficiencySection": {
+      "avgProficiency": "Avg. Proficiency",
+      "avgProficiencyEachItem": "Avg. Proficiency of Each Item",
+      "itemAvg": "Item Avg.",
+      "sectionAvg": "Section Avg."
+    }
+  },
+  "dialogs": {
+    "changeView": {
+      "selectCategory": "Select a Category to view:",
+      "selectDifferent": "&nbsp;Select a Different Category",
+      "regions": "Regions",
+      "chooseRegion": "Choose a Region to View",
+      "districts": "Districts",
+      "chooseDistrict": "Choose a District to View",
+      "employees": "Employees",
+      "chooseEmployee": "Choose a Employee to View",
+      "selectRegion": "Select a Region to view:",
+      "selectDistrict": "Select a District to view:",
+      "selectEmployee": "Select an Employee to view:"
+    },
+    "exportData": {
+      "selectDate": "Select a date range to export data:",
+      "export": "Export"
+    },
+    "fcrCompleted": {
+      "sure": "Are you sure you want to ACCEPT this FCR?",
+      "accept": "Accept"
+    },
+    "fcrRejected": {
+      "sure": "Are you sure you want to REJECT this FCR?",
+      "reject": "Reject"
+    },
+    "success": {
+      "success": "Your feedback has been successfully sent.",
+      "ok": "OK"
+    }
+  },
+  "views": {
+    "dashboard": {
+      "title": "Field Coaching Reports Data",
+      "changeView": "Change View",
+      "export": "Export Data",
+      "groupLevel4": "Jazz Team",
+      "filter": "Filter By Date Range",
+      "employeeReview": "FCR Requiring Your Review",
+      "fcrsCompleted": "All Completed FCRs",
+      "glance": "At a Glance",
+      "proficiency": "Overall Proficiency Over Time",
+      "managerProficiency": "Overall Proficiency Over Time by",
+      "selling": "Section Proficiency: Selling Ways",
+      "accountability": "Section Proficiency: Accountability",
+      "synergy": "Section Proficiency: Synergy & Partnership",
+      "administration": "Section Proficiency: Administration",
+      "integrity": "Section Proficiency: Integrity (Compliance)",
+      "employees": "All Employees",
+      "evaluators": "All Evaluators",
+      "performers": "Top 5 Performers"
+    }
+  },
+  "datetime": {
+    "months": [
+      "janvier",
+      "février",
+      "mars",
+      "avril",
+      "mai",
+      "juin",
+      "juillet",
+      "août",
+      "septembre",
+      "octobre",
+      "novembre",
+      "décembre"
+    ],
+    "monthsShort": [
+      "janv.",
+      "févr.",
+      "mars",
+      "avr.",
+      "mai",
+      "juin",
+      "juil.",
+      "août",
+      "sept.",
+      "oct.",
+      "nov.",
+      "déc."
+    ],
+    "monthsParseExact": true,
+    "weekdays": [
+      "dimanche",
+      "lundi",
+      "mardi",
+      "mercredi",
+      "jeudi",
+      "vendredi",
+      "samedi"
+    ],
+    "weekdaysShort": [
+      "dim.",
+      "lun.",
+      "mar.",
+      "mer.",
+      "jeu.",
+      "ven.",
+      "sam."
+    ],
+    "weekdaysMin": [
+      "Di",
+      "Lu",
+      "Ma",
+      "Me",
+      "Je",
+      "Ve",
+      "Sa"
+    ],
+    "weekdaysParseExact": true,
+    "longDateFormat": {
+        "LT": "HH:mm",
+        "LTS": "HH:mm:ss",
+        "L": "DD/MM/YYYY",
+        "LL": "D MMMM YYYY",
+        "LLL": "D MMMM YYYY HH:mm",
+        "LLLL": "dddd D MMMM YYYY HH:mm"
+    },
+    "calendar": {
+        "sameDay": "[Aujourd’hui à] LT",
+        "nextDay": "[Demain à] LT",
+        "nextWeek": "dddd [à] LT",
+        "lastDay": "[Hier à] LT",
+        "lastWeek": "dddd [dernier à] LT",
+        "sameElse": "L"
+    },
+    "relativeTime": {
+        "future": "dans %s",
+        "past": "il y a %s",
+        "s": "quelques secondes",
+        "m": "une minute",
+        "mm": "%d minutes",
+        "h": "une heure",
+        "hh": "%d heures",
+        "d": "un jour",
+        "dd": "%d jours",
+        "M": "un mois",
+        "MM": "%d mois",
+        "y": "un an",
+        "yy": "%d ans"
+    },
+    "week": {
+        "dow": 1,
+        "doy": 4
+    }
+  }
+}

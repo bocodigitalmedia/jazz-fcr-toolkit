@@ -1,0 +1,575 @@
+section#fcr(layout="column")
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind="form.title")
+
+  //- ================================================================================================
+
+  md-content(layout-padding)
+
+    .view-dashboard-fcrs
+
+      .fcr-form(ng-class="{ 'open': $root.Forms.formOpen, 'print': $root.Forms.formPrintable }")
+
+        md-content.form-top(flex layout="row" layout-padding)
+
+          .header.print-only.evaluatee-name(flex="100" layout="row" layout-align="start center")
+            span {{ ctrl.data.evaluatee.email }}
+          .header.print-only(layout="row" layout-align="end center")
+            span(ng-if="ctrl.data.status == 'submitted'" ng-bind-html="::$root.locale.global.inReview | trust")
+            //- In Review
+            span(ng-if="ctrl.data.status != 'submitted'") {{ ctrl.data.status }}
+            | &nbsp;{{ ctrl.data.timestamp | tsFormat }}
+
+          .header(flex="70" layout="row" layout-align="start center")
+            span(ng-if="ctrl.data.status == 'submitted'" ng-bind-html="::$root.locale.global.inReview | trust")
+            //- In Review
+            span(ng-if="ctrl.data.status != 'submitted'") {{ ctrl.data.status }}
+            | &nbsp;{{ ctrl.data.timestamp | tsFormat }}
+          div(flex)
+          div(flex layout="row" layout-align="end center")
+            md-button.md-raised.accept(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'completed')" ng-bind-html="::$root.locale.components.fcr.common.acceptFCR | trust")
+            //- Accept FCR
+            md-button.md-raised.reject(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'rejected')" ng-bind-html="::$root.locale.components.fcr.common.rejectFCR | trust")
+            //- Reject FCR
+            md-button.md-raised.download(ng-click="$root.Forms.download($root.Forms.selectedFormId)" ng-bind-html="::$root.locale.global.download | trust" aria-label="{{::$root.locale.global.download | trust}}")
+            //- Download
+
+        div.form-body-wrapper
+          md-content.form-body(flex layout="column" layout-padding)
+
+            //----------------------------------------------------------------------------
+            //- First Section
+
+            section(layout="column")
+              div(layout="row")
+                .start(flex="33" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.userDetails.fieldRideStart | trust")
+                    //- Field Ride Start Date
+                    input(value="{{ ctrl.data.fieldRideStart | tsFormat }}" disabled)
+                .end(flex="33" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.userDetails.fieldRideEnd | trust")
+                    //- Field Ride End Date
+                    input(value="{{ ctrl.data.fieldRideEnd | tsFormat }}" disabled)
+                .days(flex="33" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.userDetails.contactDays | trust")
+                    //- Total Contact Days
+                    input(value="{{ ctrl.data.daysInField }}" disabled)
+              div(layout="row")
+                .calls(flex="33" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.userDetails.overallCalls | trust")
+                    //- Total Calls Observed
+                    input(value="{{ ctrl.data.overallCallsObserved }}" disabled)
+                .last(flex="33" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.userDetails.lastFCR | trust")
+                    //- Date of last FCR
+                    input(value="{{ ctrl.data.timestamp | tsFormat }}" disabled)
+
+            //----------------------------------------------------------------------------
+            //- Alignment to Brand Strategy
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionA.sectionTitle | trust")
+              //- Alignment to Brand Strategy
+
+              md-table-container
+                table(md-table)
+
+                  thead(md-head)
+                    tr(md-row)
+                      th(md-column)
+                      th(md-column ng-bind-html="::$root.locale.components.fcr.form.sectionA.data1 | trust")
+                      //- Times Observed
+                      th(md-column)
+                        div.center
+                          p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
+                          //- Rating 1-4
+                          p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
+                          //- Lowest - Highest
+
+                  tbody
+                    tr(md-row)
+                      td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency1 | trust")
+                      //- Delivered 24-hour lasting symptom control message AND painted a vivid picture of appropriate adult asthma, including specific symptoms
+                      td(md-cell)
+                        span.observed {{ ctrl.data.selectLastingSymptom }}
+                      td(md-cell): choices(ng-model="ctrl.data.answers[0]")
+                    tr(md-row)
+                      td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency2 | trust")
+                      //- Delivered BOTH coverage & affordability messaging AND engaged HCP about their experience
+                      td(md-cell)
+                        span.observed {{ ctrl.data.selectAffordability }}
+                      td(md-cell): choices(ng-model="ctrl.data.answers[1]")
+                    tr(md-row)
+                      td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency3 | trust")
+                      //- Leveraged the strong confidence vs. Symbicort, maintaining a competitive mindset throughout the calls
+                      td(md-cell)
+                        span.observed {{ ctrl.data.selectAffordability }}
+                      td(md-cell): choices(ng-model="ctrl.data.answers[31]")
+                    tr(md-row)
+                      td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency4 | trust")
+                      //- Delivered Action-Oriented Close vs Symbicort
+                      td(md-cell)
+                        span.observed {{ ctrl.data.selectSymbicort }}
+                      td(md-cell): choices(ng-model="ctrl.data.answers[2]")
+
+            //----------------------------------------------------------------------------
+            //- Sales Effectiveness
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionB.sectionTitle | trust")
+              //- Sales Effectiveness
+
+              div(layout="row")
+                .start(flex="50" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.form.sectionB.data1 | trust")
+                    //- # of Calls Observed
+                    input(value="{{ ctrl.data.overallCallsObserved }}" disabled)
+                .end(flex="50" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.form.sectionB.data2 | trust")
+                    //- # of Calls Met Commercially Oriented Objective
+                    input(value="{{ ctrl.data.selectCallsMet }}" disabled)
+              div(layout="row")
+                .days(flex="50" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.form.sectionB.data3 | trust")
+                    //- # of Calls Discussed Source of Business
+                    input(value="{{ ctrl.data.selectCallsDiscussed }}" disabled)
+                .calls(flex="50" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.form.sectionB.data4 | trust")
+                    //- # of Calls Closed For Behavioral Change
+                    input(value="{{ ctrl.data.selectCallsClosed }}" disabled)
+              div(layout="row")
+                .last(flex="50" layout="row")
+                  md-input-container
+                    label(ng-bind-html="::$root.locale.components.fcr.form.sectionB.data5 | trust")
+                    //- # of Calls Achieved Good Sell Outcome
+                    input(value="{{ ctrl.data.selectCallsAchieved }}" disabled)
+
+
+
+              md-table-container
+                table(md-table)
+
+                  thead(md-head)
+                    tr(md-row)
+                      th(md-column)
+                      th(md-column)
+                      th(md-column)
+                        div.center
+                          p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
+                          //- Rating 1-4
+                          p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
+                          //- Lowest - Highest
+
+                  tbody
+                    tr.stretch(md-row)
+                      td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionB.competency1 | trust")
+                      //- Overall Quality Global Selling Model
+                      td(md-cell)
+                      td(md-cell): choices(ng-model="ctrl.data.answers[3]")
+
+            //----------------------------------------------------------------------------
+            //- Selling Ways
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionC.sectionTitle | trust")
+              //- Selling Ways
+
+              div(layout="row")
+                div(flex)
+                div(flex="40" layout="column" layout-align="center center")
+                  p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
+                  //- Rating 1-4
+                  p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
+                  //- Lowest - Highest
+
+              md-list
+
+                md-subheader
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competencyTitle1 | trust")
+                  //- Business Acumen
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency1 | trust")
+                  //- Diagnose
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[4]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency2 | trust")
+                  //- Build Your Plan | Resource Utilization
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[5]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency3 | trust")
+                  //- Execute &amp; Evaluate Process
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[6]")
+
+                md-subheader
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competencyTitle2 | trust")
+                  //- Scientific Knowledge
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency4 | trust")
+                  //- Disease State
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[7]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency5 | trust")
+                  //- Product
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[8]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency6 | trust")
+                  //- Promotion/Selling
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[9]")
+
+                md-subheader
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competencyTitle3 | trust")
+                  //- Customer Engagement
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency7 | trust")
+                  //- Prepare to Sell
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[10]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency8 | trust")
+                  //- Open the Sales Call
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[11]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency9 | trust")
+                  //- Uncover Opportunities
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[12]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency10 | trust")
+                  //- Align Brand and Handle Objections
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[13]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency11 | trust")
+                  //- Close with Commitment
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[14]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency12 | trust")
+                  //- Total Office Call
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[15]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency13 | trust")
+                  //- Analyze Call and Plan Next Steps
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[16]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionC.competency14 | trust")
+                  //- Use of Detail Aids
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[17]")
+
+              h5.print-break(ng-bind-html="::$root.locale.components.fcr.common.comments | trust")
+              //- Comments
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[0] }}
+                span.no-data(ng-if="!ctrl.data.comments[0]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- Accountability
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionD.sectionTitle | trust")
+              //- Accountability
+
+              div(layout="row")
+                div(flex)
+                div(flex="40" layout="column" layout-align="center center")
+                  p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
+                  //- Rating 1-4
+                  p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
+                  //- Lowest - Highest
+
+              md-list
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionD.competency1 | trust")
+                  //- Initiative / Seize Opportunity
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[18]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionD.competency2 | trust")
+                  //- Drive Performance
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[19]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionD.competency3 | trust")
+                  //- Coachability
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[20]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionD.competency4 | trust")
+                  //- Personal Development
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[21]")
+
+              h5(ng-bind-html="::$root.locale.components.fcr.common.comments | trust")
+              //- Comments
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[1] }}
+                span.no-data(ng-if="!ctrl.data.comments[1]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- Synergy & Partnership
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionE.sectionTitle | trust")
+              //- Synergy & Partnership
+
+              div(layout="row")
+                div(flex)
+                div(flex="40" layout="column" layout-align="center center")
+                  p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
+                  //- Rating 1-4
+                  p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
+                  //- Lowest - Highest
+
+              md-list
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionE.competency1 | trust")
+                  //- Effective Collaboration
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[22]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionE.competency2 | trust")
+                  //- Builds Trust
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[23]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionE.competency3 | trust")
+                  //- Effective Communication
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[24]")
+
+              h5(ng-bind-html="::$root.locale.components.fcr.common.comments | trust")
+              //- Comments
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[2] }}
+                span.no-data(ng-if="!ctrl.data.comments[2]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- Administration
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionF.sectionTitle | trust")
+              //- Administration
+
+              div(layout="row")
+                div(flex)
+                div(flex="40" layout="column" layout-align="center center")
+                  p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
+                  //- Rating 1-4
+                  p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
+                  //- Lowest - Highest
+
+              md-list
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionF.competency1 | trust")
+                  //- Expense Management
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[25]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionF.competency2 | trust")
+                  //- Sample/Resource Management
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[26]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionF.competency3 | trust")
+                  //- Fleet Management
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[27]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionF.competency4 | trust")
+                  //- Report Timeliness
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[28]")
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionF.competency5 | trust")
+                  //- Recording of Activity in CRM
+                  span(flex)
+                  choices(ng-model="ctrl.data.answers[29]")
+
+              h5(ng-bind-html="::$root.locale.components.fcr.common.comments | trust")
+              //- Comments
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[3] }}
+                span.no-data(ng-if="!ctrl.data.comments[3]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- Integrity
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionG.sectionTitle | trust")
+              //- Integrity
+
+              md-list
+
+                md-list-item(layout="row")
+                  span(ng-bind-html="::$root.locale.components.fcr.form.sectionG.competency1 | trust")
+                  //- Compliance
+                  span(flex)
+                  choices.yes-no(ng-model="ctrl.data.answers[30]")
+
+              h5(ng-bind-html="::$root.locale.components.fcr.common.comments | trust")
+              //- Comments
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[4] }}
+                span.no-data(ng-if="!ctrl.data.comments[4]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- SMART Objectives
+
+            md-divider
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionH.sectionTitle | trust")
+              //- SMART Objectives
+
+              md-content.follow-up(layout="row" layout-align="start end")
+                h5(ng-bind-html="::$root.locale.components.fcr.form.sectionH.competency1 | trust")
+                //- SMART Objectives #1
+                div(flex)
+                p(ng-bind-html="::$root.locale.components.fcr.common.followUp | trust")
+                  //- Follow Up Date:
+                  span.date(ng-if="ctrl.data.followUp1") {{ ctrl.data.followUp1 | tsFormat }}
+                  span.date(ng-if="!ctrl.data.followUp1" ng-bind-html="::$root.locale.global.na | trust")
+                  //- N/A
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[5] }}
+                span.no-data(ng-if="!ctrl.data.comments[5]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+              md-content.follow-up(layout="row" layout-align="start end")
+                h5(ng-bind-html="::$root.locale.components.fcr.form.sectionH.competency2 | trust")
+                //- SMART Objectives #2
+                div(flex)
+                p(ng-bind-html="::$root.locale.components.fcr.common.followUp | trust")
+                  //- Follow Up Date:
+                  span.date(ng-if="ctrl.data.followUp2") {{ ctrl.data.followUp2 | tsFormat }}
+                  span.date(ng-if="!ctrl.data.followUp2" ng-bind-html="::$root.locale.global.na | trust")
+                  //- N/A
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[6] }}
+                span.no-data(ng-if="!ctrl.data.comments[6]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- Discussion concernant le rendement du territoire ou de la zone
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionI.sectionTitle | trust")
+              //- Discussion concernant le rendement du territoire ou de la zone
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[8] }}
+                span.no-data(ng-if="!ctrl.data.comments[8]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+            //----------------------------------------------------------------------------
+            //- Overall Comments
+
+            section(layout="column")
+              h4(ng-bind-html="::$root.locale.components.fcr.form.sectionJ.sectionTitle | trust")
+              //- Overall Comments
+
+              md-content.comments(layout-padding) {{ ctrl.data.comments[7] }}
+                span.no-data(ng-if="!ctrl.data.comments[7]" ng-bind-html="::$root.locale.global.noComments | trust")
+                //- No Comments
+
+      .manager-submissions(ng-class="{ 'open': $root.Forms.formListOpen, 'shadow': $root.Forms.formOpen }")
+
+        header(flex layout="row")
+          .details
+            .name {{ $root.Forms.selectedUserEmail }}
+            .submission
+              span {{ $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].completed.length }}&nbsp;
+              span(ng-bind-html="::$root.locale.components.fcr.common.completedFCRs | trust")
+              //- Completed FCRs
+          div(flex)
+          .close(ng-click="$root.Forms.close()" ng-bind-html="::$root.locale.global.close | trust")
+          //- Close
+
+        md-divider
+
+        div.scroll
+          md-list.forms
+            md-list-item(
+              ng-repeat="form in $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].submitted"
+              ng-click="$root.Forms.openForm(form.payload.evaluatee.id, form.payload.submissionId)"
+              ng-class="{ 'active': $root.Forms.selectedFormId == form.payload.submissionId }"
+              ng-if="$root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].submitted && $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].submitted.length > 0"
+              )
+              i.material-icons.selected fiber_manual_record
+              md-list-item-text
+                .form-info
+                  span(ng-bind-html="::$root.locale.global.inReview | trust")
+                  //- In Review
+                  span &nbsp;{{ form.payload.createdOn | tsFormat }}
+                .evaluator
+                  span(ng-bind-html="::$root.locale.components.fcr.common.evaluatedBy | trust")
+                  //- Evaluated by
+                  span &nbsp;{{ form.payload.evaluator.name }}
+              i.material-icons.md-secondary open_in_new
+              md-divider
+            md-list-item(
+              ng-repeat="form in $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].completed | orderBy: '-payload.timestamp'"
+              ng-click="$root.Forms.openForm(form.payload.evaluatee.id, form.payload.submissionId)"
+              ng-class="{ 'active': $root.Forms.selectedFormId == form.payload.submissionId }"
+              ng-if="$root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].completed && $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].completed.length > 0"
+              )
+              i.material-icons.selected fiber_manual_record
+              md-list-item-text
+                .form-info
+                  span(ng-bind-html="::$root.locale.components.fcr.common.completed | trust")
+                  //- Completed
+                  span &nbsp;{{ form.payload.timestamp | tsFormat }}
+                .evaluator
+                  span(ng-bind-html="::$root.locale.components.fcr.common.evaluatedBy | trust")
+                  //- Evaluated by
+                  span &nbsp;{{ form.payload.evaluator.name }}
+              i.material-icons.md-secondary open_in_new
+              md-divider
+
+      .cover(ng-click="$root.Forms.close()" ng-class="{ 'show': $root.Forms.formListOpen }" )

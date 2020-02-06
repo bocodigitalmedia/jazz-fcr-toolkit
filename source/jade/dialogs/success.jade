@@ -1,0 +1,10 @@
+md-dialog.success(aria-label="success")
+  form(ng-cloak)
+    md-dialog-content(layout="column" layout-padding layout-align="center center")
+      i.material-icons.success check
+      h3(ng-bind-html="::$root.locale.dialogs.success.success | trust")
+      //- Your feedback has been successfully sent.
+    md-dialog-actions(flex layout="row" layout-padding layout-align="end center")
+      div(flex)
+      md-button.ok(ng-click="hide()" ng-bind-html="::$root.locale.dialogs.success.ok | trust")
+      //- OK

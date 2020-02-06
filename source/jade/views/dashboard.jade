@@ -1,0 +1,108 @@
+.sticky
+  md-toolbar.md-primary
+    .md-toolbar-tools
+      h2(ng-bind-html="::$root.locale.views.dashboard.title | trust")
+      //- Field Coaching Reports Data
+      div(flex)
+      div(ng-if="Users.active.group.level > 1 || (Users.loggedIn && Users.loggedIn.group.level > 1)")
+        md-button.md-raised.change-view(ng-click="Dialogs.changeView($event)" aria-label="{{::$root.locale.views.dashboard.changeView | trust}}")
+          span(ng-bind-html="::$root.locale.views.dashboard.changeView | trust")
+          //- Change View
+      div(ng-if="Users.active.group.level > 2|| (Users.loggedIn && Users.loggedIn.group.level > 2)")
+        md-button.md-raised.export(ng-click="Dialogs.exportData($event)" aria-label="{{::$root.locale.views.dashboard.export | trust}}")
+          span(ng-bind-html="::$root.locale.views.dashboard.export | trust")
+          //- Export Data
+
+  md-content(flex layout="row" layout-padding)
+    header.top(layout="row" layout-align="start center")
+
+      div(layout="row" layout-align="start center")
+        span.breadcrumbs(ng-if="Users.loggedIn && Users.loggedIn.group.level == 2" ng-click="$root.Users.resetToLoggedIn()")
+          | {{ $root.Districts.lookupByManagerId[ Users.loggedIn.id ].name }}
+          md-icon(md-svg-icon='images/md-svg/chevron_left.svg' md-menu-align-target)
+        span.breadcrumbs(ng-if="Users.loggedIn && Users.loggedIn.group.level == 3" ng-click="$root.Users.resetToLoggedIn()")
+          span(ng-if="$root.defaults.hasRegions") {{ $root.Regions.lookupByManagerId[ Users.loggedIn.id ].name }}
+          span(ng-if="!$root.defaults.hasRegions") {{ $root.defaults.activeTeam.name }}
+          md-icon(md-svg-icon='images/md-svg/chevron_left.svg' md-menu-align-target)
+        span.breadcrumbs(ng-if="Users.loggedIn && Users.loggedIn.group.level == 4" ng-click="$root.Users.resetToLoggedIn()")
+          | {{ $root.defaults.activeTeam.name }}
+          md-icon(md-svg-icon='images/md-svg/chevron_left.svg' md-menu-align-target)
+
+      span(ng-if="Users.active.group.level == 1") {{ $root.Users.active.email }}
+      span(ng-if="Users.active.group.level == 2") {{ $root.Districts.lookupByManagerId[Users.active.id].name }}
+      span(ng-if="Users.active.group.level == 3 && !defaults.hasRegions") {{ $root.defaults.activeTeam.name }}
+      span(ng-if="Users.active.group.level == 3 && defaults.hasRegions") {{ $root.Regions.lookupByManagerId[Users.active.id].name }}
+      span(ng-if="Users.active.group.level == 4") {{ $root.defaults.activeTeam.name }}
+    div(flex)
+    div(flex layout="row" layout-align="end center" class="date-picker")
+      md-date-range(
+        ng-model='$root.Data.selectedRange'
+        md-on-select='$root.Data.onSelect()'
+        date-start='$root.Data.selectedRange.dateStart'
+        date-end='$root.Data.selectedRange.dateEnd'
+        placeholder='{{$root.locale.views.dashboard.filter}}'
+        auto-confirm="true"
+        show-template='false'
+      )
+      md-button.md-icon-button.clear-filter(ng-if="$root.userDefinedRange" ng-click='$root.Data.clearDateRange($event)' aria-label="{{::$root.locale.global.clearFilter | trust}}" layout="row" layout-align="center center")
+        md-icon(md-svg-icon="images/md-svg/block.svg")
+      //- md-button.md-raised.clear-filter(ng-if="userDefinedRange" ng-click='clear($event)') Clear Range
+
+
+  //- ================================================================================================
+
+#dashboard(ng-class="{ 'rbl-view' : !Users.superUser }")
+  .md-content.component-container(layout="column" layout-padding)
+
+    div.sales-view(ng-if="Users.active.group.level == 1")
+      employee-review(data-title="{{::$root.locale.views.dashboard.employeeReview | trust}}")
+      //- FCR Requiring Your Review
+      completed(data-title="{{::$root.locale.views.dashboard.fcrsCompleted | trust}}")
+      //- All Completed FCRs
+      glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
+      //- At a Glance
+      proficiency-overall(data-title="{{::$root.locale.views.dashboard.proficiency | trust}}")
+      //- Overall Proficiency Over Time
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.selling | trust}}" data-min-question="5" data-max-question="18" height="600" data-section-num="1")
+      //- Section Proficiency: Selling Ways
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.accountability | trust}}" data-min-question="19" data-max-question="22" height="200" data-section-num="2")
+      //- Section Proficiency: Accountability
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.synergy | trust}}" data-min-question="23" data-max-question="25" height="175" data-section-num="3")
+      //- Section Proficiency: Synergy & Partnership
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.administration | trust}}" data-min-question="26" data-max-question="30" height="250" data-section-num="4")
+      //- Section Proficiency: Administration
+      integrity(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="100")
+      //- Section Proficiency: Integrity (Compliance)
+
+    div.manager-view(ng-if="Users.active.group.level > 1")
+      glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
+      //- At a Glance
+      proficiency-overall(data-title="{{::$root.locale.views.dashboard.managerProficiency | trust}}")
+      //- Overall Proficiency Over Time by
+      evaluatees(data-title="{{::$root.locale.views.dashboard.employees | trust}}" ng-if="Users.active.group.level > 2")
+      //- All Employees
+      evaluators(data-title="{{::$root.locale.views.dashboard.evaluators | trust}}" ng-if="Users.active.group.level > 2")
+      //- All Evaluators
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.selling | trust}}" data-min-question="5" data-max-question="18" height="600" data-section-num="1")
+      //- Section Proficiency: Selling Ways
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.accountability | trust}}" data-min-question="19" data-max-question="22" height="200" data-section-num="2")
+      //- Section Proficiency: Accountability
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.synergy | trust}}" data-min-question="23" data-max-question="25" height="175" data-section-num="3")
+      //- Section Proficiency: Synergy & Partnership
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.administration | trust}}" data-min-question="26" data-max-question="30" height="250" data-section-num="4")
+      //- Section Proficiency: Administration
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="130" data-section-num="5")
+      //- Section Proficiency: Integrity (Compliance)
+      evaluatees(data-title="{{::$root.locale.views.dashboard.performers | trust}}" data-sort="rating" data-pagination="hide" ng-if="Users.active.group.level > 2")
+      //- Top 5 Performers
+
+//- ================================================================================================
+
+.disclaimer.dash(ng-bind-html="::$root.locale.global.disclaimer | trust")
+//- Confidential purposes only&ndash;not for promotional use
+
+//- ================================================================================================
+
+fcr(ng-hide="!( $root.Forms.formOpen || $root.Forms.formListOpen )")
+
+//- ================================================================================================

@@ -1,0 +1,12 @@
+md-dialog.fcr-reject(aria-label="fcr-reject")
+  form(ng-cloak)
+    md-dialog-content(layout="column" layout-padding layout-align="center center")
+      i.material-icons.warning warning
+      h3(ng-bind-html="::$root.locale.dialogs.fcrRejected.sure | trust")
+      //- Are you sure you want to REJECT this FCR?
+    md-dialog-actions(flex layout="row" layout-padding layout-align="end center")
+      div(flex)
+      .cancel(ng-click="cancel()" ng-bind-html="$root.locale.global.cancel | trust")
+      //- Cancel
+      md-button.ok(ng-click="hide()" ng-bind-html="::$root.locale.dialogs.fcrRejected.reject | trust")
+      //- Reject

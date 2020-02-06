@@ -1,0 +1,35 @@
+// font definitions
+@font-face {
+  font-family: 'robotoregular';
+  src: url('../fonts/Roboto-Regular.eot');
+  src: url('../fonts/Roboto-Regular.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Regular.woff2') format('woff2'),
+       url('../fonts/Roboto-Regular.woff') format('woff'),
+       url('../fonts/Roboto-Regular.ttf') format('truetype'),
+       url('../fonts/Roboto-Regular.svg#Roboto-Regular') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'robotobold';
+  src: url('../fonts/Roboto-Bold.eot');
+  src: url('../fonts/Roboto-Bold.eot?#iefix') format('embedded-opentype'),
+       url('../fonts/Roboto-Bold.woff2') format('woff2'),
+       url('../fonts/Roboto-Bold.woff') format('woff'),
+       url('../fonts/Roboto-Bold.ttf') format('truetype'),
+       url('../fonts/Roboto-Bold.svg#Roboto-Bold') format('svg');
+  font-weight: 700;
+  font-style: bold;
+}
+
+// font mixins
+@mixin font-default() {
+  font-family: "robotoregular", $font-stack;
+  font-weight: normal;
+}
+
+@mixin font-bold() {
+  font-family: "robotobold", $font-stack;
+  font-weight: normal;
+}

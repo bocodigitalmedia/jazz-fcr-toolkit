@@ -1,0 +1,23 @@
+md-dialog.export-data(layout="column" aria-label="export-data")
+  md-dialog-content
+
+    header(ng-bind-html="::$root.locale.dialogs.exportData.selectDate | trust")
+    //- Select a date range to export data:
+
+    md-content(layout="row" layout-align="start center" layout-padding)
+      md-date-range(
+        ng-model='$root.exportRange'
+        date-start='$root.exportRange.dateStart'
+        date-end='$root.exportRange.dateEnd'
+        placeholder='{{ ::$root.locale.global.startEnd | trust }}'
+        auto-confirm="true"
+        show-template='false'
+        ng-required
+      )
+
+  md-dialog-actions(layout="row" layout-align="start center")
+    .cancel(ng-click="cancel()" ng-bind-html="::$root.locale.global.cancel | trust")
+    //- Cancel
+    div(flex)
+    md-button.export(ng-click="exportData($root.exportRange)" ng-disabled="!$root.exportRange.dateEnd" ng-bind-html="::$root.locale.dialogs.exportData.export | trust")
+    //- Export

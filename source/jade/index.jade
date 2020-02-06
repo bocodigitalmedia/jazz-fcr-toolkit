@@ -1,0 +1,14 @@
+doctype html
+html
+  head
+    title Syneos Field Coaching Report
+    link(rel="stylesheet" href="css/main.css?rev=@@hash")
+    style(type="text/css" ng-bind="Settings.content.stylesheet")
+    meta(name="viewport" content="width=device-width, initial-scale=1.0")
+    meta(charset="utf-8")
+  body
+    div(ui-view)
+
+    .loader(ng-class="{ active: loading }" layout="row" layout-align="center center"): md-progress-circular(md-mode="indeterminate")
+
+    script(src="js/app.bundle.js?rev=@@hash")

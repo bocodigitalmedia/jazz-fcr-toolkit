@@ -1,0 +1,28 @@
+section#users(layout-padding)
+
+  //- =========================================================================================================
+
+  header(layout="row")
+    span(ng-bind-html="ctrl.title | trust")
+
+  //- =========================================================================================================
+
+  md-content(ng-if="!ctrl.noData && !ctrl.dataLoading")
+    .users
+      .grid(flex layout="row")
+        .grid-section.chart(layout="column" layout-align="top center" ng-if="$root.Users.active.group.level == 1")
+          .chart-container.donut
+            label(ng-bind-html="::$root.locale.components.proficiencySection.avgProficiency | trust")
+            //- Avg. Proficiency
+            .chart(style="position: relative")
+              highchart(id="chart-users" config="ctrl.configCircle")
+              div(class="users-proficiency-percentage-{{ ctrl.sectionNum }}")
+        .grid-section.chart(flex layout="column" layout-align="top left")
+          .chart-container.bar
+            label(ng-bind-html="::$root.locale.components.proficiencySection.avgProficiencyEachItem | trust")
+            //- Avg. Proficiency of Each Item
+            .data(ng-if="ctrl.chartReady")
+              highchart(id="chart-users" config="ctrl.config")
+
+  .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noData | trust")
+  .data-loading(ng-if="ctrl.dataLoading && !ctrl.noData" flex layout="row" layout-align="center center" ng-bind-html="::$root.locale.global.loading | trust")

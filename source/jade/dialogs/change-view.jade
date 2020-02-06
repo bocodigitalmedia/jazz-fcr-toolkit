@@ -1,0 +1,78 @@
+md-dialog.change-view(ng-init="initChangeView()" layout="column" aria-label="change-view")
+  form(name='changeViewForm')
+
+    md-dialog-content
+
+      header
+        div(ng-if="category == 'change' " layout="row" layout-align="start center")
+          span(ng-bind-html="::$root.locale.dialogs.changeView.selectCategory | trust")
+          //- Select a Category to view:
+          span {{ Dialogs.category }}
+        div.different(ng-if="category != 'change' " ng-click="setCategory('change')" layout="row" layout-align="start center")
+          i.material-icons.md-secondary arrow_back
+          span(ng-bind-html="::$root.locale.dialogs.changeView.selectDifferent | trust")
+          //- &nbsp;Select a Different Category
+          span {{ locals.category }}
+
+
+      md-list(flex ng-if="category == 'change' ")
+
+        md-divider
+
+        md-list-item(ng-if="$root.Users.active.group.level >= 4 || ($root.Users.loggedIn && $root.Users.loggedIn.group.level >= 4)" ng-click="setCategory('region')")
+          md-list-item-text
+            .category(ng-bind-html="::$root.locale.dialogs.changeView.regions | trust")
+            //- Regions
+            .description(ng-bind-html="::$root.locale.dialogs.changeView.chooseRegion | trust")
+            //- Choose a Region to View
+          i.material-icons.md-secondary arrow_forward
+
+        md-divider(ng-if="$root.Users.active.group.level >= 4")
+
+        md-list-item(ng-if="$root.Users.active.group.level >= 3 || ($root.Users.loggedIn && $root.Users.loggedIn.group.level >= 3)" ng-click="setCategory('district')")
+          md-list-item-text
+            .category(ng-bind-html="::$root.locale.dialogs.changeView.districts | trust")
+            //- Districts
+            .description(ng-bind-html="::$root.locale.dialogs.changeView.chooseDistrict | trust")
+            //- Choose a District to View
+          i.material-icons.md-secondary arrow_forward
+
+        md-divider(ng-if="$root.Users.active.group.level >= 3")
+
+        md-list-item(ng-if="$root.Users.active.group.level >= 2 || ($root.Users.loggedIn && $root.Users.loggedIn.group.level >= 2)" ng-click="setCategory('evaluatee')")
+          md-list-item-text
+            .category(ng-bind-html="::$root.locale.dialogs.changeView.employees | trust")
+            //- Employees
+            .description(ng-bind-html="::$root.locale.dialogs.changeView.chooseEmployee | trust")
+            //- Choose a Employee to View
+          i.material-icons.md-secondary arrow_forward
+
+        md-divider
+
+
+      md-content(ng-if="category != 'change'" layout-padding)
+
+          div(ng-if="category == 'region' ")
+            h4(ng-bind-html="::$root.locale.dialogs.changeView.selectRegion | trust")
+            //- Select a Region to view:
+            md-select(ng-model="selected" placeholder="{{ ::$root.locale.dialogs.changeView.selectRegion }}" required ng-change="setCategory(category, selected)")
+              md-option(ng-repeat="region in validRegions" value='{{ region.id }}') {{ region.name }}
+
+          div(ng-if="category == 'district' ")
+            h4(ng-bind-html="::$root.locale.dialogs.changeView.selectDistrict | trust")
+            //- Select a District to view:
+            md-select(ng-model="selected" placeholder="{{ ::$root.locale.dialogs.changeView.selectDistrict }}" required ng-change="setCategory(category, selected)")
+              md-option(ng-repeat="district in validDistricts" value='{{ district.id }}') {{ district.name }}
+
+          div(ng-if="category == 'evaluatee' ")
+            h4(ng-bind-html="::$root.locale.dialogs.changeView.selectEmployee | trust")
+            //- Select an Employee to view:
+            md-select(ng-model="selected" placeholder="{{ ::$root.locale.dialogs.changeView.selectEmployee }}" required ng-change="setCategory(category, selected)")
+              md-option(ng-repeat="user in validUsers | orderBy: user.email" value='{{ user.id }}') {{ user.email }}
+
+    md-dialog-actions(layout="row" layout-align="start center")
+      .cancel(ng-click="cancel()" ng-bind-html="::$root.locale.global.cancel | trust")
+      //- Cancel
+      div(flex)
+      md-button.next(type="submit" ng-if="category != 'change' " ng-click="selectNewCategory(category)" ng-disabled="changeViewForm.$invalid" ng-bind-html="::$root.locale.global.next | trust")
+      //- Next

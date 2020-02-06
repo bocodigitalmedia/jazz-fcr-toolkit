@@ -1,0 +1,62 @@
+section#employee-review(layout="column" layout-padding)
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind-html="ctrl.title | trust")
+
+  //- ================================================================================================
+
+  md-content
+    md-table-container(ng-if="!ctrl.noData")
+
+      table(md-table)
+
+        thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
+          tr(md-row)
+            //- th(md-column md-order-by="")
+              span Employee
+            th(md-column md-order-by="")
+              span(ng-bind-html="::$root.locale.components.employeeReview.fcrStart | trust")
+              //- FCR Start Date
+            th(md-column md-order-by="")
+              span(ng-bind-html="::$root.locale.components.employeeReview.fcrSubmission | trust")
+              //- FCR Submission Date
+            th(md-column md-order-by="")
+              span(ng-bind-html="::$root.locale.components.employeeReview.district | trust")
+              //- District
+            th(md-column md-order-by="")
+              span(ng-bind-html="::$root.locale.components.employeeReview.dm | trust")
+              //- District Manager
+            //- th(md-column md-order-by="")
+              span Region
+            th(md-column width="1%")
+
+        tbody(md-body)
+
+          tr(md-row ng-repeat="form in ctrl.submittedForms")
+            //- td(md-cell) {{ form.payload.evaluatee.email | shorten }}
+            td.red(md-cell) {{ form.payload.fieldRideStart | date:'M/d/yyyy' }}
+            td.red(md-cell) {{ form.payload.firstSubmitted | date:'M/d/yyyy' }}
+            td.red(md-cell) {{ form.payload.evaluatee.districtName }}
+            td.red(md-cell) {{ form.payload.evaluator.name }}
+            //- td(md-cell) {{ form.payload.evaluator.regionName }}
+            td(md-cell width="1%")
+              md-menu
+                md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')
+                  md-icon(md-menu-origin md-svg-icon='images/md-svg/more_vert.svg')
+                md-menu-content(width='4')
+                  md-menu-item
+                    md-button(ng-click='$root.Forms.openForm(form.payload.evaluatee.id, form.payload.submissionId)')
+                      md-icon(md-svg-icon='images/md-svg/open_in_new.svg' md-menu-align-target)
+                      span(ng-bind-html="::$root.locale.global.viewFcr | trust")
+                      //- View FCR
+                  md-menu-item
+                    md-button(ng-click='$root.Forms.printForm(form.payload.evaluatee.id, form.payload.submissionId)')
+                      md-icon(md-svg-icon='images/md-svg/picture_as_pdf.svg' md-menu-align-target)
+                      span(ng-bind-html="::$root.locale.global.downloadFcr | trust")
+                      //- Download FCR
+
+    //- md-table-pagination(md-limit="ctrl.query.limit" md-limit-options="ctrl.query.limitOptions" md-page="ctrl.query.page" md-total="{{ctrl.evalueeData.length}}" md-on-paginate="ctrl.paginate()" md-page-select)
+
+    .no-data(ng-if="ctrl.noData" flex layout="row" ng-bind-html="::$root.locale.global.noForms | trust")

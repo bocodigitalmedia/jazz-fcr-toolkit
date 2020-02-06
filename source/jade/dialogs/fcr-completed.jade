@@ -1,0 +1,12 @@
+md-dialog.fcr-accept(aria-label="fcr-accept")
+  form(ng-cloak)
+    md-dialog-content(layout="column" layout-padding layout-align="center center")
+      i.material-icons.warning.dp48 warning
+      h3(ng-bind-html="::$root.locale.dialogs.fcrCompleted.sure | trust")
+      //- Are you sure you want to ACCEPT this FCR?
+    md-dialog-actions(flex layout="row" layout-padding layout-align="end center")
+      div(flex)
+      .cancel(ng-click="cancel()" ng-bind-html="$root.locale.global.cancel | trust")
+      //- Cancel
+      md-button.accept(ng-click="hide()" ng-bind-html="::$root.locale.dialogs.fcrCompleted.accept | trust")
+      //- Accept

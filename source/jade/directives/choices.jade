@@ -1,0 +1,7 @@
+div(class="choices" layout="row" layout-align="center center")
+  a(
+    ng-repeat="i in numChoices | range"
+    ng-class="{on : isAnswer(i)}"
+    ng-click="set(i)"
+    id="{{'box'}}{{$index}}"
+  )
