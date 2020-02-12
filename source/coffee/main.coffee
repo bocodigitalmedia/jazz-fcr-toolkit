@@ -37,8 +37,8 @@ module.exports = (angular, defaults) ->
     .config require './config'
     .run require './run-once'
     .constant 'constants',
-      NUM_CHOICES: 5
-      NUM_QUESTIONS: 31
+      NUM_CHOICES: 2
+      NUM_QUESTIONS: 2
 
     .filter 'trust', [
       '$sce'

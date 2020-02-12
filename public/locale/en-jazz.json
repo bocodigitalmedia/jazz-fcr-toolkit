@@ -62,7 +62,7 @@
       "common": {
         "rating1": "Rating 1-4",
         "rating2": "Lowest - Highest",
-        "comments": "Comments",
+        "comments": "Manager Observation & Comments",
         "yes": "YES",
         "no": "NO",
         "followUp": "SMART Objective Date Follow Up",
@@ -77,84 +77,109 @@
         "fieldRideStart": "Field Ride Start Date",
         "fieldRideEnd": "Field Ride End Date",
         "contactDays": "# Contact Days",
-        "overallCalls": "Overall # of<br />Calls Observed",
+        "activity": "Type of Activity",
         "lastFCR": "Date of last FCR"
       },
       "form": {
         "sectionA": {
-          "sectionTitle": "Alignment to Brand Strategy",
+          "sectionTitle": "Business Imperatives",
           "sectionTitleNote": "MANDATORY",
-          "data1": "Times Observed",
-          "competency1": "Delivered 24-hour lasting symptom control message AND painted a vivid picture of appropriate adult asthma, including specific symptoms",
-          "competency2": "Delivered BOTH coverage & affordability messaging AND engaged HCP about their experience",
-          "competency3": "Leveraged the strong confidence vs. Symbicort, maintaining a competitive mindset throughout the calls",
-          "competency4": "Delivered Action-Oriented Close vs Symbicort"
+          "data1": "SLEEP BU Imperatives (SAMPLE)",
+          "competency1": "Host 5 speaker programs by POA II",
+          "competency2": "Utilize Visual Aid greater than 80% of the time",
+          "competency3": "Sample x% of Sunosi customers by POA II"
         },
         "sectionB": {
-          "sectionTitle": "Sales Effectiveness",
-          "sectionTitleNote": "MANDATORY",
-          "data1": "# of Calls Observed",
-          "data2": "# Calls Met Commercially Oriented Object",
-          "data3": "# Calls Discussed<br />Source of Business",
-          "data4": "# Calls Closed For Behavioral Change",
-          "data5": "# Calls Achieved<br />Good Sell Outcome",
-          "competency1": "Overall Quality Global Selling Model"
+          "sectionTitle": "Current Sales Performance",
+          "table" : {
+            "product"  : "Product",
+            "quarter"  : "Quarter",
+            "metric"   : "Metric",
+            "actual"   : "Actual",
+            "goal"     : "Goal",
+            "territory": "Territory",
+            "region"   : "Region"
+          }
         },
         "sectionC": {
-          "sectionTitle": "Selling Ways",
-          "competencyTitle1" : "Business Acumen",
-          "competencyTitle2" : "Scientific Knowledge",
-          "competencyTitle3" : "Customer Engagement",
-          "competency1": "Diagnose",
-          "competency2": "Build Your Plan | Resource Utilization",
-          "competency3": "Execute &amp; Evaluate Process",
-          "competency4": "Disease State",
-          "competency5": "Product",
-          "competency6": "Promotion/Selling",
-          "competency7": "Prepare to Sell",
-          "competency8": "Open the Sales Call",
-          "competency9": "Uncover Opportunities",
-          "competency10": "Align Brand and Handle Objections",
-          "competency11": "Close with Commitment",
-          "competency12": "Total Office Call",
-          "competency13": "Analyze Call and Plan Next Steps",
-          "competency14": "Payer Pull Through"
+          "sectionTitle": "Performance: Sales Performance Factors",
+          "data1": "Sales Achievement",
+          "competency1": "% of Goal Achievement",
+          "competency2": "Sales Goal Trend",
+          "competency3": "Business Unit-specific sales-related goals ",
+          "competency4": "Additional metrics (e.g. AHM data, reach and frequency, account management, etc)"
         },
         "sectionD": {
-          "sectionTitle": "Accountability",
-          "competency1": "Initiative | Seize Opportunity",
-          "competency2": "Drive Performance",
-          "competency3": "Coachability",
-          "competency4": "Personal Development"
+          "sectionTitle": "Competency: Proficiency Demonstration",
+          "subSection1": {
+            "title": "Selling Skills",
+            "subs": {
+              "sub1" : {
+                "title": "Pre-Call Planning",
+                "text": "Brings value to each customer interaction by creating SMART call objective(s) with defined outcomes tailored to each customer's/account's unique needs. Applies a customer-centric and patient-focused mindset. Considers any self-limiting beliefs or assumptions that may limit call outcomes. Leverages all approved, applicable resources, internal partners' expertise, brand strategy/marketing messaging, existing customer/account knowledge, and past interactions to effectively prepare for the call."
+              },
+              "sub2" : {
+                "title": "Opening/Establishes Rapport",
+                "text": "Engages the customer by opening each call with a focus on their needs and interests; links back to previous discussions to maintain and build on call continuity. Continues to build rapport based on mutual trust and respect."
+              },
+              "sub3" : {
+                "title": "Effective Questioning",
+                "text": "Through the use of insightful questions (identified in part during pre-call planning), continues to learn about the customer's and their patients' needs. Probes to uncover any objections or concerns which limit appropriate product utilization (i.e., disease state awareness, experience with diagnosis/patient selection, limited use and/or lack of positive experience with product, use of alternative therapies, cost/reimbursement). Explores if the customer's thinking has changed relative to the disease, diagnosis, and/or treatment, or if anything has impacted their business since the prior call(s) of relevance to interactions with Jazz."
+              },
+              "sub4" : {
+                "title": "Product Positioning",
+                "text": "Presents the product features, benefits, and important safety information in the manner that most directly addresses the customer's/patient's needs. Delivers education and key messages on both the product and disease state, supported by approved resources, with the goal to expand appropriate product use to additional patients who may benefit from therapy."
+              },
+              "sub5" : {
+                "title": "Handling Objections",
+                "text": "Addresses the customer's objections, resistance, and barriers by acknowledging and responding appropriately. Welcomes the customer's feedback and objections as an opportunity to better understand their needs and concerns. Maintains rapport throughout all customer interactions."
+              },
+              "sub6" : {
+                "title": "Gaining Commitment",
+                "text": "Advances the selling process by asking the customer to make a commitment to a specific action (i.e., expand product usage with additional appropriate patient types, utilize a resource to assist in patient diagnosis, other). Summarizes the call outcomes and mutually agreed upon next steps."
+              },
+              "sub7" : {
+                "title": "Post-Call Analysis",
+                "text": "Assesses call outcomes to determine impact relative to the specific call objectives and longer-term SMART account goals. Based on outcomes, defines call objectives for the next visit. Ensures that all documentation is completed per company compliance guidelines."
+              }
+            }
+          },
+          "subSection2": {
+            "title": "Product / Scientific Knowledge",
+            "text": "<p>Demonstrates clinical knowledge of the disease state and current disease management practices, to include guidelines, protocols, and standards. As applicable to assigned product(s), demonstrates an understanding of prescribing and clinical data, enabling delivery of sound scientific information, while maintaining fair balance.<\/p><br \/><ul><li>Demonstrates an understanding of and is able to communicate clinical knowledge in the following areas:<ul><li>Disease state<\/li><li>Jazz product(s) based on the clinical information contained in the package insert<\/li><\/ul><\/li><li>Appropriately responds to customer’s questions about other approved products/therapies, based on the clinical information contained in the package insert, per company compliance guidelines<\/li><li>Only communicate approved information with external stakeholders<\/li><\/ul>"
+          },
+          "subSection3": {
+            "title": "Business Analytics and Planning",
+            "text": "<p>Demonstrates an ability to think strategically; understands the current market landscape and drivers/trends impacting customers/accounts from a business perspective. Analyzes applicable data in building actionable territory business plans aligned with the brand strategy. Builds SMART account goals and executes the action plan with a focus on prioritized opportunities to grow the business; measures progress throughout each year.<\/p><br \/><p><strong>Strategy:<\/strong> Demonstrates an understanding of the business and market landscape<\/p><br \/><ul><li>Market Landscape: Understands the market dynamics which impact customers/accounts (patient population, disease prevalence, treatment settings, competitors, emerging trends, other)<\/li><li>Business/Financial Acumen: Understands each customer’s business model, cost impacts of managing patient care, the current reimbursement landscape and processes, payer issues and trends, and other factors which inform the territory business plan<\/li><\/ul><br \/><br \/><p><strong>Analytics and Planning:<\/strong> Drives business growth through data analytics and territory business planning<\/p><ul><li>Data Analytics: Uses all applicable data to identify and prioritize business opportunities (JAMs and Dashboard elements, bottle count, new scripts, PAs, discontinuations, other); considers challenges/threats<\/li><li>Business and Territory Planning: Through an analysis of practice dynamics, customer profiling and targeting, builds and maintains a tailored, actionable territory business plan with clearly defined short- and longer-term SMART goals and tactics to maximize each account’s potential. Implements strategies which position the company’s products for long-term success<\/li><\/ul><br \/><br \/><p><strong>Execution:<\/strong> Develops and implements a set of customized tactics to execute the territory business plan<\/p><br \/><ul><li>Prioritization: Balances time and effort to ensure that existing patient needs are met (i.e., prior authorizations, pharmacy delays) while increasing the number of appropriate patients who can benefit from therapy; leverages all available patient and physician programs; ensures that internal resources are mobilized and are providing customer-centric service<\/li><li>Routing: Implements and continually updates a routing plan to maximize productivity and outcomes, based on up-to-date data and customer needs. Maintains flexibility in order to quickly adapt to new priorities<\/li><li>Accountability: Reviews progress based on defined success metrics; updates plans and tactics based on priorities<\/li><\/ul>"
+          },
+          "subSection4": {
+            "title": "Team and Leadership Effectiveness",
+            "text": "<p>Brings value to each customer/account, the territory, and more broadly across the Business Unit by sharing insights and best practices, collaborating with internal and external partners/customers, and demonstrating leadership through personal initiative and a drive for excellence<\/p><br \/><ul><li>Demonstrates a customer-centric mindset (patients, prescribers, office staff, payers); identifies and delivers on customer’s needs and expectations by ensuring pull-through of programs, resources and customer service<\/li><li>Demonstrates teamwork and leadership across the territory/Business Unit by building and leveraging one’s network, supporting the development of others, and participating and/or leading special projects, meetings, and strategic initiatives focused on enhancing Business Unit sales effectiveness<\/li><\/ul>"
+          }
         },
         "sectionE": {
-          "sectionTitle": "Synergy & Partnership",
-          "competency1": "Effective Collaboration",
-          "competency2": "Builds Trust",
-          "competency3": "Effective Communication"
+          "sectionTitle": "Jazz Pharmaceuticals Compliance",
+          "lists" : {
+            "list1": "Example as follows:",
+            "list1a":"Adheres to Jazz Pharmaceuticals Code of Conduct",
+            "list1b":"Conducts self and business activities within corporate/industry compliance policies and guidelines",
+            "list1c":"Actions aligned with improving patient care",
+            "list1d":"Is truthful in all dealing with internal and external customers"
+          },
+          "question": "Has employee acted in a compliant manner?"
         },
         "sectionF": {
-          "sectionTitle": "Administration",
-          "competency1": "Expense Management",
-          "competency2": "Sample Management",
-          "competency3": "Fleet Management",
-          "competency4": "Report Timeliness",
-          "competency5": "Recording of Activity in CRM"
+          "sectionTitle": "Territory Management/Role Expectations",
+          "lists" : {
+            "list1": "Example as follows:",
+            "list1a":"Timely Submission of Expense Reports",
+            "list1b":"Timely Completion of JazzLearn",
+            "list1c":"Timely Completion of Car Mileage/Maintenance"
+          },
+          "question": "Is Employee meeting Territory Management/Role Expectation?"
         },
         "sectionG": {
-          "sectionTitle": "Integrity",
-          "competency1": "Compliance"
-        },
-        "sectionH": {
-          "sectionTitle": "SMART Objectives",
-          "competency1": "SMART Objective #1",
-          "competency2": "SMART Objective #2"
-        },
-        "sectionI": {
-          "sectionTitle": "Territory/District Performance Discussion"
-        },
-        "sectionJ": {
-          "sectionTitle": "Overall Comments"
+          "sectionTitle": "Action Plans"
         }
       }
     },

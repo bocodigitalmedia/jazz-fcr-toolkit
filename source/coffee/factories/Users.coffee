@@ -136,6 +136,16 @@ module.exports = (angular, defaults) ->
                       username: 'boco-super-mcdonald'
                       organization: '-Lye-Zvt1ifjQy4TMJD7'
 
+                    when 'boco-super-gabe'
+                      id: '-LydsZTU3_SKB_yGZXl2'
+                      name: 'Boco Super User'
+                      email: 'gabe.steriti@bocodigital.com'
+                      mgrEmail: null
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-Lydv3QoOrsCWuVJ5EUG'
+                      username: 'boco-super-gabe'
+                      organization: '-Lye-Zvt1ifjQy4TMJD7'
+
               #! ---------------------------
               #! HEMONC PRODUCTION         -
               #! ---------------------------
@@ -222,6 +232,16 @@ module.exports = (angular, defaults) ->
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
                       groupId: '-Lydv3QoOrsCWuVJ5EUG'
                       username: 'boco-super-mcdonald'
+                      organization: '-Lye-Zvt1ifjQy4TMJD7'
+
+                    when 'boco-super-gabe'
+                      id: '-LydsZTU3_SKB_yGZXl2'
+                      name: 'Boco Super User'
+                      email: 'gabe.steriti@bocodigital.com'
+                      mgrEmail: null
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-Lydv3QoOrsCWuVJ5EUG'
+                      username: 'boco-super-gabe'
                       organization: '-Lye-Zvt1ifjQy4TMJD7'
 
           # ------------------------------------------------------------------------

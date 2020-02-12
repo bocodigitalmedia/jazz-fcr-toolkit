@@ -19,12 +19,12 @@ module.exports = (angular, defaults) ->
         link: (scope, element, attributes) ->
 
           scope.set = (answerNum) ->
-            scope.answer = answerNum + 1
+            scope.answer = answerNum
             console.log "************ competency answer tapped: " + scope.answer
             return
 
           scope.isAnswer = (answerNum) ->
-            return scope.answer == answerNum + 1
+            return scope.answer == answerNum
           return
 
         # =========================================================================================================
