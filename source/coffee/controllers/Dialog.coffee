@@ -66,8 +66,12 @@ module.exports = (angular, defaults) ->
 
           if !$scope.validRegions
             $scope.validRegions = []
+            console.error '------------------------------------'
+            console.log '%c Users.descendants.regionalManagers ', 'background-color: red; color: #000', Users.descendants.regionalManagers
             for regionManagerId in Users.descendants.regionalManagers
               region = Regions.lookupByManagerId[ regionManagerId ]
+              console.log '%c regionManagerId ', 'background-color: red; color: #000', regionManagerId
+              console.log '%c region ', 'background-color: red; color: #000', region
               if region
                 $scope.validRegions.push
                   id: region.id

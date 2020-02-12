@@ -7,56 +7,8 @@ section#glance(layout="column" layout-padding)
 
   //- ================================================================================================
 
-  //- employee sees
-  md-content(ng-if="$root.Users.active.group.level == 1")
-
-    .grid(flex layout="row")
-      .grid-section.chart(flex="50" layout="column" layout-align="center center")
-        label(ng-bind-html="::$root.locale.components.glance.manager | trust")
-        //- Manager
-        span {{ $root.defaults.activeDistricts[ ctrl.user.districtId ].manager.email | shorten }}
-      .grid-section.chart(flex="20" layout="column" layout-align="center center")
-        label(ng-bind-html="::$root.locale.components.glance.completedFcrs | trust")
-        //- # Completed FCRs
-        span(ng-if="!ctrl.noData") {{ ctrl.info.statusCounts.completed }}
-        span(ng-if="ctrl.noData") 0
-      .grid-section(flex="33")
-        .grid-tile(layout="column" layout-align="center center")
-          label(ng-bind-html="::$root.locale.components.glance.district | trust")
-          //- District
-          span {{ $root.defaults.activeDistricts[ ctrl.user.districtId ].name }}
-        .grid-tile(layout="column" layout-align="center center")
-          label(ng-bind-html="::$root.locale.components.glance.lastFcr | trust")
-          //- Date of Last FCR Completed
-          span(ng-if="!ctrl.noData") {{ ctrl.info.maxDate | tsFormat }}
-          span(ng-if="ctrl.noData") N/A
-
-  //- ================================================================================================
-
   //- district manager sees
   md-content(ng-if="$root.Users.active.group.level == 2")
-
-    .grid(flex layout="row")
-      .grid-section.chart(flex="50" layout="column" layout-align="center center")
-        label(ng-bind-html="::$root.locale.components.glance.manager | trust")
-        //- Manager
-        span {{ $root.Users.active.email | shorten }}
-      .grid-section.chart(flex="20" layout="column" layout-align="center center")
-        label(ng-bind-html="::$root.locale.components.glance.completedFcrs | trust")
-        //- # Completed FCRs
-        span(ng-if="!ctrl.noData") {{ ctrl.info.completed }}
-        span(ng-if="ctrl.noData") 0
-      .grid-section(flex="30")
-        .grid-tile(layout="column" layout-align="center center")
-          label(ng-bind-html="::$root.locale.components.glance.submission | trust")
-          //- Avg. Days for FCR Submission
-          span(ng-if="!ctrl.noData") {{ ctrl.info.timeToSubmit.inDays }}
-          span(ng-if="ctrl.noData") N/A
-        .grid-tile(layout="column" layout-align="center center")
-          label(ng-bind-html="::$root.locale.components.glance.numEmployees | trust")
-          //- # Employees
-          span(ng-if="ctrl.noData") 0
-          span(ng-if="!ctrl.noData") {{ ctrl.info.employees }}
 
     //- ------------------------------------------------------------------------------------------------
 
@@ -67,47 +19,27 @@ section#glance(layout="column" layout-padding)
 
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
+
               th(md-column md-order-by="employee")
-                span(ng-bind-html="::$root.locale.components.evaluatees.evaluatee | trust")
-                //- Employee
-              //- th(md-column md-order-by="evaluator")
-                span Evaluator
-              th(md-column md-order-by="lastCompletedDate")
-                span(ng-bind-html="::$root.locale.components.glance.dateLastFcr | trust")
-                //- Date of Last Completed FCR
-              //- th(md-column md-order-by="avgRating")
-                span(ng-bind-html="::$root.locale.components.glance.avgRating | trust")
-                //- Avg. Rating
-              //- th(md-column md-order-by="minRating")
-                span(ng-bind-html="::$root.locale.components.glance.minRating | trust")
-                //- Min Rating
-              //- th(md-column md-order-by="maxRating")
-                span(ng-bind-html="::$root.locale.components.glance.maxRating | trust")
-                //- Max Rating
-              th(md-column md-order-by="totalDays")
-                span(ng-bind-html="::$root.locale.components.glance.totalDays | trust")
-              th(md-column md-order-by="totalDaysLive")
-                span(ng-bind-html="::$root.locale.components.glance.totalDaysLive | trust")
-              th(md-column md-order-by="totalDaysVirtual")
-                span(ng-bind-html="::$root.locale.components.glance.totalDaysVirtual | trust")
-                //- Total Days
-              th(md-column md-order-by="totalCompleted")
-                span(ng-bind-html="::$root.locale.components.glance.completedFcrs | trust")
-                //- # Completed FCRs
+                span Employee
+
+              th(md-column md-order-by="managerName")
+                span Regional Sales Manager
+
+              th(md-column md-order-by="regionName")
+                span Region
+
+              th(md-column md-order-by="submissionDate")
+                span FCR Submission Date
+
               th(md-column width="1%")
 
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewEmployeeData($event, data.employee.id)')
               td(md-cell) {{ data.employee.email | shorten }}
-              //- td(md-cell) {{ data.evaluator.email | shorten }}
-              td(md-cell) {{ data.lastCompletedDate | tsFormat }}
-              //- td(md-cell) {{ data.avgRating }}
-              //- td(md-cell) {{ data.minRating }}
-              //- td(md-cell) {{ data.maxRating }}
-              td(md-cell) {{ data.totalDays }}
-              td(md-cell) {{ data.totalDaysLive }}
-              td(md-cell) {{ data.totalDaysVirtual }}
-              td(md-cell) {{ data.totalCompleted }}
+              td(md-cell) {{ data.managerName }}
+              td(md-cell) {{ data.regionName }}
+              td(md-cell) {{ data.submissionDate }}
               td(md-cell width="1%")
                 md-menu
                   md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')

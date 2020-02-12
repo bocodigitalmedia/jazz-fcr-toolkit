@@ -21,15 +21,9 @@ section#completed(ng-class="{ 'pad': ctrl.noData || !ctrl.dataLoading }" layout=
               //- FCR Start Date
             th(md-column md-order-by="payload.timestamp")
               span(ng-bind-html="::$root.locale.components.completed.timestamp | trust")
-              //- FCR Completion Date
-            th(md-column md-order-by="payload.average")
-              span(ng-bind-html="::$root.locale.components.completed.average | trust")
-              //- Rating
-            th(md-column md-order-by="payload.ratingMin")
-              span(ng-bind-html="::$root.locale.components.completed.ratingMin | trust")
-              //- Min Rating
-            th(md-column md-order-by="payload.ratingMax")
-              span(ng-bind-html="::$root.locale.components.completed.ratingMax | trust")
+              //- Max Rating
+            th(md-column md-order-by="payload.activity")
+              span Review Type
               //- Max Rating
             th(md-column md-order-by="payload.daysInField")
               span(ng-bind-html="::$root.locale.components.completed.daysInField | trust")
@@ -45,9 +39,7 @@ section#completed(ng-class="{ 'pad': ctrl.noData || !ctrl.dataLoading }" layout=
             //- td(md-cell) {{ form.payload.evaluatee.email | shorten }}
             td(md-cell) {{ form.payload.fieldRideStart | date:'M/d/yyyy' }}
             td(md-cell) {{ form.payload.timestamp | date:'M/d/yyyy' }}
-            td(md-cell) {{ form.payload.average | number:2 }}
-            td(md-cell) {{ form.payload.ratingMin }}
-            td(md-cell) {{ form.payload.ratingMax }}
+            td(md-cell) {{ form.payload.activity }}
             td(md-cell) {{ form.payload.daysInField }}
             td(md-cell) {{ form.payload.evaluator.email | shorten }}
             td(md-cell width="1%")

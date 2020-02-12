@@ -54,47 +54,43 @@
 #dashboard(ng-class="{ 'rbl-view' : !Users.superUser }")
   .md-content.component-container(layout="column" layout-padding)
 
+    //---------------------------------------------------------------------
+
     div.sales-view(ng-if="Users.active.group.level == 1")
-      employee-review(data-title="{{::$root.locale.views.dashboard.employeeReview | trust}}")
+
       //- FCR Requiring Your Review
-      completed(data-title="{{::$root.locale.views.dashboard.fcrsCompleted | trust}}")
-      //- All Completed FCRs
-      glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
+      employee-review(data-title="{{::$root.locale.views.dashboard.employeeReview | trust}}")
+
       //- At a Glance
-      proficiency-overall(data-title="{{::$root.locale.views.dashboard.proficiency | trust}}")
-      //- Overall Proficiency Over Time
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.selling | trust}}" data-min-question="5" data-max-question="18" height="600" data-section-num="1")
-      //- Section Proficiency: Selling Ways
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.accountability | trust}}" data-min-question="19" data-max-question="22" height="200" data-section-num="2")
-      //- Section Proficiency: Accountability
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.synergy | trust}}" data-min-question="23" data-max-question="25" height="175" data-section-num="3")
-      //- Section Proficiency: Synergy & Partnership
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.administration | trust}}" data-min-question="26" data-max-question="30" height="250" data-section-num="4")
-      //- Section Proficiency: Administration
-      integrity(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="100")
+      glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
+
+      //- All Completed FCRs
+      completed(data-title="{{::$root.locale.views.dashboard.fcrsCompleted | trust}}")
+
       //- Section Proficiency: Integrity (Compliance)
+      //- integrity(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="100")
+
+    //---------------------------------------------------------------------
 
     div.manager-view(ng-if="Users.active.group.level > 1")
-      glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
+
       //- At a Glance
-      proficiency-overall(data-title="{{::$root.locale.views.dashboard.managerProficiency | trust}}")
-      //- Overall Proficiency Over Time by
-      evaluatees(data-title="{{::$root.locale.views.dashboard.employees | trust}}" ng-if="Users.active.group.level > 2")
+      glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
+
+      //- At a Glance
+      //- incompletes(data-title="In Review FCRs to Date")
+
       //- All Employees
-      evaluators(data-title="{{::$root.locale.views.dashboard.evaluators | trust}}" ng-if="Users.active.group.level > 2")
+      evaluatees(data-title="{{::$root.locale.views.dashboard.employees | trust}}" ng-if="Users.active.group.level > 2")
+
       //- All Evaluators
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.selling | trust}}" data-min-question="5" data-max-question="18" height="600" data-section-num="1")
-      //- Section Proficiency: Selling Ways
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.accountability | trust}}" data-min-question="19" data-max-question="22" height="200" data-section-num="2")
-      //- Section Proficiency: Accountability
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.synergy | trust}}" data-min-question="23" data-max-question="25" height="175" data-section-num="3")
-      //- Section Proficiency: Synergy & Partnership
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.administration | trust}}" data-min-question="26" data-max-question="30" height="250" data-section-num="4")
-      //- Section Proficiency: Administration
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="130" data-section-num="5")
+      evaluators(data-title="{{::$root.locale.views.dashboard.evaluators | trust}}" ng-if="Users.active.group.level > 2")
+
       //- Section Proficiency: Integrity (Compliance)
-      evaluatees(data-title="{{::$root.locale.views.dashboard.performers | trust}}" data-sort="rating" data-pagination="hide" ng-if="Users.active.group.level > 2")
+      proficiency-section(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="130" data-section-num="5")
+
       //- Top 5 Performers
+      evaluatees(data-title="{{::$root.locale.views.dashboard.performers | trust}}" data-sort="rating" data-pagination="hide" ng-if="Users.active.group.level > 2")
 
 //- ================================================================================================
 

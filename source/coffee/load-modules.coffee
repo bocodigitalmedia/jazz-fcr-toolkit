@@ -23,6 +23,7 @@ module.exports = (angular, defaults) ->
     require './components/fcr'
     require './components/employee-review'
     require './components/glance'
+    require './components/incompletes'
     require './components/proficiency-overall'
     require './components/evaluatees'
     require './components/evaluators'

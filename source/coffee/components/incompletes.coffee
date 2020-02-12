@@ -1,10 +1,10 @@
 module.exports = (angular, defaults) ->
 
   angular.module defaults.app.name
-    .component 'glance', {
+    .component 'incompletes', {
       replace: true
       transclude: true
-      templateUrl: 'components/glance.html'
+      templateUrl: 'components/incompletes.html'
       controllerAs: 'ctrl'
       bindings:
         title: '@'
@@ -20,48 +20,6 @@ module.exports = (angular, defaults) ->
         @avgProficiency = 0
 
         @brand = defaults.brand
-
-        @config =
-          chart:
-            type: 'pie'
-            width: 180
-            height: 180
-            backgroundColor: 'transparent'
-            events:
-              addSeries: (event) =>
-                chart = event.target
-                # console.log '%c[ chart ]', 'color: yellow', chart
-                textX = chart.plotLeft + chart.plotWidth * 0.5
-                textY = chart.plotTop + chart.plotHeight * 0.5
-                span = '''
-                  <span id="pieChartInfoText" style="position:absolute; text-align:center;">
-                    <span style="font-size: 32px">''' + ctrl.avgProficiency + '''</span>
-                  </span>'''
-                $('#proficiency-percentage').html span
-                span = $('#pieChartInfoText')
-                span.css 'left', textX + span.width() * -0.5
-                span.css 'top', textY + span.height() * -0.5
-          credits:
-            enabled: false
-          exporting:
-            enabled: false
-          title:
-            text: null
-          subtitle:
-            text: null
-          tooltip:
-            enabled: false
-          colors: [
-            '#ED4279'
-            '#F8E8EE'
-          ]
-          plotOptions:
-            pie:
-              borderColor: 'transparent'
-              innerSize: '65%'
-              dataLabels: enabled: false
-            series: states: hover: enabled: false
-          series: []
 
         # ---------------------------------------------------------------------------------------------------
 
@@ -106,8 +64,12 @@ module.exports = (angular, defaults) ->
 
         @parseManagerData = =>
 
+          console.log '%c parseManagerData ', 'background-color: deepskyblue; color: #000'
+
           # for messaging (and stopping errors) if there's no forms to parse
           ctrl.noData = !Data.forms.byDistrictByStatus[ Districts.lookupByManagerId[ Users.active.id ].id ]?.completed?
+
+          console.log '%c ctrl.noData ', 'background-color: deepskyblue; color: #000', ctrl.noData
 
           # @info = angular.copy Data.forms.evaluateeInfo[ Users.active.email ]
           # @user = angular.copy Users.lookup[ Users.active.id ]
@@ -122,13 +84,15 @@ module.exports = (angular, defaults) ->
           # console.log '%c[ @user ]', 'color: yellow', @user
           # console.log '%c[ defaults.activeDistricts ]', 'color: aqua', defaults.activeDistricts
 
+          console.log '%c @forms ', 'background-color: deepskyblue; color: #000', @forms
+
           @info =
             timeToSubmit: {}
             completed: 0
             employees: Users.subordinates.length
 
           @tableData = []
-          @byId = []
+          @byEvaluateeId = []
           @durations = []
 
           # @calculateSeriesData @forms
@@ -136,58 +100,13 @@ module.exports = (angular, defaults) ->
           for id, form of @forms
             # console.log '[ form ]', form
 
-            #* tally completed form count
-            @info.completed++ if form.payload.status is 'completed'
+            if form.payload.status is 'saved'
+              @byEvaluateeId[form.payload.evaluatee.id] ?= []
+              @byEvaluateeId[form.payload.evaluatee.id].push form
 
-            if form.payload.status is 'completed'
-              @byId[form.payload.evaluatee.id] ?= []
-              @byId[form.payload.evaluatee.id].push form
+          console.log '%c @byEvaluateeId ', 'background-color: deepskyblue; color: #000', @byEvaluateeId
 
-              end = moment form.payload.fieldRideEnd
-              end = end.add 1, 'days' #? subtract a day so time to submit is more accurate (should have timestamp on form)
-              submitted = moment form.payload.firstSubmitted
-
-              duration = moment.duration(submitted.diff(end))
-
-              ms = duration.asMilliseconds()
-              ms = 0 if ms < 0 #? let ms be 0 is negative
-              @durations.push ms
-
-              # console.log '[ duration ]', duration
-              # console.log '[ ms ]', ms
-
-              # tempTime = moment.duration(ms)
-              # console.log "Days:", tempTime.days()
-              # console.log "Hours:", tempTime.hours()
-              # console.log "Minutes:", tempTime.minutes()
-
-          if @durations.length
-            total = @durations.reduce (a, b) -> a + b
-            average = total / @durations.length
-            avg = moment.duration(average)
-
-            times =
-              days: avg.days()
-              hours: avg.hours()
-              minutes: avg.minutes()
-
-            # @info.timeToSubmit.inDays = Math.round(avg.asDays() * 10) / 10
-            @info.timeToSubmit.inDays = avg.asDays().toFixed 2
-            @info.timeToSubmit.breakdown = times
-
-            # console.log '[ @durations ]', @durations
-            # console.log '[ total ]', total
-            # console.log '[ average ]', average
-
-            # console.log '[ in Days as decimal ]', avg.asDays().toFixed(2)
-
-            # console.log "Days:", avg.days()
-            # console.log "Hours:", avg.hours()
-            # console.log "Minutes:", avg.minutes()
-
-          # console.log '[ @byId ]', @byId
-
-          for id, forms of @byId
+          for id, forms of @byEvaluateeId
             # console.log '------------------------'
             # console.log 'id', id
 
@@ -212,6 +131,10 @@ module.exports = (angular, defaults) ->
             # for form in forms when form.payload.status is 'completed'
             for form in forms
               # console.log '[ form ]', form
+              console.log '%c form ', 'background-color: red; color: #000', form
+              console.log '%c form.payload.status ', 'background-color: red; color: #000', form.payload.status
+
+              continue if form.payload.status isnt 'saved'
 
               userData.employee.id = form.payload.evaluatee.id
               userData.employee.email = form.payload.evaluatee.email
@@ -219,37 +142,13 @@ module.exports = (angular, defaults) ->
 
               userData.evaluator.id = form.payload.evaluator.id
               userData.evaluator.email = form.payload.evaluator.email
+              userData.managerName = form.payload.evaluator.email
               # userData.evaluator.email = $filter('shorten')(form.payload.evaluator.email)
 
-              completedDates.push form.payload.timestamp
+              userData.regionName = Regions.lookup[ form.payload.evaluator.regionId ].name
+              userData.submissionDate = form.createdAt
 
-              averageRatings.push form.payload.average
-
-              userData.minRating = form.payload.ratingMin if form.payload.ratingMin < userData.minRating
-              userData.maxRating = form.payload.ratingMax if form.payload.ratingMax > userData.maxRating
-
-              userData.totalDays += form.payload.daysInField
-
-              switch form.payload.activity.toLowerCase()
-                when 'live' then userData.totalDaysLive += form.payload.daysInField
-                when 'virtual' then userData.totalDaysVirtual += form.payload.daysInField
-
-              userData.totalCompleted++
-
-              userData.timestamp = form.payload.timestamp
-
-            # console.log 'completedDates', completedDates
-
-            orderedDates = completedDates.sort (a, b) ->
-              return Date.parse(b) - Date.parse(a)
-
-            # console.log 'orderedDates', orderedDates
-            # console.log 'orderedDates[0]', orderedDates[0]
-
-            userData.lastCompletedDate = orderedDates[0]
-            avg = (averageRatings.reduce (a, b) -> a + b) / averageRatings.length
-            # userData.avgRating = Math.round(avg * 10) / 10
-            userData.avgRating = avg.toFixed 2
+              console.log '%c userData ', 'background-color: lime; color: #000', userData
 
             @tableData.push userData
 
@@ -523,61 +422,7 @@ module.exports = (angular, defaults) ->
         # ---------------------------------------------------------------------------------------------------
 
         @calculateSeriesData = =>
-
-          # console.log '%c[ calculateSeriesData() : @forms ]', 'color: orange', @forms
-
-          answered = 0
-          total = 0
-
-          for id, form of @forms
-            # console.log '[ form ]', form
-            if form.payload.status is 'completed'
-              # console.log '%c form.payload.total', 'color: aqua', form.payload.total
-              answered += form.payload.numAnswered
-              total += form.payload.total
-              if isNaN(form.payload.total)
-                console.log '%c BAD FORM ', 'background-color: red; color: white', form
-
-          # console.error '------------------------------------'
-          # console.log '[ @forms ]', @forms
-          # console.log '[ answered ]', answered
-          # console.log '[ total ]', total
-          # console.log '[ total/answered ]', answered/total
-          # console.log '[ total/answered % ]', (answered/total) * 100
-          # console.log '[ total/answered % ]', (answered/total) * @baseline
-
-
-          # proficiency = (answered/total) * @baseline
-          if answered is 0
-            proficiency = 0
-            difference = @baseline
-            @avgProficiency = "N/A"
-          else
-            proficiency = total/answered
-            difference = @baseline - proficiency
-            # @avgProficiency = Math.round(proficiency * 10) / 10
-            @avgProficiency = proficiency.toFixed 2
-
-          # console.log '[ proficiency ]', proficiency
-          # console.log '[ difference ]', difference
-
-          # console.log '[ @avgProficiency ]', @avgProficiency
-
-          seriesData =
-            data: [
-              ['proficiency', proficiency]
-              ['difference', difference]
-            ]
-
-          # console.log '[ seriesData ]', seriesData
-
-          hc = @config.getChartObj()
-          # console.log '[ hc ]', hc
-
-          #* fill chart data with filtered version of parsed data (timeout for forced $apply for highcharts)
-          $timeout(=>
-            hc.addSeries seriesData, true
-          , 0)
+          return false
 
         # ----------------------------------------------------------------------------
 
