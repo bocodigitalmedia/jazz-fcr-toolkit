@@ -94,46 +94,6 @@ section#fcr(layout="column")
                         li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency2 | trust")
                         li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency3 | trust")
 
-              //- md-table-container
-              //-   table(md-table)
-
-              //-     thead(md-head)
-              //-       tr(md-row)
-              //-         th(md-column)
-              //-         th(md-column ng-bind-html="::$root.locale.components.fcr.form.sectionA.data1 | trust")
-              //-         //- Times Observed
-              //-         th(md-column)
-              //-           div.center
-              //-             p.medium-type(ng-bind-html="::$root.locale.components.fcr.common.rating1 | trust")
-              //-             //- Rating 1-4
-              //-             p.small-type(ng-bind-html="::$root.locale.components.fcr.common.rating2 | trust")
-              //-             //- Lowest - Highest
-
-              //-     tbody
-              //-       tr(md-row)
-              //-         td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency1 | trust")
-              //-         //- Delivered 24-hour lasting symptom control message AND painted a vivid picture of appropriate adult asthma, including specific symptoms
-              //-         td(md-cell)
-              //-           span.observed {{ ctrl.data.selectLastingSymptom }}
-              //-         td(md-cell): choices(ng-model="ctrl.data.answers[0]")
-              //-       tr(md-row)
-              //-         td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency2 | trust")
-              //-         //- Delivered BOTH coverage & affordability messaging AND engaged HCP about their experience
-              //-         td(md-cell)
-              //-           span.observed {{ ctrl.data.selectAffordability }}
-              //-         td(md-cell): choices(ng-model="ctrl.data.answers[1]")
-              //-       tr(md-row ng-if="")
-              //-         td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency3 | trust")
-              //-         //- Leveraged the strong confidence vs. Symbicort, maintaining a competitive mindset throughout the calls
-              //-         td(md-cell)
-              //-           span.observed {{ ctrl.data.selectAffordability }}
-              //-         td(md-cell): choices(ng-model="ctrl.data.answers[31]")
-              //-       tr(md-row)
-              //-         td(md-cell ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency4 | trust")
-              //-         //- Delivered Action-Oriented Close vs Symbicort
-              //-         td(md-cell)
-              //-           span.observed {{ ctrl.data.selectSymbicort }}
-              //-         td(md-cell): choices(ng-model="ctrl.data.answers[2]")
 
             //----------------------------------------------------------------------------
             //- Current Sales Performance
@@ -158,14 +118,14 @@ section#fcr(layout="column")
                       th(md-column ng-bind-html="::$root.locale.components.fcr.form.sectionB.table.region | trust")
 
                   tbody
-                    tr(md-row ng-repeat="form in $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].submitted | filter: $root.Forms.selectedUserEmail")
-                      td(md-cell) {{ ctrl.data.product | uppercase }}
-                      td(md-cell) {{ ctrl.data.quarter | uppercase }}
-                      td(md-cell) {{ ctrl.data.metric | uppercase }}
-                      td(md-cell) {{ ctrl.data.actual }}
-                      td(md-cell) {{ ctrl.data.goal }}
-                      td(md-cell) {{ ctrl.data.territoryattainment }}
-                      td(md-cell) {{ ctrl.data.regionattainment }}
+                    tr(md-row ng-repeat="x in ctrl.data.product track by $index")
+                      td(md-cell) {{ ctrl.data.product[$index] | uppercase }}
+                      td(md-cell) {{ ctrl.data.quarter[$index] | uppercase }}
+                      td(md-cell) {{ ctrl.data.metric[$index] | uppercase }}
+                      td(md-cell) {{ ctrl.data.actual[$index] }}
+                      td(md-cell) {{ ctrl.data.goal[$index] }}
+                      td(md-cell) {{ ctrl.data.territoryattainment[$index] }}
+                      td(md-cell) {{ ctrl.data.regionattainment[$index] }}
 
 
             //----------------------------------------------------------------------------
