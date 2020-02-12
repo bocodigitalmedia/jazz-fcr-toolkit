@@ -24,10 +24,14 @@ section#employee-review(layout="column" layout-padding)
               //- FCR Submission Date
             th(md-column md-order-by="")
               span(ng-bind-html="::$root.locale.components.employeeReview.district | trust")
-              //- District
+              //- Region
             th(md-column md-order-by="")
               span(ng-bind-html="::$root.locale.components.employeeReview.dm | trust")
-              //- District Manager
+              //- RSM Name
+            th(md-column md-order-by="")
+              span(ng-bind-html="::$root.locale.components.employeeReview.type | trust")
+              //- activity type
+
             //- th(md-column md-order-by="")
               span Region
             th(md-column width="1%")
@@ -40,6 +44,7 @@ section#employee-review(layout="column" layout-padding)
             td.red(md-cell) {{ form.payload.firstSubmitted | date:'M/d/yyyy' }}
             td.red(md-cell) {{ form.payload.evaluatee.districtName }}
             td.red(md-cell) {{ form.payload.evaluator.name }}
+            td.red(md-cell) {{ form.payload.activity }}
             //- td(md-cell) {{ form.payload.evaluator.regionName }}
             td(md-cell width="1%")
               md-menu

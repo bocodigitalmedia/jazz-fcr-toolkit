@@ -32,8 +32,9 @@
     "employeeReview": {
       "fcrStart": "FCR Start<br>Date",
       "fcrSubmission": "FCR Submission<br>Date",
-      "district": "District",
-      "dm": "District<br>Manager"
+      "district": "Region",
+      "dm": "RSM Name",
+      "type": "Review Type"
     },
     "evaluatees": {
       "filter": "Filter by Employee",
