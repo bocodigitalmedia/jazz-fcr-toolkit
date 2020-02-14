@@ -414,7 +414,7 @@ section#fcr(layout="column")
 
             md-divider
 
-            section(layout="column")
+            section(id="actionPlans" layout="column")
               h4(ng-bind-html="::$root.locale.components.fcr.form.sectionG.sectionTitle | trust")
               //- Action Plans
 
@@ -423,55 +423,55 @@ section#fcr(layout="column")
                 .row.subsection(ng-repeat="item in ctrl.actionItems track by $index")
                   .col-sm-12
                     .subsection-header
-                      h3(ng-html-compile="locale.form.sectionG.subSections['subSection' + ($index+1)].title")
+                      h3(ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections['subSection' + ($index+1)].title | trust")
 
                     .subs-container
 
                       .row
                         .col.col-sm-12
-                          p.footnote(ng-html-compile="locale.form.sectionG.subSections.footnote")
+                          p.footnote(ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.footnote | trust")
 
                       .row.comments(style="margin-bottom: 20px")
                         .col.col-sm-12
-                          p(ng-html-compile="locale.global.managerComments")
-                          textarea.needsclick(maxlength="500" placeholder="Enter Comments Here" onkeyup='this.value = this.value.replace(/["“”]/g,"")' name="feedback" ng-model="item.managerComments")
+                          p(ng-bind-html="::$root.locale.global.managerComments")
+                          textarea(disabled name="feedback" ng-model="item.managerComments")
 
-                      .row
+                      .row.competence
                         .col.col-sm-6
-                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.competency")
+                          p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.competency | trust")
 
                         .col.col-sm-6
                           content.align-left.input-group
                             div(ng-bind-html="ctrl.competency[item.competencyList] | sanitize")
 
                       .row
-                      .col.col-sm-12
-                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.definition")
+                        .col.col-sm-12
+                            p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.definition | trust")
 
-                          .subs-content(ng-switch="item.competencyList")
-                            p(ng-switch-when="precall" ng-html-compile="locale.form.sectionD.subSection1.subs.sub1.text")
-                            p(ng-switch-when="rapport" ng-html-compile="locale.form.sectionD.subSection1.subs.sub2.text")
-                            p(ng-switch-when="questioning" ng-html-compile="locale.form.sectionD.subSection1.subs.sub3.text")
-                            p(ng-switch-when="positioning" ng-html-compile="locale.form.sectionD.subSection1.subs.sub4.text")
-                            p(ng-switch-when="objections" ng-html-compile="locale.form.sectionD.subSection1.subs.sub5.text")
-                            p(ng-switch-when="commitment" ng-html-compile="locale.form.sectionD.subSection1.subs.sub6.text")
-                            p(ng-switch-when="analysis" ng-html-compile="locale.form.sectionD.subSection1.subs.sub7.text")
-                            p(ng-switch-when="knowledge" ng-html-compile="locale.form.sectionD.subSection2.text")
-                            p(ng-switch-when="business" ng-html-compile="locale.form.sectionD.subSection3.text")
-                            p(ng-switch-when="effectiveness" ng-html-compile="locale.form.sectionD.subSection4.text")
+                            .subs-content(ng-switch="item.competencyList")
+                              p(ng-switch-when="precall" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub1.text | trust")
+                              p(ng-switch-when="rapport" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub2.text | trust")
+                              p(ng-switch-when="questioning" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub3.text | trust")
+                              p(ng-switch-when="positioning" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub4.text | trust")
+                              p(ng-switch-when="objections" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub5.text | trust")
+                              p(ng-switch-when="commitment" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub6.text | trust")
+                              p(ng-switch-when="analysis" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub7.text | trust")
+                              p(ng-switch-when="knowledge" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection2.text | trust")
+                              p(ng-switch-when="business" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection3.text | trust")
+                              p(ng-switch-when="effectiveness" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection4.text | trust")
 
-                      .row
+                      .row.timeframe
+                        .col.col-sm-12
+                          p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.timeframe | trust")
+                          p.footnote(style="margin:0 0 10px 0 !important" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.example | trust")
+
+                        .col.col-sm-12
+                          textarea.timeframe-comment(disabled name="feedback" ng-model="item.timeframe")
+
+                      .row.status
                         .col.col-sm-6
-                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.timeframe")
-                          p.footnote(ng-html-compile="locale.form.sectionG.subSections.example")
-
-                        .col.col-sm-6
-                          textarea.needsclick(maxlength="500" onkeyup='this.value = this.value.replace(/["“”]/g,"")' name="feedback" ng-model="item.timeframe")
-
-                      .row
-                        .col.col-sm-6
-                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.status")
-                        .col.col-sm-3
+                          p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.status | trust")
+                        .col.status-name
                           content.align-left.input-group
                             div(ng-bind-html="ctrl.actionItemStatus[item.status] | sanitize")
                         .col.col-sm-3

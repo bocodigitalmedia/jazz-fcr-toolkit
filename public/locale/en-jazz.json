@@ -9,6 +9,7 @@
     "download": "Download",
     "inReview": "In Review",
     "noComments": "No Comments",
+    "managerComments": "Manager Comments",
     "na": "N/A",
     "close": "Close",
     "rowsPerPage": "Rows per page",
@@ -184,7 +185,24 @@
           "question": "Is Employee meeting Territory Management/Role Expectation?"
         },
         "sectionG": {
-          "sectionTitle": "Action Plans"
+          "sectionTitle": "Action Plans",
+          "subSections": {
+            "footnote": "* Ensure that the action item is specific to the standard you’d like to see, measurable(quality/quantity), achievable and relevant to the business, trackable with timeframe.",
+            "competency": "What sales excellence competency does this action item align to?",
+            "definition": "Definition of competency:",
+            "timeframe": "Timeframe",
+            "example": "For example: by next work trip, by end of Q1, or a specific date",
+            "status": "Status",
+            "subSection1": {
+              "title": "Action Item 1"
+            },
+            "subSection2": {
+              "title": "Action Item 2"
+            },
+            "subSection3": {
+              "title": "Action Item 3"
+            }
+          }
         }
       }
     },
