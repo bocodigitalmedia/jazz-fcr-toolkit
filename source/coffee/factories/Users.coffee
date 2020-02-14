@@ -381,7 +381,7 @@ module.exports = (angular, defaults) ->
             region = Regions.lookupByManagerId[ @active.id ]
             organizationId = region.id if region?
 
-            organizationId = defaults.activeTeam.id if ( @active.group.level is 4 ) or ( @active.group.level is 3 and defaults.brand is 'vaccines' )
+            organizationId = defaults.activeTeam.id if ( @active.group.level is 4 ) or ( @active.group.level is 3 and !defaults.hasRegions )
             # organizationId = defaults.activeTeam.id if ( @active.group.level is 4 ) or ( @active.group.level is 3 and defaults.brand is 'vaccines' ) or ( @active.group.level is 3 and defaults.brand is 'canada-resp' )
 
             @subordinates = []
