@@ -70,6 +70,8 @@ module.exports = (angular, defaults) ->
 
           ctrl.tableData = data
 
+          ctrl.noData = ctrl.tableData.length == 0
+
           ctrl.query =
             order : '-payload.timestamp'
             page: 1

@@ -147,11 +147,20 @@ module.exports = (angular, defaults) ->
             # loop through all the raw userData
             for userId, userData of @forms.raw
 
+              hasFormProgress = userData.FormProgress? and userData.FormProgress[@formId]?
+              hasActionItems = userData.FormActionItems? and userData.FormActionItems[@formId]?
+              user = Users.lookup[ userId ]
+              userEmail = user.email
+              isBocoLoggedIn = userEmail.indexOf("@gmail.com") > -1 or userEmail.indexOf("@bocodigital.com") > -1
+
               # we only care about one kind of thing (FormProgress) and one specific version (FormId) of said thing
-              if userData.FormProgress? and userData.FormProgress[@formId]?
+              if hasFormProgress
 
                 # loop through each form
                 for formId, formValue of userData.FormProgress[@formId]
+
+                  isBocoForm = formValue.payload.evaluatee.email.indexOf("@gmail.com") > -1 or formValue.payload.evaluatee.email.indexOf("@bocodigital.com") > -1
+                  continue if !isBocoLoggedIn and isBocoForm
 
                   # make sure we save the submissionId with the form
                   formValue.payload.submissionId = formId
@@ -189,10 +198,14 @@ module.exports = (angular, defaults) ->
                   @parseRawLoop formId, formValue, evaluateeId
 
               # but actually now we want two things
-              if userData.FormActionItems? and userData.FormActionItems[@formId]?
+              if hasActionItems
 
                 # loop through each form
                 for actionItemId, actionItemValue of userData.FormActionItems[@formId]
+
+                  actionItemUserEmail = Users.lookup[ actionItemValue.userId ].email
+                  isBocoForm = actionItemUserEmail.indexOf("@gmail.com") > -1 or actionItemUserEmail.indexOf("@bocodigital.com") > -1
+                  continue if !isBocoLoggedIn and isBocoForm
 
                   # add to all action items
                   @forms.actionItemsAll[actionItemId] = actionItemValue
