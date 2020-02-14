@@ -53,6 +53,11 @@ module.exports =
       'name': 'Boco Super'
       'level': 4
       'super': true
+    "-Lzhjc1dGSoz2316nOSk":
+      'id': "-Lzhjc1dGSoz2316nOSk"
+      'name': "Hem-Onc Sales Lead"
+      'level': 4
+      'super': true
 
   activeDistricts:
     '-LzhUhvHdnwUZBQ9eL-b':

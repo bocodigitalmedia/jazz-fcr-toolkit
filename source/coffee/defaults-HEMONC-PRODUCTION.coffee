@@ -48,11 +48,18 @@ module.exports =
       'name': 'Boco Super'
       'level': 4
       'super': true
+    "-Lzhjc1dGSoz2316nOSk":
+      'id': "-Lzhjc1dGSoz2316nOSk"
+      'name': "Hem-Onc Sales Lead"
+      'level': 4
+      'super': true
+
   activeDistricts:
     '-Lzhk3eLULX2FJmqQScU':
       'id': '-Lzhk3eLULX2FJmqQScU'
       'name': 'Southwest'
       'region': '-M-ziGQR_6dvQy1VrHTZ'
+
   activeRegions:
     '-M-ziGQR_6dvQy1VrHTZ':
       'id': '-M-ziGQR_6dvQy1VrHTZ'
@@ -60,6 +67,7 @@ module.exports =
       'districts': [
         '-Lzhk3eLULX2FJmqQScU'
       ]
+
   activeTeam:
     id: '-LzhkOXj4Q1ANu18NM4a'
     name: 'National'
