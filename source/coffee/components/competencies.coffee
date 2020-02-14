@@ -54,17 +54,18 @@ module.exports = (angular, defaults) ->
               userId: userId
               totals: angular.copy totals
 
-            for form in userForms.completed
-              userTally.totals[0]++ if form.payload.subs.subs1
-              userTally.totals[1]++ if form.payload.subs.subs2
-              userTally.totals[2]++ if form.payload.subs.subs3
-              userTally.totals[3]++ if form.payload.subs.subs4
-              userTally.totals[4]++ if form.payload.subs.subs5
-              userTally.totals[5]++ if form.payload.subs.subs6
-              userTally.totals[6]++ if form.payload.subs.subs7
-              userTally.totals[7]++ if form.payload.subsections.subsection2
-              userTally.totals[8]++ if form.payload.subsections.subsection3
-              userTally.totals[9]++ if form.payload.subsections.subsection4
+            if userForms?.completed?
+              for form in userForms.completed
+                userTally.totals[0]++ if form.payload.subs.subs1
+                userTally.totals[1]++ if form.payload.subs.subs2
+                userTally.totals[2]++ if form.payload.subs.subs3
+                userTally.totals[3]++ if form.payload.subs.subs4
+                userTally.totals[4]++ if form.payload.subs.subs5
+                userTally.totals[5]++ if form.payload.subs.subs6
+                userTally.totals[6]++ if form.payload.subs.subs7
+                userTally.totals[7]++ if form.payload.subsections.subsection2
+                userTally.totals[8]++ if form.payload.subsections.subsection3
+                userTally.totals[9]++ if form.payload.subsections.subsection4
 
             data.push userTally
 
