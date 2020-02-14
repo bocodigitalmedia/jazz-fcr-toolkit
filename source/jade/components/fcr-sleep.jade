@@ -34,7 +34,7 @@ section#fcr(layout="column")
             md-button.md-raised.accept(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'completed')" ng-bind-html="::$root.locale.components.fcr.common.acceptFCR | trust")
             //- Accept FCR
             //- md-button.md-raised.reject(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'rejected')" ng-bind-html="::$root.locale.components.fcr.common.rejectFCR | trust")
-            //- Reject FCR - removed from JAZZ 
+            //- Reject FCR - removed from JAZZ
             md-button.md-raised.download(ng-click="$root.Forms.download($root.Forms.selectedFormId)" ng-bind-html="::$root.locale.global.download | trust" aria-label="{{::$root.locale.global.download | trust}}")
             //- Download
 
@@ -153,7 +153,7 @@ section#fcr(layout="column")
                 //- Comments
                 md-content.comments(layout-padding) {{ ctrl.data.comments[0] }}
                   span.no-data(ng-if="!ctrl.data.comments[0]" ng-bind-html="::$root.locale.global.noComments | trust")
-            
+
             md-divider
 
             section(layout="column")
@@ -338,7 +338,7 @@ section#fcr(layout="column")
 
                         md-content.comments(layout-padding) {{ ctrl.data.comments[9] }}
                           span.no-data(ng-if="!ctrl.data.comments[9]" ng-bind-html="::$root.locale.global.noComments | trust")
-              
+
               //- -------------------------------------------------------------------------
               //- Team and Leadership Effectivenes
               //- -------------------------------------------------------------------------
@@ -417,6 +417,67 @@ section#fcr(layout="column")
             section(layout="column")
               h4(ng-bind-html="::$root.locale.components.fcr.form.sectionG.sectionTitle | trust")
               //- Action Plans
+
+              .container
+
+                .row.subsection(ng-repeat="item in ctrl.actionItems track by $index")
+                  .col-sm-12
+                    .subsection-header
+                      h3(ng-html-compile="locale.form.sectionG.subSections['subSection' + ($index+1)].title")
+
+                    .subs-container
+
+                      .row
+                        .col.col-sm-12
+                          p.footnote(ng-html-compile="locale.form.sectionG.subSections.footnote")
+
+                      .row.comments(style="margin-bottom: 20px")
+                        .col.col-sm-12
+                          p(ng-html-compile="locale.global.managerComments")
+                          textarea.needsclick(maxlength="500" placeholder="Enter Comments Here" onkeyup='this.value = this.value.replace(/["“”]/g,"")' name="feedback" ng-model="item.managerComments")
+
+                      .row
+                        .col.col-sm-6
+                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.competency")
+
+                        .col.col-sm-6
+                          content.align-left.input-group
+                            div(ng-bind-html="ctrl.competency[item.competencyList] | sanitize")
+
+                      .row
+                      .col.col-sm-12
+                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.definition")
+
+                          .subs-content(ng-switch="item.competencyList")
+                            p(ng-switch-when="precall" ng-html-compile="locale.form.sectionD.subSection1.subs.sub1.text")
+                            p(ng-switch-when="rapport" ng-html-compile="locale.form.sectionD.subSection1.subs.sub2.text")
+                            p(ng-switch-when="questioning" ng-html-compile="locale.form.sectionD.subSection1.subs.sub3.text")
+                            p(ng-switch-when="positioning" ng-html-compile="locale.form.sectionD.subSection1.subs.sub4.text")
+                            p(ng-switch-when="objections" ng-html-compile="locale.form.sectionD.subSection1.subs.sub5.text")
+                            p(ng-switch-when="commitment" ng-html-compile="locale.form.sectionD.subSection1.subs.sub6.text")
+                            p(ng-switch-when="analysis" ng-html-compile="locale.form.sectionD.subSection1.subs.sub7.text")
+                            p(ng-switch-when="knowledge" ng-html-compile="locale.form.sectionD.subSection2.text")
+                            p(ng-switch-when="business" ng-html-compile="locale.form.sectionD.subSection3.text")
+                            p(ng-switch-when="effectiveness" ng-html-compile="locale.form.sectionD.subSection4.text")
+
+                      .row
+                        .col.col-sm-6
+                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.timeframe")
+                          p.footnote(ng-html-compile="locale.form.sectionG.subSections.example")
+
+                        .col.col-sm-6
+                          textarea.needsclick(maxlength="500" onkeyup='this.value = this.value.replace(/["“”]/g,"")' name="feedback" ng-model="item.timeframe")
+
+                      .row
+                        .col.col-sm-6
+                          p(style="font-weight: bold;" ng-html-compile="locale.form.sectionG.subSections.status")
+                        .col.col-sm-3
+                          content.align-left.input-group
+                            div(ng-bind-html="ctrl.actionItemStatus[item.status] | sanitize")
+                        .col.col-sm-3
+
+                .row.last
+
 
 
       .manager-submissions(ng-class="{ 'open': $root.Forms.formListOpen, 'shadow': $root.Forms.formOpen }")

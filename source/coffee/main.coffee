@@ -48,6 +48,13 @@ module.exports = (angular, defaults) ->
           $sce.trustAsHtml htmlCode
     ]
 
+    .filter 'sanitize', [
+      '$sce'
+      ($sce) ->
+        (htmlCode) ->
+          $sce.trustAsHtml htmlCode
+    ]
+
     .filter 'htmlToText', ->
       (text) ->
         if text then String(text).replace(/<[^>]+>/gm, '') else ''
