@@ -433,12 +433,12 @@ section#fcr(layout="column")
 
                       .row.comments(style="margin-bottom: 20px")
                         .col.col-sm-12
-                          p(ng-bind-html="::$root.locale.global.managerComments")
-                          textarea(disabled name="feedback" ng-model="item.managerComments")
+                          p(style="font-weight: bold; font-size: 12px;margin-bottom: 10px" ng-bind-html="::$root.locale.global.managerComments | trust")
+                          .textarea {{ item.managerComments }}
 
                       .row.competence
                         .col.col-sm-6
-                          p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.competency | trust")
+                          p(style="font-weight: bold;margin-bottom: 10px" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.competency | trust")
 
                         .col.col-sm-6
                           content.align-left.input-group
@@ -466,12 +466,12 @@ section#fcr(layout="column")
                           p.footnote(style="margin:0 0 10px 0 !important" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.example | trust")
 
                         .col.col-sm-12
-                          textarea.timeframe-comment(disabled name="feedback" ng-model="item.timeframe")
+                          .textarea.timeframe-comment {{ item.timeframe }}
 
                       .row.status
                         .col.col-sm-6
                           p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.status | trust")
-                        .col.status-name
+                        .col.status-name(ng-class="[ item.status ]")
                           content.align-left.input-group
                             div(ng-bind-html="ctrl.actionItemStatus[item.status] | sanitize")
                         .col.col-sm-3
