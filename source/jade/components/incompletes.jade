@@ -8,7 +8,7 @@ section#glance(layout="column" layout-padding)
   //- ================================================================================================
 
   //- district manager sees
-  md-content(ng-if="$root.Users.active.group.level >= 2")
+  md-content(ng-if="$root.Users.active.group.level >= 2 && !ctrl.noData")
 
     //- ------------------------------------------------------------------------------------------------
 
