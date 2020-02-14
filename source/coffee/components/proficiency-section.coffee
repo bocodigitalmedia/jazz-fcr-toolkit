@@ -66,6 +66,13 @@ module.exports = (angular, defaults) ->
           ctrl.groupPadding = 0.2
           ctrl.pointPadding = 0.1
 
+          @H.wrap @H.Tooltip.prototype, 'refresh', (p, point, mouseEvents) ->
+            p.call this, point, mouseEvents
+            label = @label
+            if point and label
+              label.attr fill: point.series.color
+            return
+
           # set up the chart options
           ctrl.config =
             chart:
@@ -110,6 +117,7 @@ module.exports = (angular, defaults) ->
               # backgroundColor: '#3a85eb'
               # borderRadius: 25
               # borderWidth: 0
+              backgroundColor: ((Highcharts.theme && Highcharts.theme.legendBackgroundColor) || '#FFFFFF')
               padding: 8
               style:
                 color: '#ffffff'
