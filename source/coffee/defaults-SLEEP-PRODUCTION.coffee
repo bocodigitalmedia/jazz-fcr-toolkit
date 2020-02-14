@@ -98,7 +98,7 @@ module.exports =
   ]
 
   questions: [
-    'Delivered 24-hour lasting symptom control message AND painted a vivid picture of appropriate adult asthma, including specific symptoms'
+    'Selling Skills'
     'Delivered BOTH coverage & affordability messaging AND engaged HCP about their experience'
     'Delivered Action-Oriented Close vs Symbicort'
     'Overall Quality of Global Selling Model'
