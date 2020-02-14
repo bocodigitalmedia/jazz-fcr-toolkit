@@ -7,8 +7,7 @@ section#glance(layout="column" layout-padding)
 
   //- ================================================================================================
 
-  //- district manager sees
-  md-content(ng-if="$root.Users.active.group.level >= 2")
+  md-content
 
     //- ------------------------------------------------------------------------------------------------
 
@@ -20,26 +19,32 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
-              th(md-column md-order-by="repName")
-                span Employee
-
-              th(md-column md-order-by="managerName")
-                span Regional Sales Manager
-
-              th(md-column md-order-by="regionName")
-                span Region
-
-              th(md-column md-order-by="submissionDate")
-                span FCR Submission Date
-
+              th(md-column md-order-by="repName"): span Employee
+              th(md-column): span PRE-CALL<br>PLANNING
+              th(md-column): span OPEN/ESTAB <br>RAPPORT
+              th(md-column): span EFFECTIVE<br>QUESTIONING
+              th(md-column): span PRODUCT<br>POSITIONING
+              th(md-column): span HANDLING<br>OBJECTIONS
+              th(md-column): span GAINING<br>COMMITMENT
+              th(md-column): span POST-CALL<br>ANALYSIS
+              th(md-column): span PROD/SCIEN<br>KNOWLEDGE
+              th(md-column): span BUS ANALYTIC<br>& PLANNING
+              th(md-column): span TEAM & LEAD<br>EFFECTIVE
               th(md-column width="1%")
 
           tbody(md-body)
-            tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.repId)')
-              td(md-cell) {{ data.repName }}
-              td(md-cell) {{ data.managerName }}
-              td(md-cell) {{ data.regionName }}
-              td(md-cell) {{ data.submissionDate | date:'M/d/yyyy' }}
+            tr.clickable(md-row ng-repeat="item in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, item.userId)')
+              td(md-cell) {{ item.name }}
+              td(md-cell) {{ item.totals[0] }}
+              td(md-cell) {{ item.totals[1] }}
+              td(md-cell) {{ item.totals[2] }}
+              td(md-cell) {{ item.totals[3] }}
+              td(md-cell) {{ item.totals[4] }}
+              td(md-cell) {{ item.totals[5] }}
+              td(md-cell) {{ item.totals[6] }}
+              td(md-cell) {{ item.totals[7] }}
+              td(md-cell) {{ item.totals[8] }}
+              td(md-cell) {{ item.totals[9] }}
               td(md-cell width="1%")
                 md-menu
                   md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')

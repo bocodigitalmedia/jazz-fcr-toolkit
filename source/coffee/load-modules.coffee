@@ -23,13 +23,17 @@ module.exports = (angular, defaults) ->
     require './components/fcr'
     require './components/employee-review'
     require './components/glance'
-    require './components/incompletes'
     require './components/proficiency-overall'
     require './components/evaluatees'
     require './components/evaluators'
     require './components/proficiency-section'
     require './components/integrity'
+    require './components/expectations'
     require './components/completed'
+
+    require './components/incompletes'
+    require './components/competencies'
+    require './components/open-action-items'
 
   ]
   module angular, defaults for module in modules

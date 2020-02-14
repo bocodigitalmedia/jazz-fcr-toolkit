@@ -47,7 +47,7 @@ module.exports = (angular, defaults) ->
             limit: 5
             limitOptions: [5, 10, 25, {
               label: 'All',
-              value: ->
+              value: =>
                 return ctrl.completedForms.length
             }]
 

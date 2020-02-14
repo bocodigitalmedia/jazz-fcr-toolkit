@@ -28,6 +28,15 @@ module.exports = (angular, defaults) ->
           superUser: false      # TODO: remove?
           viewAsRbl: false      # TODO: remove?
 
+          getName: (user) ->
+            if user.name
+              return user.name
+            else
+              if user.givenName && user.familyName
+                return user.givenName + ' ' + user.familyName
+              else
+                return user.email
+
           #~ ================================================================================================
           #~ GET USER
           #~ ================================================================================================

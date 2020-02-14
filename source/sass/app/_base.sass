@@ -237,8 +237,16 @@ body
     &.export
       background-color: #26C44B
 
+      &[disabled]
+        background-color: #aaa
+        pointer: normal
+
       &:hover
         background-color: darken(#26C44B, 15%)
+
+        &[disabled]
+          background-color: #aaa
+          pointer: normal
 
     &.change-view
       background-color: #0092FF

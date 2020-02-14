@@ -99,7 +99,11 @@ module.exports = (angular, defaults) ->
           reset: ->
 
             @forms.all = {}
+            @forms.allByStatus = {}
             @forms.allAll = {}
+            @forms.actionItems = {}
+            @forms.actionItemsAll = {}
+            @forms.actionItemsByStatus = {}
             @forms.byEvaluator = {}
             @forms.byEvaluatee = {}
             @forms.byRegion = {}
@@ -155,48 +159,104 @@ module.exports = (angular, defaults) ->
                   # this is the RAW list of ALL forms regardless of status (whereas forms.raw is the USERDATA NODE)
                   @forms.allAll[formId] = formValue
 
-                  # it has a status...ignore all that are 'saved'
-                  if formValue.payload.status in ['submitted', 'rejected', 'completed']
+                  # get the 3 possible regions for this submission
+                  userRegion = Users.lookup[ formValue.payload.evaluatee.id ]?.regionId?
+                  evaluatorRegionThen = formValue.payload.evaluator.regionId
+                  evaluatorRegionNow = Users.lookup[ formValue.payload.evaluator.id ].regionId
 
-                    # get the 3 possible regions for this submission
-                    userRegion = Users.lookup[ formValue.payload.evaluatee.id ]?.regionId?
-                    evaluatorRegionThen = formValue.payload.evaluator.regionId
-                    evaluatorRegionNow = Users.lookup[ formValue.payload.evaluator.id ].regionId
+                  # if the USER doesn't have a REGION that means they're archived, get rid of form
+                  continue if !userRegion
 
-                    # if the USER doesn't have a REGION that means they're archived, get rid of form
-                    continue if !userRegion
+                  # if the EVALUATOR didn't have a region at the time of submission, get rid of form
+                  continue if !evaluatorRegionThen
 
-                    # if the EVALUATOR didn't have a region at the time of submission, get rid of form
-                    continue if !evaluatorRegionThen
+                  # if evaluator doesn't have a region they're probably test data (or otherwise bad)
+                  # continue if !Users.lookup[ formValue.payload.evaluator.id ].regionId?
 
-                    # if evaluator doesn't have a region they're probably test data (or otherwise bad)
-                    # continue if !Users.lookup[ formValue.payload.evaluator.id ].regionId?
+                  # lookup the evaluatee id because evaluatee only has email and array position as id
+                  evaluateeId = Users.lookupIdByEmail[formValue.payload.evaluatee.email]
 
-                    # lookup the evaluatee id because evaluatee only has email and array position as id
-                    evaluateeId = Users.lookupIdByEmail[formValue.payload.evaluatee.email]
+                  # for date range matching
+                  date = moment formValue.payload.timestamp
 
-                    # only add it to the form array if it belongs to this user (based on level)
-                    date = moment formValue.payload.timestamp
-                    if (formValue.payload.status in ['submitted', 'rejected']) or
-                       (!$rootScope.dateStart && !$rootScope.dateEnd) or
-                       (date.isBetween $rootScope.dateStart, $rootScope.dateEnd)
-                      @parseRawLoop formId, formValue, evaluateeId
+                  # is date in range?
+                  validDate = (!$rootScope.dateStart && !$rootScope.dateEnd) or (date.isBetween $rootScope.dateStart, $rootScope.dateEnd)
+
+                  # skip it if not
+                  continue if not validDate
+
+                  # only add it to the form array if it belongs to this user (based on level)
+                  @parseRawLoop formId, formValue, evaluateeId
+
+              # but actually now we want two things
+              if userData.FormActionItems? and userData.FormActionItems[@formId]?
+
+                # loop through each form
+                for actionItemId, actionItemValue of userData.FormActionItems[@formId]
+
+                  # add to all action items
+                  @forms.actionItemsAll[actionItemId] = actionItemValue
+
+                  # only add it to the form array if it belongs to this user (based on level)
+                  @parseRawLoopActionItems actionItemId, actionItemValue, actionItemValue.userId
 
           # ================================================================================================
 
           parseRawLoop: (formId, formValue, evaluateeId) ->
+
+            # is this a valid form for this user based on their level and hierarchy
+            addIt = false
             switch Users.active.group.level
               when 1
-                if Users.active.id is evaluateeId
-                  @forms.all[formId] = formValue
+                addIt = true if Users.active.id is evaluateeId
               when 2
-                if evaluateeId in Users.descendants.users
-                  @forms.all[formId] = formValue
+                addIt = true if evaluateeId in Users.descendants.users
               when 3
-                if evaluateeId in Users.descendants.users
-                  @forms.all[formId] = formValue
+                addIt = true if evaluateeId in Users.descendants.users
               when 4
-                @forms.all[formId] = formValue
+                addIt = true
+
+            # don't add it if it's not valid for this user
+            return if not addIt
+
+            # we're gonna use this a few times
+            status = formValue.payload.status
+
+            # save it to two places, all (if it's above 'saved' level)...
+            @forms.all[formId] = formValue if status in ['submitted', 'rejected', 'completed']
+
+            # ...and allByStatus
+            @forms.allByStatus[status] ?= {}
+            @forms.allByStatus[status][formId] = formValue
+
+          # ================================================================================================
+
+          parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
+
+            # is this a valid form for this user based on their level and hierarchy
+            addIt = false
+            switch Users.active.group.level
+              when 1
+                addIt = true if Users.active.id is evaluateeId
+              when 2
+                addIt = true if evaluateeId in Users.descendants.users
+              when 3
+                addIt = true if evaluateeId in Users.descendants.users
+              when 4
+                addIt = true
+
+            # don't add it if it's not valid for this user
+            return if not addIt
+
+            # we're gonna use this a few times
+            status = actionItemValue.status
+
+            # save it to two places, all...
+            @forms.actionItems[actionItemId] = actionItemValue
+
+            # ...and actionItemsByStatus
+            @forms.actionItemsByStatus[status] ?= {}
+            @forms.actionItemsByStatus[status][actionItemId] = actionItemValue
 
           # ================================================================================================
 
@@ -518,6 +578,8 @@ module.exports = (angular, defaults) ->
                 submitted: 0
                 rejected: 0
                 completed: 0
+                live: 0
+                virtual: 0
 
               # loop through each form and gather up info
               for formId, form of userForms
@@ -525,6 +587,7 @@ module.exports = (angular, defaults) ->
                 scores.push form.payload.average
                 timestamps.push new Date(form.payload.timestamp) if form.payload.timestamp?
                 statusCounts[form.payload.status]++
+                statusCounts[form.payload.activity.toLowerCase()]++
                 daysInField += form.payload.daysInField
 
               totalScore = scores.reduce ((a, b) -> a + b), 0

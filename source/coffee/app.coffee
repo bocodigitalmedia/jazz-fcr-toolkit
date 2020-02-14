@@ -13,13 +13,13 @@ angular = require 'angular'
 #? SLEEP PRODUCTION                           -
 #? --------------------------------------------
 
-# window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
-# window.locale = locale = require '../../public/locale/en-jazz.json'
+window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
+window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserSleep = "boco-super-mcdonald"
 # defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "boco-super-gabe"
 # defaults.testUserSleep = "manager-southeast"
-# defaults.testUserSleep = "rep-southeast-3"
+defaults.testUserSleep = "rep-southeast-3"
 
 # valid users
 # "rep-southeast-1"
@@ -36,11 +36,11 @@ angular = require 'angular'
 #? HEMONC PRODUCTION                          -
 #? --------------------------------------------
 
-window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
-window.locale = locale = require '../../public/locale/en-jazz.json'
+# window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
+# window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserHemonc = "boco-super-mcdonald"
 # defaults.testUserHemonc = "boco-super-emmons"
-# defaults.testUserSleep = "boco-super-gabe"
+# defaults.testUserSleep = "rep-southwest-1"
 
 # valid users
 # "rep-southwest-1"

@@ -4,7 +4,7 @@ module.exports =
   environment: 'production'
   brand: 'hemonc'
   language: 'en'
-  hasRegions: true
+  hasRegions: false
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -16,7 +16,6 @@ module.exports =
     measurementId: "G-VEHMJ8Z0P9"
     stateShard: "https://delphire-jazz-io-state.firebaseio.com/"
     dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/"
-
   formId:
     production: "7533a241-20b6-4e4d-8a9f-a55afdf9defd"
   naValue: 5
@@ -26,7 +25,6 @@ module.exports =
   dataLoadingMessage: "Data loading..."
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
-
   activeGroups:
     '-Lzhj0M8qEjtiHBs9TDk':
       'id': '-Lzhj0M8qEjtiHBs9TDk'
@@ -39,35 +37,32 @@ module.exports =
     '-Lzhjc1dGSoz2316nOSk':
       'id': '-Lzhjc1dGSoz2316nOSk'
       'name': 'National Sales Manager'
-      'level': 3
+      'level': 4
     '-Lz81nYlZEh8PxWY4wYz':
       'id': '-Lz81nYlZEh8PxWY4wYz'
       'name': 'Jazz Training Team'
-      'level': 3
+      'level': 4
       'super': true
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
-      'level': 3
+      'level': 4
       'super': true
-
   activeDistricts:
     '-Lzhk3eLULX2FJmqQScU':
       'id': '-Lzhk3eLULX2FJmqQScU'
       'name': 'Southwest'
-      'region': '-LzhkOXj4Q1ANu18NM4a'
-
+      'region': '-M-ziGQR_6dvQy1VrHTZ'
   activeRegions:
-    '-LzhkOXj4Q1ANu18NM4a':
-      'id': '-LzhkOXj4Q1ANu18NM4a'
-      'name': 'Region HemOnc'
+    '-M-ziGQR_6dvQy1VrHTZ':
+      'id': '-M-ziGQR_6dvQy1VrHTZ'
+      'name': 'All Regions'
       'districts': [
         '-Lzhk3eLULX2FJmqQScU'
       ]
-
   activeTeam:
     id: '-LzhkOXj4Q1ANu18NM4a'
-    name: 'Nation HemOnc'
+    name: 'National'
     manager:
       email: 'roddy.mcilwain@jazzpharma.com'
       id: '-Lzhl7ys-TgHOkT6XJY8'

@@ -9,7 +9,7 @@
           span(ng-bind-html="::$root.locale.views.dashboard.changeView | trust")
           //- Change View
       div(ng-if="Users.active.group.level > 2|| (Users.loggedIn && Users.loggedIn.group.level > 2)")
-        md-button.md-raised.export(ng-click="Dialogs.exportData($event)" aria-label="{{::$root.locale.views.dashboard.export | trust}}")
+        md-button.md-raised.export(ng-click="Dialogs.exportData($event)" aria-label="{{::$root.locale.views.dashboard.export | trust}}" ng-disabled="true")
           span(ng-bind-html="::$root.locale.views.dashboard.export | trust")
           //- Export Data
 
@@ -67,8 +67,17 @@
       //- All Completed FCRs
       completed(data-title="{{::$root.locale.views.dashboard.fcrsCompleted | trust}}")
 
+      //- At a Glance
+      competencies(data-title="Activity Against Competencies")
+
       //- Section Proficiency: Integrity (Compliance)
-      //- integrity(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="100")
+      integrity(data-title="Jazz Pharmaceuticals Compliance" data-min-question="1" data-max-question="1" height="100")
+
+      //- Section Proficiency: Integrity (Compliance)
+      expectations(data-title="Territory Management / Role Expectations" data-min-question="2" data-max-question="2" height="100")
+
+      //- Top 5 Performers
+      open-action-items(data-title="Open Action Items" data-sort="rating" data-pagination="hide")
 
     //---------------------------------------------------------------------
 
@@ -78,19 +87,25 @@
       glance(data-title="{{::$root.locale.views.dashboard.glance | trust}}")
 
       //- At a Glance
-      //- incompletes(data-title="In Review FCRs to Date")
+      incompletes(data-title="In Review FCRs to Date")
+
+      //- At a Glance
+      competencies(data-title="Activity Against Competencies")
 
       //- All Employees
-      evaluatees(data-title="{{::$root.locale.views.dashboard.employees | trust}}" ng-if="Users.active.group.level > 2")
+      //- evaluatees(data-title="{{::$root.locale.views.dashboard.employees | trust}}" ng-if="Users.active.group.level > 2")
 
       //- All Evaluators
-      evaluators(data-title="{{::$root.locale.views.dashboard.evaluators | trust}}" ng-if="Users.active.group.level > 2")
+      //- evaluators(data-title="{{::$root.locale.views.dashboard.evaluators | trust}}" ng-if="Users.active.group.level > 2")
 
       //- Section Proficiency: Integrity (Compliance)
-      proficiency-section(data-title="{{::$root.locale.views.dashboard.integrity | trust}}" data-min-question="31" data-max-question="31" height="130" data-section-num="5")
+      proficiency-section(data-title="Jazz Pharmaceuticals Compliance" data-min-question="1" data-max-question="1" height="130" data-section-num="5")
+
+      //- Section Proficiency: Integrity (Compliance)
+      proficiency-section(data-title="Territory Management / Role Expectations" data-min-question="2" data-max-question="2" height="130" data-section-num="5")
 
       //- Top 5 Performers
-      evaluatees(data-title="{{::$root.locale.views.dashboard.performers | trust}}" data-sort="rating" data-pagination="hide" ng-if="Users.active.group.level > 2")
+      open-action-items(data-title="Open Action Items" data-sort="rating" data-pagination="hide")
 
 //- ================================================================================================
 

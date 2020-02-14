@@ -1,10 +1,10 @@
 module.exports = (angular, defaults) ->
 
   angular.module defaults.app.name
-    .component 'incompletes', {
+    .component 'competencies', {
       replace: true
       transclude: true
-      templateUrl: 'components/incompletes.html'
+      templateUrl: 'components/competencies.html'
       controllerAs: 'ctrl'
       bindings:
         title: '@'     # string component
@@ -34,22 +34,41 @@ module.exports = (angular, defaults) ->
         @parseData = ->
 
           # for messaging (and stopping errors) if there's no forms to parse
-          ctrl.noData = !Data.forms.allByStatus?['submitted']?
+          ctrl.noData = !Data.forms.byEvaluateeByStatus?
 
           # stop errors from happening if no completed forms
           return false if ctrl.noData
 
-          submittedForms = angular.copy Data.forms.allByStatus.submitted
-          forms = []
-          for formId, form of submittedForms
-            form.payload.repId = form.payload.evaluatee.id
-            form.payload.repName = Users.getName form.payload.evaluatee
-            form.payload.managerName = form.payload.evaluator.name
-            form.payload.regionName = Regions.lookup[ form.payload.evaluator.regionId ].name
-            form.payload.submissionDate = form.createdAt
-            forms.push form.payload
+          totals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+          userTally = {}
+          data = []
 
-          ctrl.tableData = forms
+          for userEmail, userForms of Data.forms.byEvaluateeByStatus
+
+            userId = Users.lookupIdByEmail[ userEmail ]
+            user = Users.lookup[ userId ]
+            name = Users.getName user
+
+            userTally =
+              name: name
+              userId: userId
+              totals: angular.copy totals
+
+            for form in userForms.completed
+              userTally.totals[0]++ if form.payload.subs.subs1
+              userTally.totals[1]++ if form.payload.subs.subs2
+              userTally.totals[2]++ if form.payload.subs.subs3
+              userTally.totals[3]++ if form.payload.subs.subs4
+              userTally.totals[4]++ if form.payload.subs.subs5
+              userTally.totals[5]++ if form.payload.subs.subs6
+              userTally.totals[6]++ if form.payload.subs.subs7
+              userTally.totals[7]++ if form.payload.subsections.subsection2
+              userTally.totals[8]++ if form.payload.subsections.subsection3
+              userTally.totals[9]++ if form.payload.subsections.subsection4
+
+            data.push userTally
+
+          ctrl.tableData = data
 
           ctrl.query =
             order : '-payload.timestamp'
@@ -79,7 +98,7 @@ module.exports = (angular, defaults) ->
           $mdMenu.open ev
 
         @viewData = (ev, id) ->
-          # console.log '[ viewRegionData ]', id
+          console.log '[ viewRegionData ]', id
           Users.setActive id
 
         # ---------------------------------------------------------------------------------------------------

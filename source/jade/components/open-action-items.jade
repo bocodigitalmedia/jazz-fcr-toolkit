@@ -7,8 +7,7 @@ section#glance(layout="column" layout-padding)
 
   //- ================================================================================================
 
-  //- district manager sees
-  md-content(ng-if="$root.Users.active.group.level >= 2")
+  md-content
 
     //- ------------------------------------------------------------------------------------------------
 
@@ -20,26 +19,21 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
-              th(md-column md-order-by="repName")
-                span Employee
-
-              th(md-column md-order-by="managerName")
-                span Regional Sales Manager
-
-              th(md-column md-order-by="regionName")
-                span Region
-
-              th(md-column md-order-by="submissionDate")
-                span FCR Submission Date
-
+              th(md-column md-order-by="repName"): span Employee
+              th(md-column md-order-by="dateAssigned"): span DATE ASSIGNED
+              th(md-column md-order-by="competencyAssigned"): span COMPETENCY ASSIGNED
+              th(md-column md-order-by="status"): span STATUS
+              th(md-column md-order-by="daysOpen"): span # DAYS OPEN
               th(md-column width="1%")
 
           tbody(md-body)
-            tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.repId)')
+            //- tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewEmployeeData($event, data.employee.id)')
+            tr(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit")
               td(md-cell) {{ data.repName }}
-              td(md-cell) {{ data.managerName }}
-              td(md-cell) {{ data.regionName }}
-              td(md-cell) {{ data.submissionDate | date:'M/d/yyyy' }}
+              td(md-cell) {{ data.dateAssigned | date:'M/d/yyyy' }}
+              td(md-cell) {{ data.competencyAssigned }}
+              td(md-cell) {{ data.status }}
+              td(md-cell) {{ data.daysOpen }}
               td(md-cell width="1%")
                 md-menu
                   md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')

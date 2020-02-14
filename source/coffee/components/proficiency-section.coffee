@@ -288,8 +288,8 @@ module.exports = (angular, defaults) ->
               # and push it to the answer array
               if ctrl.sectionNum is 5
                 switch answer
-                  when 1 then answerArrays[i].push 0
-                  when 3 then answerArrays[i].push 4
+                  when 1 then answerArrays[i].push 4
+                  when 3 then answerArrays[i].push 0
               else
                 answerArrays[i].push answer
 
@@ -302,6 +302,9 @@ module.exports = (angular, defaults) ->
             answered: 0
 
           # console.log 'answerArrays', answerArrays
+          # console.error '------------------------------------'
+          # console.log '%c answerArrays ', 'background-color: red; color: #000', answerArrays
+          # console.log '%c defaults.naValue ', 'background-color: red; color: #000', defaults.naValue
 
           # loop through the answerArrays and create [question, average] plot points
           for answersForThisQuestion, i in answerArrays
@@ -336,6 +339,10 @@ module.exports = (angular, defaults) ->
 
           # sort by x coordinate or get highcharts error 15
           points.sort (x, y) -> x[0] - y[0]
+
+          # console.log '%c points ', 'background-color: red; color: #000', points
+          # console.log '%c sectionTotals.score ', 'background-color: red; color: #000', sectionTotals.score
+          # console.log '%c sectionTotals.answered ', 'background-color: red; color: #000', sectionTotals.answered
 
           # calculate the overall section average for tooltip display
           # ctrl.sectionAverages[ propDisplay ] = Math.round(10 * sectionTotals.score / sectionTotals.answered) / 10

@@ -20,7 +20,6 @@ module.exports =
   formId:
     production: "836f7797-ab87-4755-82ae-ca74f90eeb8b"
   naValue: 5
-  integrityQuestion: 30
   noDataMessage: "No data to show."
   noReviewsNeededMessage: "No forms to review at this time."
   dataLoadingMessage: "Data loading..."
@@ -98,38 +97,8 @@ module.exports =
   ]
 
   questions: [
-    'Selling Skills'
-    'Delivered BOTH coverage & affordability messaging AND engaged HCP about their experience'
-    'Delivered Action-Oriented Close vs Symbicort'
-    'Overall Quality of Global Selling Model'
-    'Diagnose'
-    'Build Your Plan | Resource Utilization'
-    'Execute & Evaluate Process'
-    'Disease State'
-    'Product'
-    'Promotion/Selling'
-    'Prepare to Sell'
-    'Open the Sales Call'
-    'Uncover Opportunities'
-    'Align Brand and Handle Objections'
-    'Close with Commitment'
-    'Total Office Call'
-    'Analyze Call and Plan Next Steps'
-    'Payer Pull Through'
-    'Initiative | Seize Opportunity'
-    'Drive Performance'
-    'Coachability'
-    'Personal Development'
-    'Effective Collaboration'
-    'Builds Trust'
-    'Effective Communication'
-    'Expense Management'
-    'Sample/Resource Management'
-    'Fleet Management'
-    'Report Timeliness'
-    'Recording of Activity in CRM'
-    'Compliance'
-    'Leveraged the strong confidence vs. Symbicort, maintaining a competitive mindset throughout the calls'
+    'Average Compliance'
+    'Average Compliance'
   ]
 
   includedQuestions: [
