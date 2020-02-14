@@ -55,9 +55,9 @@
       "totalCompleted": "# Completed<br>FCRs",
       "lastCompletedDate": "Last Completed<br>FCR",
       "timeToSubmit": "Avg. # Days<br>for Submission",
-      "district": "District",
-      "region": "Region",
-      "districtData": "View District Data"
+      "district": "Region",
+      "region": "Area",
+      "districtData": "View Region Data"
     },
     "fcr": {
       "common": {
@@ -103,7 +103,7 @@
             "actual"   : "Actual",
             "goal"     : "Goal",
             "territory": "Territory",
-            "region"   : "Region"
+            "region"   : "Area"
           }
         },
         "sectionC": {
@@ -190,9 +190,9 @@
     },
     "glance": {
       "avgProficiency": "Average Proficiency",
-      "manager": "Manager",
+      "manager": "RSM",
       "completedFcrs": "# Completed FCRs",
-      "district": "District",
+      "district": "Region",
       "lastFcr": "Date of Last FCR Completed",
       "submission": "Avg. Days for FCR Submission",
       "numEmployees": "# Employees",
@@ -205,14 +205,14 @@
       "totalDaysVirtual": "Total<br>Days<br>Virtual",
       "employeeData": "View Employee Data",
       "employeeFcrs": "View Employee FCRs",
-      "regionalManager": "Regional Manager",
+      "regionalManager": "Area Manager",
       "teamManager": "Team Manager",
-      "districtManager": "District Manager",
+      "districtManager": "Region Manager",
       "numReps": "# Reps",
-      "viewDistrictData": "View District Data",
+      "viewDistrictData": "View Region Data",
       "teamDirector": "Team Director",
-      "region": "Region",
-      "viewRegionalData": "View Regional Data",
+      "region": "Area",
+      "viewRegionalData": "View Area Data",
       "overallAvg": "Overall Avg"
     },
     "integrity": {
@@ -220,13 +220,13 @@
     },
     "proficiencyOverall": {
       "employee": "&nbsp;Employee",
-      "district": "&nbsp;District",
-      "region": "&nbsp;Region",
+      "district": "&nbsp;Region",
+      "region": "&nbsp;Area",
       "back" : "Back"
     },
     "proficiencySection": {
       "avgProficiency": "Avg. Proficiency",
-      "avgProficiencyEachItem": "Avg. Proficiency of Each Item",
+      "avgProficiencyEachItem": "",
       "itemAvg": "Item Avg.",
       "sectionAvg": "Section Avg."
     }
@@ -235,14 +235,14 @@
     "changeView": {
       "selectCategory": "Select a Category to view:",
       "selectDifferent": "&nbsp;Select a Different Category",
-      "regions": "Regions",
-      "chooseRegion": "Choose a Region to View",
-      "districts": "Districts",
-      "chooseDistrict": "Choose a District to View",
+      "regions": "Areas",
+      "chooseRegion": "Choose an Area to View",
+      "districts": "Regions",
+      "chooseDistrict": "Choose a Region to View",
       "employees": "Employees",
       "chooseEmployee": "Choose a Employee to View",
-      "selectRegion": "Select a Region to view:",
-      "selectDistrict": "Select a District to view:",
+      "selectRegion": "Select an Area to view:",
+      "selectDistrict": "Select a Region to view:",
       "selectEmployee": "Select an Employee to view:"
     },
     "exportData": {
