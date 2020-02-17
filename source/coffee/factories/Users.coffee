@@ -217,7 +217,7 @@ module.exports = (angular, defaults) ->
                       email: 'boco.national.director@gmail.com'
                       mgrEmail: null
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-LzhW9U390xXwcNb5NZX'
+                      groupId: '-Lzhjc1dGSoz2316nOSk'
                       username: 'national-director'
                       organization: '-LzhU2DAlCznHw7NiB1F'
 
@@ -369,6 +369,8 @@ module.exports = (angular, defaults) ->
           # ------------------------------------------------------------------------
 
           getSubordinates: () ->
+
+            console.log '%c Users.active ', 'background-color: red; color: #000', Users.active
 
             Districts = $injector.get 'Districts'
             Regions = $injector.get 'Regions'
