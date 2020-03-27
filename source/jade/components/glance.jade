@@ -44,7 +44,7 @@ section#glance(layout="column" layout-padding)
       .grid-section.chart(flex="50" layout="column" layout-align="center center")
         label(ng-bind-html="::$root.locale.components.glance.manager | trust")
         //- Manager
-        span {{ $root.Users.active.email | shorten }}
+        span {{ $root.Users.getName($root.Users.active) | shorten }}
       .grid-section.chart(flex="20" layout="column" layout-align="center center")
         label(ng-bind-html="::$root.locale.components.glance.completedFcrs | trust")
         //- # Completed FCRs
@@ -87,7 +87,7 @@ section#glance(layout="column" layout-padding)
 
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewEmployeeData($event, data.employee.id)')
-              td(md-cell) {{ data.employee.email | shorten }}
+              td(md-cell) {{ data.evaluateeName | shorten }}
               td(md-cell) {{ data.lastCompletedDate | tsFormat }}
               td(md-cell) {{ data.totalDays }}
               td(md-cell) {{ data.totalDaysLive }}
@@ -121,7 +121,7 @@ section#glance(layout="column" layout-padding)
         //- Regional Manager
         label(ng-if="!$root.defaults.hasRegions" ng-bind-html="::$root.locale.components.glance.teamManager | trust")
         //- Team Manager
-        span {{ ctrl.info.regionalManager | shorten }}
+        span {{ ctrl.info.regionalManagerName | shorten }}
       .grid-section.chart(flex="20" layout="column" layout-align="center center")
         label(ng-bind-html="::$root.locale.components.glance.completedFcrs | trust")
         //- # Completed FCRs
@@ -177,7 +177,7 @@ section#glance(layout="column" layout-padding)
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewDistrictData($event, data.evaluatorId)')
               td(md-cell) {{ data.name }}
-              td(md-cell) {{ data.evaluator }}
+              td(md-cell) {{ data.evaluatorName }}
               td(md-cell) {{ data.reps }}
               td(md-cell) {{ data.totalDays }}
               td(md-cell) {{ data.totalDaysLive }}

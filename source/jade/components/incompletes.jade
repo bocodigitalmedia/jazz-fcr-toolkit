@@ -36,8 +36,8 @@ section#glance(layout="column" layout-padding)
 
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.repId)')
-              td(md-cell) {{ data.repName }}
-              td(md-cell) {{ data.managerName }}
+              td(md-cell) {{ data.repName | shorten }}
+              td(md-cell) {{ data.managerName | shorten }}
               td(md-cell) {{ data.districtName }}
               td(md-cell) {{ data.submissionDate | date:'M/d/yyyy' }}
               td(md-cell width="1%")
@@ -46,15 +46,15 @@ section#glance(layout="column" layout-padding)
                     md-icon(md-menu-origin md-svg-icon='images/md-svg/more_vert.svg')
                   md-menu-content(width='4')
                     md-menu-item
-                      md-button(ng-click='ctrl.viewEmployeeData($event, data.employee.id)')
-                        md-icon(md-svg-icon='images/md-svg/donut_large.svg' md-menu-align-target)
-                        span(ng-bind-html="::$root.locale.components.glance.employeeData | trust")
-                        //- View Employee Data
+                      md-button(ng-click='$root.Forms.openForm(data.repId, data.submissionId)')
+                        md-icon(md-svg-icon='images/md-svg/open_in_new.svg' md-menu-align-target)
+                        span(ng-bind-html="::$root.locale.global.viewFcr | trust")
+                        //- View FCR
                     md-menu-item
-                      md-button(ng-click='ctrl.viewEmployeeFCRs($event, data.employee.id)')
-                        md-icon(md-svg-icon='images/md-svg/library_books.svg' md-menu-align-target)
-                        span(ng-bind-html="::$root.locale.components.glance.employeeFcrs | trust")
-                        //- View Employee FCRs
+                      md-button(ng-click='$root.Forms.printForm(data.repId, data.submissionId)')
+                        md-icon(md-svg-icon='images/md-svg/picture_as_pdf.svg' md-menu-align-target)
+                        span(ng-bind-html="::$root.locale.global.downloadFcr | trust")
+                        //- Download FCR
 
       md-table-pagination(ng-hide="ctrl.noData" md-limit="ctrl.query.limit" md-limit-options="ctrl.query.limitOptions" md-page="ctrl.query.page" md-total="{{ctrl.tableData.length}}" md-on-paginate="ctrl.paginate()" md-page-select md-label="{page: '{{$root.locale.global.rows | trust}}:', rowsPerPage: '{{$root.locale.global.rowsPerPage | trust}}:', of: '{{$root.locale.global.of | trust}}'}")
 

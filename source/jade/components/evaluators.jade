@@ -22,33 +22,33 @@ section#evaluators(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
           tr(md-row)
             th(md-column md-order-by="evaluator")
               span(ng-bind-html="::$root.locale.components.evaluators.evaluator | trust")
-              //- Evaluator
-            th(md-column md-order-by="totalCompleted")
-              span(ng-bind-html="::$root.locale.components.evaluators.totalCompleted | trust")
-              //- # Completed FCRs
-            th(md-column md-order-by="lastCompletedDate")
-              span(ng-bind-html="::$root.locale.components.evaluators.lastCompletedDate | trust")
-              //- Last Completed FCR
-            th(md-column md-order-by="timeToSubmit.inDays")
-              span(ng-bind-html="::$root.locale.components.evaluators.timeToSubmit | trust")
-              //- Avg. # Days for Submission
-            th(md-column md-order-by="district")
-              span(ng-bind-html="::$root.locale.components.evaluators.district | trust")
-              //- District
             th(md-column md-order-by="region" ng-if="$root.defaults.hasRegions")
               span(ng-bind-html="::$root.locale.components.evaluators.region | trust")
-              //- Region
+            th(md-column md-order-by="district")
+              span(ng-bind-html="::$root.locale.components.evaluators.district | trust")
+            th(md-column md-order-by="totalCompleted")
+              span(ng-bind-html="::$root.locale.components.evaluators.totalCompleted | trust")
+            th(md-column md-order-by="totalCompletedLive")
+              span(ng-bind-html="::$root.locale.components.evaluators.totalCompletedLive | trust")
+            th(md-column md-order-by="totalCompletedVirtual")
+              span(ng-bind-html="::$root.locale.components.evaluators.totalCompletedVirtual | trust")
+            th(md-column md-order-by="lastCompletedDate")
+              span(ng-bind-html="::$root.locale.components.evaluators.lastCompletedDate | trust")
+            th(md-column md-order-by="timeToSubmit.inDays")
+              span(ng-bind-html="::$root.locale.components.evaluators.timeToSubmit | trust")
             th(md-column width="1%")
 
         tbody(md-body)
 
           tr.clickable(md-row ng-repeat="data in ctrl.filteredForms = (ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict) | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewDistrictData(data.evaluatorId)')
-            td(md-cell) {{ data.evaluator | shorten }}
+            td(md-cell) {{ data.evaluatorName }}
+            td(md-cell ng-if="$root.defaults.hasRegions") {{ data.region }}
+            td(md-cell) {{ data.district }}
             td(md-cell) {{ data.totalCompleted }}
+            td(md-cell) {{ data.totalCompletedLive }}
+            td(md-cell) {{ data.totalCompletedVirtual }}
             td(md-cell) {{ data.lastCompletedDate | date:'M/d/yyyy' }}
             td(md-cell) {{ data.timeToSubmit.inDays }}
-            td(md-cell) {{ data.district }}
-            td(md-cell ng-if="$root.defaults.hasRegions") {{ data.region }}
             td(md-cell width="1%")
               md-menu
                 md-button.md-icon-button(aria-label='Open interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')

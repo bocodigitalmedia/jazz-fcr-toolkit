@@ -208,6 +208,8 @@ module.exports = (angular, defaults) ->
               totalDaysVirtual: 0
               totalCompleted: 0
               timestamp: null
+              evaluateeName: ''
+              evaluatorName: ''
 
             # for form in forms when form.payload.status is 'completed'
             for form in forms
@@ -215,10 +217,12 @@ module.exports = (angular, defaults) ->
 
               userData.employee.id = form.payload.evaluatee.id
               userData.employee.email = form.payload.evaluatee.email
+              userData.evaluateeName = Users.getName form.payload.evaluatee
               # userData.employee.email = $filter('shorten')(form.payload.evaluatee.email)
 
               userData.evaluator.id = form.payload.evaluator.id
               userData.evaluator.email = form.payload.evaluator.email
+              userData.evaluatorName = Users.getName form.payload.evaluator
               # userData.evaluator.email = $filter('shorten')(form.payload.evaluator.email)
 
               completedDates.push form.payload.timestamp
@@ -285,6 +289,7 @@ module.exports = (angular, defaults) ->
             @forms = angular.copy Data.forms.byRegion[ region.id ]
 
           @info =
+            regionalManagerName: Users.getName region.manager
             regionalManager: region.manager.email
             completed: 0
             employees: 0
@@ -363,14 +368,13 @@ module.exports = (angular, defaults) ->
               totalDaysVirtual: 0
               totalCompleted: 0
               avgRating: 0
+              evaluatorName: Users.getName district.manager
 
             totalReps += Users.lookupByDistrict[ district.id ].length
 
             for form in forms
 
               uniqueUser.push form.payload.evaluatee.email if form.payload.evaluatee.email not in uniqueUser
-
-              DistrictData.totalCompleted++
 
               averageRatings.push form.payload.average
               avg = (averageRatings.reduce (a, b) -> a + b) / averageRatings.length

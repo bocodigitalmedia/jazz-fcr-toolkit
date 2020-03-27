@@ -60,6 +60,8 @@
       "filter": "Filter by Evaluator",
       "evaluator": "Evaluator",
       "totalCompleted": "# Completed<br>FCRs",
+      "totalCompletedLive": "# Completed<br>Live",
+      "totalCompletedVirtual": "# Completed<br>Virtual",
       "lastCompletedDate": "Last Completed<br>FCR",
       "timeToSubmit": "Avg. # Days<br>for Submission",
       "district": "Region",

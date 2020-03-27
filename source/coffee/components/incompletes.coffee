@@ -48,6 +48,7 @@ module.exports = (angular, defaults) ->
             form.payload.regionName = if form.payload.evaluator.regionId? and Regions.lookup[ form.payload.evaluator.regionId ]?.name? then Regions.lookup[ form.payload.evaluator.regionId ].name else ''
             form.payload.districtName = Districts.lookupByManagerId[ form.payload.evaluator.id ].name if form.payload.evaluator.id?
             form.payload.submissionDate = form.createdAt
+            form.payload.submissionId = formId
             forms.push form.payload
 
           ctrl.tableData = forms

@@ -22,28 +22,18 @@ section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
           tr(md-row)
             th(md-column md-order-by="evaluatee")
               span(ng-bind-html="::$root.locale.components.evaluatees.evaluatee | trust")
-              //- Employee
             th(md-column md-order-by="evaluator")
               span(ng-bind-html="::$root.locale.components.evaluatees.evaluator | trust")
-              //- Evaluator
             th(md-column md-order-by="lastCompletedDate")
               span(ng-bind-html="::$root.locale.components.evaluatees.lastCompletedDate | trust")
-              //- Date of Last<br>Completed FCR
-            th(md-column md-order-by="avgRating")
-              span(ng-bind-html="::$root.locale.components.evaluatees.avgRating | trust")
-              //- Avg.<br>Rating
-            th(md-column md-order-by="minRating")
-              span(ng-bind-html="::$root.locale.components.evaluatees.minRating | trust")
-              //- Min<br>Rating
-            th(md-column md-order-by="maxRating")
-              span(ng-bind-html="::$root.locale.components.evaluatees.maxRating | trust")
-              //- Max<br>Rating
-            th(md-column md-order-by="totalDays")
-              span(ng-bind-html="::$root.locale.components.evaluatees.totalDays | trust")
-              //- Total<br>Days
+            th(md-column md-order-by="reps")
+              span(ng-bind-html="::$root.locale.components.glance.totalDays | trust")
+            th(md-column md-order-by="reps")
+              span(ng-bind-html="::$root.locale.components.glance.totalDaysLive | trust")
+            th(md-column md-order-by="reps")
+              span(ng-bind-html="::$root.locale.components.glance.totalDaysVirtual | trust")
             th(md-column md-order-by="totalCompleted")
               span(ng-bind-html="::$root.locale.components.evaluatees.totalCompleted | trust")
-              //- # Completed<br>FCRs
             th(md-column width="1%")
 
         tbody(md-body)
@@ -51,13 +41,12 @@ section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
           //- ng-repeat="student in (filterResult = (students | filter: search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit as fStudents))"
           //- tr(md-row ng-repeat="data in (filterResult = (ctrl.tableData | filter:filter:strict | orderBy: ctrl.query.order | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit as fTableData))")
           tr.clickable(md-row ng-repeat="data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click="ctrl.viewEmployeeData(data.evaluateeId)")
-            td(md-cell) {{ data.evaluatee | shorten }}
-            td(md-cell) {{ data.evaluator | shorten }}
+            td(md-cell) {{ data.evaluateeName }}
+            td(md-cell) {{ data.evaluatorName }}
             td(md-cell) {{ data.lastCompletedDate | date:'M/d/yyyy' }}
-            td(md-cell) {{ data.avgRating | number:2 }}
-            td(md-cell) {{ data.minRating }}
-            td(md-cell) {{ data.maxRating }}
             td(md-cell) {{ data.totalDays }}
+            td(md-cell) {{ data.totalDaysLive }}
+            td(md-cell) {{ data.totalDaysVirtual }}
             td(md-cell) {{ data.totalCompleted }}
             td(md-cell width="1%")
               md-menu

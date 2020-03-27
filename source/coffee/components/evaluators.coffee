@@ -76,33 +76,45 @@ module.exports = (angular, defaults) ->
 
             completedDates = []
 
+            evaluator = Districts.lookup[id].manager
+
             if Users.active.group.level is 3
               evaluatorData =
-                evaluator: Districts.lookup[id].manager.email
-                evaluatorId: Districts.lookup[id].manager.id
+                evaluator: evaluator.email
+                evaluatorId: evaluator.id
                 totalCompleted: 0
+                totalCompletedLive: 0
+                totalCompletedVirtual: 0
                 lastCompletedDate: null
                 timeToSubmit: {}
                 districtId: id
                 district: Districts.lookup[id].name
                 region: Regions.lookupByManagerId[Users.active.id].name
                 regionId: Regions.lookupByManagerId[Users.active.id].id
+                evaluatorName: Users.getName evaluator
 
             if Users.active.group.level is 4
               evaluatorData =
                 evaluator: Users.lookup[id].email
                 evaluatorId: Users.lookup[id].id
                 totalCompleted: 0
+                totalCompletedLive: 0
+                totalCompletedVirtual: 0
                 lastCompletedDate: null
                 timeToSubmit: {}
                 districtId: form.payload.evaluatee.districtId
                 district: form.payload.evaluatee.districtName
                 regionId: form.payload.evaluatee.regionId
                 region: form.payload.evaluatee.regionName
+                evaluatorName: Users.getName evaluator
 
             # console.log '[ evaluatorData ]', evaluatorData
 
             for id, form of forms
+
+              switch form.payload.activity.toLowerCase()
+                when 'live' then evaluatorData.totalCompletedLive++
+                when 'virtual' then evaluatorData.totalCompletedVirtual++
 
               evaluatorData.totalCompleted++
 

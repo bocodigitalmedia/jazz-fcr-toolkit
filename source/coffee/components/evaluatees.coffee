@@ -85,18 +85,25 @@ module.exports = (angular, defaults) ->
             completedDates = []
             averageRatings = []
 
+            evaluatee = Users.lookup[id]
+            evaluator = Districts.lookup[evaluatee.districtId].manager
+
             employeeData =
-              evaluatee: Users.lookup[id].email
+              evaluatee: evaluatee.email
               evaluateeId: id
-              evaluator: Districts.lookup[Users.lookup[id].districtId].manager.email
-              evaluatorId: Districts.lookup[Users.lookup[id].districtId].manager.id
+              evaluator: evaluator.email
+              evaluatorId: evaluator.id
               lastCompletedDate: null
               avgRating: ctrl.baseline
               minRating: ctrl.baseline
               maxRating: 0
               totalDays: 0
+              totalDaysLive: 0
+              totalDaysVirtual: 0
               totalCompleted: 0
               timestamp: null
+              evaluateeName: Users.getName evaluatee
+              evaluatorName: Users.getName evaluator
 
             # console.log '[ employeeData ]', employeeData
 
@@ -110,6 +117,11 @@ module.exports = (angular, defaults) ->
               employeeData.maxRating = form.payload.ratingMax if form.payload.ratingMax > employeeData.maxRating
 
               employeeData.totalDays += form.payload.daysInField
+
+              switch form.payload.activity.toLowerCase()
+                when 'live' then employeeData.totalDaysLive += form.payload.daysInField
+                when 'virtual' then employeeData.totalDaysVirtual += form.payload.daysInField
+
               employeeData.totalCompleted++
 
               employeeData.timestamp = form.payload.timestamp
