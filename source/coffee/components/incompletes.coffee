@@ -12,7 +12,7 @@ module.exports = (angular, defaults) ->
 
       # =========================================================================================================
 
-      controller: ($rootScope, $scope, $timeout, Data, Forms, Regions, Users) ->
+      controller: ($rootScope, $scope, $timeout, Data, Districts, Forms, Regions, Users) ->
 
         # to maintain scope across promises and functions
         ctrl = @
@@ -45,7 +45,8 @@ module.exports = (angular, defaults) ->
             form.payload.repId = form.payload.evaluatee.id
             form.payload.repName = Users.getName form.payload.evaluatee
             form.payload.managerName = form.payload.evaluator.name
-            form.payload.regionName = Regions.lookup[ form.payload.evaluator.regionId ].name
+            form.payload.regionName = if form.payload.evaluator.regionId? and Regions.lookup[ form.payload.evaluator.regionId ]?.name? then Regions.lookup[ form.payload.evaluator.regionId ].name else ''
+            form.payload.districtName = Districts.lookupByManagerId[ form.payload.evaluator.id ].name if form.payload.evaluator.id?
             form.payload.submissionDate = form.createdAt
             forms.push form.payload
 

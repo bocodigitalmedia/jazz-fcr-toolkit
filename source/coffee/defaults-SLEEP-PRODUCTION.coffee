@@ -5,6 +5,7 @@ module.exports =
   brand: 'sleep'
   language: 'en'
   hasRegions: true
+  isDelphire: true
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"

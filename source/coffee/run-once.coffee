@@ -70,7 +70,7 @@ module.exports = [
       delphireJsNpm.delphireJS()
 
       # pretend delphire loaded if we're local
-      if location.href.indexOf('localhost') isnt -1
+      if not defaults.isDelphire
         return $rootScope.waitForDelphire.resolve()
 
       # actually load delphire if we're not local

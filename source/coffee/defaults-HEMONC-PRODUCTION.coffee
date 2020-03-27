@@ -5,6 +5,7 @@ module.exports =
   brand: 'hemonc'
   language: 'en'
   hasRegions: false
+  isDelphire: true
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -34,24 +35,24 @@ module.exports =
       'id': '-LzhjCGdSnN4nSqfkLby'
       'name': 'Regional Sales Manager'
       'level': 2
-    '-Lzhjc1dGSoz2316nOSk':
-      'id': '-Lzhjc1dGSoz2316nOSk'
-      'name': 'National Sales Manager'
-      'level': 4
+    # '-Lzhjc1dGSoz2316nOSk':
+    #   'id': '-Lzhjc1dGSoz2316nOSk'
+    #   'name': 'National Sales Manager'
+    #   'level': 3
     '-Lz81nYlZEh8PxWY4wYz':
       'id': '-Lz81nYlZEh8PxWY4wYz'
       'name': 'Jazz Training Team'
-      'level': 4
+      'level': 3
       'super': true
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
-      'level': 4
+      'level': 3
       'super': true
     "-Lzhjc1dGSoz2316nOSk":
       'id': "-Lzhjc1dGSoz2316nOSk"
       'name': "Hem-Onc Sales Lead"
-      'level': 4
+      'level': 3
       'super': true
 
   activeDistricts:
@@ -69,7 +70,7 @@ module.exports =
       ]
 
   activeTeam:
-    id: '-LzhkOXj4Q1ANu18NM4a'
+    id: '-M-ziGQR_6dvQy1VrHTZ'
     name: 'National'
     manager:
       email: 'roddy.mcilwain@jazzpharma.com'

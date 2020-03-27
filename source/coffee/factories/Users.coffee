@@ -293,9 +293,9 @@ module.exports = (angular, defaults) ->
           getUser: () ->
 
             # if we're local
-            switch location.href.indexOf('localhost') isnt -1 or location.href.indexOf('localhost') isnt -1
-              when true then  @getUserLocal()      # smoke and mirrors a local user
-              when false then @getUserDelphire()   # pull user from delphire
+            switch defaults.isDelphire
+              when false then  @getUserLocal()      # smoke and mirrors a local user
+              when true then @getUserDelphire()   # pull user from delphire
 
             # tweak the user object and add properties we need etc
             @getUserDetails()
@@ -319,6 +319,7 @@ module.exports = (angular, defaults) ->
               regionalManagers: []
 
             level = user.group.level
+            level = if defaults.hasRegions is false and user.group.level is 3 then 4 else user.group.level
             # level = if defaults.brand is 'vaccines' and user.group.level is 3 then 4 else user.group.level
 
             switch level
@@ -337,6 +338,9 @@ module.exports = (angular, defaults) ->
 
                 # each subordinate is a manager, so get their users
                 for dmInfo in @subordinates
+
+                  console.log '%c USER WITH UNDERSCORE IGNORED:', 'background-color: red; color: #000', user if dmInfo.id[0] is '_'
+                  continue if dmInfo.id[0] is '_' #! SNM UNDERSCORE ID FIX
 
                   # get the full info for the dm (dmInfo is stubs)
                   dm = @lookup[ dmInfo.id ]

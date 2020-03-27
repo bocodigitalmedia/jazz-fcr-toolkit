@@ -41,7 +41,7 @@ angular = require 'angular'
 
 window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
 window.locale = locale = require '../../public/locale/en-jazz.json'
-defaults.testUserHemonc = "boco-super-emmons"
+# defaults.testUserHemonc = "boco-super-emmons"
 # defaults.testUserHemonc = "boco-super-mcdonald"
 # defaults.testUserHemonc = "rep-southwest-1"
 # defaults.testUserHemonc = "national-director"
