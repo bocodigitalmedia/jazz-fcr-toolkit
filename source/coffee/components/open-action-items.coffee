@@ -59,6 +59,8 @@ module.exports = (angular, defaults) ->
           openActionItems = angular.copy Data.forms.actionItemsByStatus.inprogress
           data = []
           for actionItemId, actionItem of openActionItems
+
+            continue if Data.forms.all[ actionItem.submissionId ].payload.status is 'saved'
             user = Users.lookup[ actionItem.userId ]
 
             end = moment()

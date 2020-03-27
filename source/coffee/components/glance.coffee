@@ -274,23 +274,15 @@ module.exports = (angular, defaults) ->
 
           region = Regions.lookupByManagerId[Users.active.id]
 
-          console.log '%c region ', 'background-color: red; color: #000', region
-
           districts = region.districts
-
-          console.log '%c districts ', 'background-color: red; color: #000', districts
 
           # for messaging (and stopping errors) if there's no forms to parse
           @noData = !Data.forms.byRegionByStatus[ region.id ]?.completed?
-
-          console.log '%c @noData ', 'background-color: red; color: #000', @noData
 
           if @noData
             @forms = []
           else
             @forms = angular.copy Data.forms.byRegion[ region.id ]
-
-          console.log '%c @forms ', 'background-color: red; color: #000', @forms
 
           @info =
             regionalManager: region.manager.email
@@ -366,6 +358,9 @@ module.exports = (angular, defaults) ->
               evaluator: district.manager.email
               evaluatorId: district.manager.id
               reps: 0
+              totalDays: 0
+              totalDaysLive: 0
+              totalDaysVirtual: 0
               totalCompleted: 0
               avgRating: 0
 
@@ -381,6 +376,14 @@ module.exports = (angular, defaults) ->
               avg = (averageRatings.reduce (a, b) -> a + b) / averageRatings.length
               # DistrictData.avgRating = Math.round(avg * 10) / 10
               DistrictData.avgRating = avg.toFixed 2
+
+              DistrictData.totalDays += form.payload.daysInField
+
+              switch form.payload.activity.toLowerCase()
+                when 'live' then DistrictData.totalDaysLive += form.payload.daysInField
+                when 'virtual' then DistrictData.totalDaysVirtual += form.payload.daysInField
+
+              DistrictData.totalCompleted++
 
               DistrictData.reps = uniqueUser.length
 

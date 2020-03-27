@@ -38,7 +38,7 @@ section#glance(layout="column" layout-padding)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.repId)')
               td(md-cell) {{ data.repName }}
               td(md-cell) {{ data.managerName }}
-              td(md-cell) {{ data.regionName }}
+              td(md-cell) {{ data.districtName }}
               td(md-cell) {{ data.submissionDate | date:'M/d/yyyy' }}
               td(md-cell width="1%")
                 md-menu
