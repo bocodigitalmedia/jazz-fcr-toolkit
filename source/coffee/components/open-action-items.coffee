@@ -66,6 +66,7 @@ module.exports = (angular, defaults) ->
             duration = end.diff(submitted, 'days') + 1
 
             obj =
+              repId: actionItem.userId
               repName: Users.getName user
               dateAssigned: actionItem.createdAt
               competencyAssigned: competenciesLookup[ actionItem.competencyList ]

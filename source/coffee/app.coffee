@@ -13,9 +13,8 @@ angular = require 'angular'
 #? SLEEP PRODUCTION                           -
 #? --------------------------------------------
 
-window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
-window.locale = locale = require '../../public/locale/en-jazz.json'
-# defaults.testUserSleep = "boco-super-mcdonald"
+# window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
+# window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "boco-super-mcdonald"
 # defaults.testUserSleep = "boco-super-gabe"
@@ -40,11 +39,9 @@ window.locale = locale = require '../../public/locale/en-jazz.json'
 #? HEMONC PRODUCTION                          -
 #? --------------------------------------------
 
-# window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
-# window.locale = locale = require '../../public/locale/en-jazz.json'
-# defaults.testUserHemonc = "boco-super-mcdonald"
-# defaults.testUserHemonc = "boco-super-emmons"
-# defaults.testUserHemonc = "boco-super-emmons"
+window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
+window.locale = locale = require '../../public/locale/en-jazz.json'
+defaults.testUserHemonc = "boco-super-emmons"
 # defaults.testUserHemonc = "boco-super-mcdonald"
 # defaults.testUserHemonc = "rep-southwest-1"
 # defaults.testUserHemonc = "national-director"

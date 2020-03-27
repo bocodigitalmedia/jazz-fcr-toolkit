@@ -144,7 +144,7 @@ module.exports = (angular, defaults) ->
 
             _yes = 0
             for d in realData
-              _yes++ if d is 3
+              _yes++ if d is 1
 
 
             # do the math for this question

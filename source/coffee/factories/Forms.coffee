@@ -24,14 +24,16 @@ module.exports = (angular, defaults) ->
 
         Forms =
 
-          active: null            # full form object of open form
-          selectedUserId: null    # userId of the open form
-          selectedUserEmail: null # email of the open user
-          selectedFormId: null    # submissionId of the open form
-          formOpen: false         # flyout is active AND form showing
-          formListOpen: false     # flyout is active but ONLY showing list
-          formPrintable: false    # display and hide form for print css
-          lastCompletedFCR: false # date of FCR completed PRIOR to the open one
+          active: null                # full form object of open form
+          selectedUserId: null        # userId of the open form
+          selectedUserEmail: null     # email of the open user
+          selectedFormId: null        # submissionId of the open form
+          formOpen: false             # flyout is active AND form showing
+          formListOpen: false         # flyout is active but ONLY showing list
+          actionItemsOpen: false      # action items flyout is active AND first one showing
+          actionItemsListOpen: false  # action items flyout is active but ONLY showing list
+          formPrintable: false        # display and hide form for print css
+          lastCompletedFCR: false     # date of FCR completed PRIOR to the open one
 
           # ------------------------------------------------------------------------
 
@@ -85,6 +87,35 @@ module.exports = (angular, defaults) ->
             @formListOpen = true
 
             $rootScope.$broadcast 'formDataReady'
+
+          # ------------------------------------------------------------------------
+
+          openActionItemsFlyout: (userId) ->
+
+            # store the ids
+            @selectedUserId = userId
+            @selectedUserEmail = Users.lookup[ @selectedUserId ].email
+
+            # open the form and the flyout
+            @actionItemsListOpen = true
+
+            $rootScope.$broadcast 'actionItemsDataReady'
+
+          # ------------------------------------------------------------------------
+
+          openActionItem: (itemId) ->
+
+            # set the active form
+            @activeActionItem = Data.actionItems.all[ itemId ]
+
+            # store the ids
+            @selectedActionItemId = itemId
+
+            # open the form and the flyout
+            @actionItemsOpen = true
+            @actionItemsListOpen = true
+
+            # $rootScope.$broadcast 'formDataReady'
 
           # ------------------------------------------------------------------------
 
@@ -204,11 +235,15 @@ module.exports = (angular, defaults) ->
 
           close: () ->
             @active = null
+            @activeActionItem = null
             @selectedFormId = null
             @selectedUserId = null
             @selectedUserEmail = null
+            @selectedActionItemId = null
             @formOpen = false
             @formListOpen = false
+            @actionItemsOpen = false
+            @actionItemsListOpen = false
             @formPrintable = false
 
           #~ ================================================================================================

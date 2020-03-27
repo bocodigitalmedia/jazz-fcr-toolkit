@@ -21,6 +21,12 @@
     "startEnd": "Start Date - End Date"
   },
   "components": {
+    "actionItems": {
+      "title": "Action Items",
+      "flyoutTitle": "Action Item",
+      "itemTitle": "Action Item",
+      "viewActionItems": "View Action Items",
+    },
     "completed": {
       "fieldRideStart": "FCR Start<br>Date",
       "timestamp": "FCR Completion<br>Date",

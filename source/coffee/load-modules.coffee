@@ -20,6 +20,7 @@ module.exports = (angular, defaults) ->
 
     require './directives/choices'
 
+    require './components/action-items'
     require './components/fcr'
     require './components/employee-review'
     require './components/glance'

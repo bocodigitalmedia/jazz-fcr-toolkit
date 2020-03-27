@@ -1,0 +1,127 @@
+section#action-items(layout="column")
+
+  //- ================================================================================================
+
+  header(layout="row")
+    span(ng-bind="form.title")
+
+  //- ================================================================================================
+
+  md-content(layout-padding)
+
+    .view-dashboard-fcrs
+
+      .fcr-form(ng-class="{ 'open': $root.Forms.actionItemsOpen }")
+
+        md-content.form-top(flex layout="row" layout-padding)
+
+          .header(flex="70" layout="row" layout-align="start center")
+            span(ng-if="ctrl.data.status == 'submitted'" ng-bind-html="::$root.locale.global.inReview | trust")
+            span(ng-if="ctrl.data.status == 'completed'" ng-bind-html="::$root.locale.components.fcr.common.completed | trust")
+            | &nbsp;{{ ctrl.data.timestamp | tsFormat }}
+          div(flex)
+
+        div.form-body-wrapper
+          md-content.form-body(flex layout="column" layout-padding)
+            section(id="actionPlans" layout="column")
+
+              .container
+
+                //- .row.subsection(ng-repeat="item in ctrl.actionItems track by $index")
+                .row.subsection
+                  .col-sm-12
+                    .subsection-header
+                      h3
+                        span(ng-bind-html="::$root.locale.components.actionItems.itemTitle | trust")
+                        span &nbsp;{{ $root.Forms.activeActionItem.createdAt | tsFormat }}
+
+                    .subs-container
+
+                      .row
+                        .col.col-sm-12
+                          p.footnote(ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.footnote | trust")
+
+                      .row.comments(style="margin-bottom: 20px")
+                        .col.col-sm-12
+                          p(style="font-weight: bold; font-size: 12px;margin-bottom: 10px" ng-bind-html="::$root.locale.global.managerComments | trust")
+                          .textarea {{ $root.Forms.activeActionItem.managerComments }}
+
+                      .row.competence
+                        .col.col-sm-6
+                          p(style="font-weight: bold;margin-bottom: 10px" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.competency | trust")
+
+                        .col.col-sm-6
+                          content.align-left.input-group
+                            div(ng-bind-html="ctrl.competency[$root.Forms.activeActionItem.competencyList] | sanitize")
+
+                      .row
+                        .col.col-sm-12
+                            p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.definition | trust")
+
+                            .subs-content(ng-switch="$root.Forms.activeActionItem.competencyList")
+                              p(ng-switch-when="precall" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub1.text | trust")
+                              p(ng-switch-when="rapport" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub2.text | trust")
+                              p(ng-switch-when="questioning" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub3.text | trust")
+                              p(ng-switch-when="positioning" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub4.text | trust")
+                              p(ng-switch-when="objections" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub5.text | trust")
+                              p(ng-switch-when="commitment" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub6.text | trust")
+                              p(ng-switch-when="analysis" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection1.subs.sub7.text | trust")
+                              p(ng-switch-when="knowledge" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection2.text | trust")
+                              p(ng-switch-when="business" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection3.text | trust")
+                              p(ng-switch-when="effectiveness" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection4.text | trust")
+                              p(ng-switch-when="other" ng-bind-html="::$root.locale.components.fcr.form.sectionD.subSection5.text | trust")
+
+                      .row.timeframe
+                        .col.col-sm-12
+                          p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.timeframe | trust")
+                          p.footnote(style="margin:0 0 10px 0 !important" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.example | trust")
+
+                        .col.col-sm-12
+                          .textarea.timeframe-comment {{ $root.Forms.activeActionItem.timeframe }}
+
+                      .row.status
+                        .col.col-sm-6
+                          p(style="font-weight: bold;" ng-bind-html="::$root.locale.components.fcr.form.sectionG.subSections.status | trust")
+                        .col.status-name(ng-class="[ $root.Forms.activeActionItem.status ]")
+                          content.align-left.input-group
+                            div(ng-bind-html="ctrl.actionItemStatus[$root.Forms.activeActionItem.status] | sanitize")
+                        .col.col-sm-3
+
+                .row.last
+
+
+
+      .manager-submissions(ng-class="{ 'open': $root.Forms.actionItemsListOpen, 'shadow': $root.Forms.actionItemsOpen }")
+
+        header(flex layout="row")
+          .details
+            .name {{ $root.Forms.selectedUserEmail }}
+            .submission
+              span {{ $root.keys($root.Data.actionItems.all).length }}&nbsp;
+              span(ng-bind-html="::$root.locale.components.actionItems.title | trust")
+              //- Completed FCRs
+          div(flex)
+          .close(ng-click="$root.Forms.close()" ng-bind-html="::$root.locale.global.close | trust")
+          //- Close
+
+        md-divider
+
+        div.scroll
+          md-list.forms
+            md-list-item(
+              ng-repeat="item in $root.Data.actionItems.all"
+              ng-click="$root.Forms.openActionItem(item.id)"
+              ng-class="{ 'active': $root.Forms.selectedActionItemId == item.id }"
+              )
+              i.material-icons.selected fiber_manual_record
+              md-list-item-text
+                .form-info
+                  span(ng-bind-html="::$root.locale.components.actionItems.flyoutTitle | trust")
+                  //- In Review
+                  span &nbsp;{{ item.createdAt | tsFormat }}
+                .evaluator
+                  span {{ ctrl.actionItemStatus[ item.status ] }}
+              i.material-icons.md-secondary open_in_new
+              md-divider
+
+      .cover(ng-click="$root.Forms.close()" ng-class="{ 'show': $root.Forms.actionItemsListOpen }" )

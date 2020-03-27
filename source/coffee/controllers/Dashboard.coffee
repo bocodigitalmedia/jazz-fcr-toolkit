@@ -50,6 +50,8 @@ module.exports = (angular, defaults) ->
         $rootScope.Forms = Forms
         $rootScope.Regions = Regions
         $rootScope.Users = Users
+        $rootScope.defaults = defaults
+        $rootScope.keys = Object.keys
 
         #~------------------------------------------------------------------------------------------
         #~ MODULE INIT

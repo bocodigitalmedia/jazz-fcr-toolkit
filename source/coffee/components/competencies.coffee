@@ -48,6 +48,7 @@ module.exports = (angular, defaults) ->
             userId = Users.lookupIdByEmail[ userEmail ]
             user = Users.lookup[ userId ]
             name = Users.getName user
+            numCompletedForms = 0
 
             userTally =
               name: name
@@ -56,6 +57,7 @@ module.exports = (angular, defaults) ->
 
             if userForms?.completed?
               for form in userForms.completed
+                numCompletedForms++
                 userTally.totals[0]++ if form.payload.subs.subs1
                 userTally.totals[1]++ if form.payload.subs.subs2
                 userTally.totals[2]++ if form.payload.subs.subs3
@@ -67,7 +69,7 @@ module.exports = (angular, defaults) ->
                 userTally.totals[8]++ if form.payload.subsections.subsection3
                 userTally.totals[9]++ if form.payload.subsections.subsection4
 
-            data.push userTally
+            data.push userTally if numCompletedForms isnt 0
 
           ctrl.tableData = data
 

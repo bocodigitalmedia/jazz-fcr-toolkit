@@ -6,12 +6,14 @@ module.exports = (angular, defaults) ->
       'Users'
       '$rootScope'
       '$timeout'
+      '$firebaseUtils'
       (
         $q
         Firebase
         Users
         $rootScope
         $timeout
+        $firebaseUtils
       ) ->
 
         Data =
@@ -44,7 +46,10 @@ module.exports = (angular, defaults) ->
             ids: []            # simple lookup of region ids
             nameLookup: {}     # by name, return id
 
-          # ------------------------------------------------------------------------
+          actionItems:
+            all: {}
+
+          # ================================================================================================
 
           getAll: ->
 
@@ -93,6 +98,14 @@ module.exports = (angular, defaults) ->
 
             # send back the promise
             return deferred.promise
+
+          # ------------------------------------------------------------------------
+
+          getAllActionItems: (userId)->
+            all = Firebase.getObject 'userData', userId, 'FormActionItems', defaults.formId[defaults.environment]
+            all.$loaded().then =>
+              Data.actionItems.all = $firebaseUtils.toJSON all
+              console.log '%c Data.actionItems.all ', 'background-color: red; color: #000', Data.actionItems.all
 
           # ================================================================================================
 
@@ -245,6 +258,9 @@ module.exports = (angular, defaults) ->
           # ================================================================================================
 
           parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
+
+            # don't include it if the form isn't submitted yet
+            return if @forms.allAll[ actionItemValue.submissionId ].payload.status is 'saved'
 
             # is this a valid form for this user based on their level and hierarchy
             addIt = false
