@@ -76,9 +76,8 @@ module.exports = (angular, defaults) ->
 
             completedDates = []
 
-            evaluator = Districts.lookup[id].manager
-
             if Users.active.group.level is 3
+              evaluator = Districts.lookup[id].manager
               evaluatorData =
                 evaluator: evaluator.email
                 evaluatorId: evaluator.id
@@ -94,6 +93,7 @@ module.exports = (angular, defaults) ->
                 evaluatorName: Users.getName evaluator
 
             if Users.active.group.level is 4
+              evaluator = Districts.lookupByManagerId[id].manager
               evaluatorData =
                 evaluator: Users.lookup[id].email
                 evaluatorId: Users.lookup[id].id

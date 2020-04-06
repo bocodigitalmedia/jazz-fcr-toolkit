@@ -9,7 +9,7 @@
           span(ng-bind-html="::$root.locale.views.dashboard.changeView | trust")
           //- Change View
       div(ng-if="Users.active.group.level > 2|| (Users.loggedIn && Users.loggedIn.group.level > 2)")
-        md-button.md-raised.export(ng-click="Dialogs.exportData($event)" aria-label="{{::$root.locale.views.dashboard.export | trust}}" ng-disabled="true")
+        md-button.md-raised.export(ng-click="Dialogs.exportData($event)" aria-label="{{::$root.locale.views.dashboard.export | trust}}")
           span(ng-bind-html="::$root.locale.views.dashboard.export | trust")
           //- Export Data
 

@@ -141,55 +141,31 @@ module.exports = (angular, defaults) ->
                 "District Manager": if data.evaluator.email? then data.evaluator.email else 'N/A'
                 "District Name": if user?.districtName? then user.districtName else 'N/A'
                 "Region Name": if user?.regionName? then user.regionName else 'N/A'
+
                 "Field Ride Start": if data.fieldRideStart? then moment(data.fieldRideStart).format('MM/DD/YYYY') else 'N/A'
                 "Field Ride End": if data.fieldRideEnd? then moment(data.fieldRideEnd).format('MM/DD/YYYY') else 'N/A'
                 "Total Contact Days": if data.daysInField? then data.daysInField else 'N/A'
-                "Average FCR Score": if data.average? then data.average else 'N/A'
-                "Total Calls Observed": if data.overallCallsObserved? then data.overallCallsObserved else 'N/A'
+                "Type of Activity": if data.activity? then data.activity else 'N/A'
 
-              # brand-specific extra fields
-              switch defaults.brand
-                when 'breo'
-                  brandObj =
-                    "24 Hour Lasting Symptom Control (Times Observed)": if data.selectLastingSymptom? then data.selectLastingSymptom else 'N/A'
-                    "24 Hour Lasting Symptom Control (Rating)": if data.answers?[0]? then data.answers[0] else 'N/A'
-                    "Cost & Affordability (Times Observed)": if data.selectAffordability? then data.selectAffordability else 'N/A'
-                    "Cost & Affordability (Rating)": if data.answers?[1]? then data.answers[1] else 'N/A'
-                    "Close vs. Symbicort (Times Observed)": if data.selectSymbicort? then data.selectSymbicort else 'N/A'
-                    "Close vs. Symbicort (Rating)": if data.answers?[2]? then data.answers[2] else 'N/A'
+                "Pre-Call Planning": if data.subs.subs1 then "1" else "0"
+                "Opening/Establishes Rapport": if data.subs.subs2 then "1" else "0"
+                "Effective Questioning": if data.subs.subs3 then "1" else "0"
+                "Product Positioning": if data.subs.subs4 then "1" else "0"
+                "Handling Objections": if data.subs.subs5 then "1" else "0"
+                "Gaining Commitment": if data.subs.subs6 then "1" else "0"
+                "Post-Call Analysis": if data.subs.subs7 then "1" else "0"
+                "Product / Scientific Knowledge": if data.subsections.subsection2 then "1" else "0"
+                "Business Analytics and Planning": if data.subsections.subsection3 then "1" else "0"
+                "Team and Leadership Effectiveness": if data.subsections.subsection4 then "1" else "0"
+                "Jazz Pharmaceuticals Compliance": if data.answers[0] == 1  then "YES" else "NO"
+                "Territory Management/Role Expectations": if data.answers[1] == 1  then "YES" else "NO"
 
-                    "# of Calls Observed": if data.selectCallsObserved? then data.selectCallsObserved else 'N/A'
-                    "# Calls Met Commercially Oriented Object": if data.selectCallsMet? then data.selectCallsMet else 'N/A'
-                    "# Calls Discussed Source of Business": if data.selectCallsDiscussed? then data.selectCallsDiscussed else 'N/A'
-                    "# Calls Closed For Behavioral Change": if data.selectCallsClosed? then data.selectCallsClosed else 'N/A'
-                    "# Calls Achieved Good Sell Outcome": if data.selectCallsAchieved? then data.selectCallsAchieved else 'N/A'
-
-                    "Overall Quality Global Selling Model": if data.answers?[3]? then data.answers[3] else 'N/A'
-
-                when 'vaccines'
-                  brandObj =
-                    "Target Product Delivery on Most Calls": if data.targetProductDelivery? then data.targetProductDelivery else 'N/A'
-                    "Disease State Delivery on Most Calls": if data.diseaseStateDelivery? then data.diseaseStateDelivery else 'N/A'
-                    "Gain Advance/Commitment": if data.gainAdvance? then data.gainAdvance else 'N/A'
-                    "Immunication Belief Change Observed": if data.immunicationBelief? then data.immunicationBelief else 'N/A'
-                    "Transition to Additional Prod Discussion": if data.transitionAdditionalProdDiscussion? then data.transitionAdditionalProdDiscussion else 'N/A'
-                    "Disease State Delivery on 2nd prod Disc": if data.diseaseState2ndProd? then data.diseaseState2ndProd else 'N/A'
-
-                    "Quality of Resource Usage": if data.answers?[0]? then data.answers[0] else 'N/A'
-                    "Quality of Boostrix Delivery": if data.answers?[1]? then data.answers[1] else 'N/A'
-                    "Quality of Disease State Delivery": if data.answers?[2]? then data.answers[2] else 'N/A'
-                    "Quality Call to Action": if data.answers?[3]? then data.answers[3] else 'N/A'
-
-                    "Resource Most Utilized": if data.comments?[0]? then data.comments[0] else 'N/A'
-
-              mergedObj = Object.assign({}, obj, brandObj)
-
-              allForms.push mergedObj
+              allForms.push obj
 
           # TODO: sort by date here
           report.allForms = angular.copy allForms
           report.allForms = report.allForms.sort (a, b) ->
-            console.log a['Accepted Date'], b['Accepted Date'], a['Accepted Date'].valueOf(), b['Accepted Date'].valueOf(), moment(a['Accepted Date']).valueOf(), moment(b['Accepted Date']).valueOf(), moment(a['Accepted Date']).valueOf() < moment(b['Accepted Date']).valueOf() ? -1 : 1
+            # console.log a['Accepted Date'], b['Accepted Date'], a['Accepted Date'].valueOf(), b['Accepted Date'].valueOf(), moment(a['Accepted Date']).valueOf(), moment(b['Accepted Date']).valueOf(), moment(a['Accepted Date']).valueOf() < moment(b['Accepted Date']).valueOf() ? -1 : 1
             # return a['Accepted Date'].valueOf() < b['Accepted Date'].valueOf() ? -1 : 1;
             return moment(a['Accepted Date']).valueOf() < moment(b['Accepted Date']).valueOf() ? -1 : 1
 
@@ -206,6 +182,8 @@ module.exports = (angular, defaults) ->
           $scope.exporting = true
 
           report = gatherReportData(startDate, endDate)
+
+          console.log '%c REPORT: ', 'background-color: red; color: #000', report
 
           $scope.wb = new Workbook
 
@@ -228,13 +206,6 @@ module.exports = (angular, defaults) ->
 
           # this saves a base64 of the file to a variable so we can attach to email without saving locally
           wbout = XLSX.write $scope.wb, { bookType:'xlsx', bookSST:false, type:'buffer' }
-
-          console.log('$scope.wb', $scope.wb);
-          console.log('report.evaluatorSummary', report.evaluatorSummary);
-          console.log('report.formsByEvaluator', report.formsByEvaluator);
-          console.log('report.regionVisitsByEvaluator', report.regionVisitsByEvaluator);
-          console.log('filename', filename);
-          console.log('wbout', wbout);
 
           data =
             file: wbout
