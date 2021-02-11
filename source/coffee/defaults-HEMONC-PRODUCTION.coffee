@@ -5,7 +5,7 @@ module.exports =
   brand: 'hemonc'
   language: 'en'
   hasRegions: false
-  isDelphire: true
+  isDelphire: false
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -18,7 +18,7 @@ module.exports =
     stateShard: "https://delphire-jazz-io-state.firebaseio.com/"
     dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/"
   formId:
-    production: "7533a241-20b6-4e4d-8a9f-a55afdf9defd"
+    production: "12bdfe6a-c475-41e3-876e-0fd007eb4015"
   naValue: 5
   integrityQuestion: 30
   noDataMessage: "No data to show."
@@ -27,55 +27,83 @@ module.exports =
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
   activeGroups:
-    '-Lzhj0M8qEjtiHBs9TDk':
-      'id': '-Lzhj0M8qEjtiHBs9TDk'
-      'name': 'Oncology Account Manager'
+    '-MTCoAhtO5M4HzRHG9HM':
+      'id': '-MTCoAhtO5M4HzRHG9HM'
+      'name': 'HemOnc February FCR Group - RSM'
       'level': 1
-    '-LzhjCGdSnN4nSqfkLby':
-      'id': '-LzhjCGdSnN4nSqfkLby'
-      'name': 'Regional Sales Manager'
+    '-M5wIK3iPnSIq8dmC1kV':
+      'id': '-M5wIK3iPnSIq8dmC1kV'
+      'name': 'HemOnc ADBs'
       'level': 2
+    '-Lzhjc1dGSoz2316nOSk':
+      'id': '-Lzhjc1dGSoz2316nOSk'
+      'name': 'HemOnc National'
+      'level': 3
+    # '-Lzhj0M8qEjtiHBs9TDk':
+    #   'id': '-Lzhj0M8qEjtiHBs9TDk'
+    #   'name': 'Oncology Account Manager'
+    #   'level': 1
+    # '-LzhjCGdSnN4nSqfkLby':
+    #   'id': '-LzhjCGdSnN4nSqfkLby'
+    #   'name': 'Regional Sales Manager'
+    #   'level': 2
     # '-Lzhjc1dGSoz2316nOSk':
     #   'id': '-Lzhjc1dGSoz2316nOSk'
     #   'name': 'National Sales Manager'
     #   'level': 3
-    '-Lz81nYlZEh8PxWY4wYz':
-      'id': '-Lz81nYlZEh8PxWY4wYz'
-      'name': 'Jazz Training Team'
-      'level': 3
-      'super': true
+    # '-Lz81nYlZEh8PxWY4wYz':
+    #   'id': '-Lz81nYlZEh8PxWY4wYz'
+    #   'name': 'Jazz Training Team'
+    #   'level': 3
+    #   'super': true
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
       'level': 3
       'super': true
-    "-Lzhjc1dGSoz2316nOSk":
-      'id': "-Lzhjc1dGSoz2316nOSk"
-      'name': "Hem-Onc Sales Lead"
-      'level': 3
-      'super': true
+    # "-Lzhjc1dGSoz2316nOSk":
+    #   'id': "-Lzhjc1dGSoz2316nOSk"
+    #   'name': "Hem-Onc Sales Lead"
+    #   'level': 3
+    #   'super': true
 
   activeDistricts:
-    '-Lzhk3eLULX2FJmqQScU':
+    '-MR71IAOu3xawM_Ayt4_':
       'id': '-Lzhk3eLULX2FJmqQScU'
-      'name': 'Southwest'
-      'region': '-M-ziGQR_6dvQy1VrHTZ'
+      'name': 'HemOnc Sales AO - Gulf Coast'
+      'region': '-M5wIrtDrAovUDNMipbC'
+    # '-Lzhk3eLULX2FJmqQScU':
+    #   'id': '-Lzhk3eLULX2FJmqQScU'
+    #   'name': 'Southwest'
+    #   'region': '-M-ziGQR_6dvQy1VrHTZ'
 
   activeRegions:
-    '-M-ziGQR_6dvQy1VrHTZ':
-      'id': '-M-ziGQR_6dvQy1VrHTZ'
-      'name': 'All Regions'
+    '-M5wIrtDrAovUDNMipbC':
+      'id': '-M5wIrtDrAovUDNMipbC'
+      'name': 'HemOnc West Area'
       'districts': [
-        '-Lzhk3eLULX2FJmqQScU'
+        '-MR71IAOu3xawM_Ayt4_'
       ]
+    # '-M-ziGQR_6dvQy1VrHTZ':
+    #   'id': '-M-ziGQR_6dvQy1VrHTZ'
+    #   'name': 'All Regions'
+    #   'districts': [
+    #     '-Lzhk3eLULX2FJmqQScU'
+    #   ]
 
   activeTeam:
-    id: '-M-ziGQR_6dvQy1VrHTZ'
+    id: '-M5wIrtDrAovUDNMipbC'
     name: 'National'
     manager:
       email: 'roddy.mcilwain@jazzpharma.com'
       id: '-Lzhl7ys-TgHOkT6XJY8'
       name: 'National Sales Director'
+    # id: '-M-ziGQR_6dvQy1VrHTZ'
+    # name: 'National'
+    # manager:
+    #   email: 'roddy.mcilwain@jazzpharma.com'
+    #   id: '-Lzhl7ys-TgHOkT6XJY8'
+    #   name: 'National Sales Director'
 
   colors: [
     '#EB3A6E'

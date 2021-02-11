@@ -19,7 +19,7 @@ module.exports =
     dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/"
 
   formId:
-    production: "836f7797-ab87-4755-82ae-ca74f90eeb8b"
+    production: "f1b61dd4-615f-49d1-a382-2f4ce571e868"
   naValue: 5
   noDataMessage: "No data to show."
   noReviewsNeededMessage: "No forms to review at this time."
@@ -28,14 +28,22 @@ module.exports =
   evaluateeTerm: "Employee"
 
   activeGroups:
-    '-LzhVD3Qsk4LOqCdSL4c':
-      'id': '-LzhVD3Qsk4LOqCdSL4c'
-      'name': 'Sleep Sales Consultant'
+    '-MTDKsyMXHgl10_OQQ_R':
+      'id': '-MTDKsyMXHgl10_OQQ_R'
+      'name': 'Sleep February FCR Group - Rep'
       'level': 1
-    '-LzhVQI35fCFGR2uSDfo':
-      'id': '-LzhVQI35fCFGR2uSDfo'
-      'name': 'Regional Sales Manager'
+    # '-LzhVD3Qsk4LOqCdSL4c':
+    #   'id': '-LzhVD3Qsk4LOqCdSL4c'
+    #   'name': 'Sleep Sales Consultant'
+    #   'level': 1
+    '-MTCixV2n5xGEkJPr9Cn':
+      'id': '-MTCixV2n5xGEkJPr9Cn'
+      'name': 'Sleep February FCR Group - RSM'
       'level': 2
+    # '-LzhVQI35fCFGR2uSDfo':
+    #   'id': '-LzhVQI35fCFGR2uSDfo'
+    #   'name': 'Regional Sales Manager'
+    #   'level': 2
     '-LzhVdGiGrnnPzEx6Uto':
       'id': '-LzhVdGiGrnnPzEx6Uto'
       'name': 'Area Business Director'
@@ -44,43 +52,59 @@ module.exports =
       'id': '-LzhW9U390xXwcNb5NZX'
       'name': 'National Sales Director'
       'level': 4
-    '-Lz81nYlZEh8PxWY4wYz':
-      'id': '-Lz81nYlZEh8PxWY4wYz'
-      'name': 'Jazz Training Team'
-      'level': 4
-      'super': true
+    # '-Lz81nYlZEh8PxWY4wYz':
+    #   'id': '-Lz81nYlZEh8PxWY4wYz'
+    #   'name': 'Jazz Training Team'
+    #   'level': 4
+    #   'super': true
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
       'level': 4
       'super': true
-    "-Lzhjc1dGSoz2316nOSk":
-      'id': "-Lzhjc1dGSoz2316nOSk"
-      'name': "Hem-Onc Sales Lead"
-      'level': 4
-      'super': true
+    # "-Lzhjc1dGSoz2316nOSk":
+    #   'id': "-Lzhjc1dGSoz2316nOSk"
+    #   'name': "Hem-Onc Sales Lead"
+    #   'level': 4
+    #   'super': true
 
   activeDistricts:
-    '-LzhUhvHdnwUZBQ9eL-b':
-      'id': '-LzhUhvHdnwUZBQ9eL-b'
-      'name': 'Southeast'
-      'region': '-LzhTkAMq4eBlRoeuYzo'
+    # '-LzhUhvHdnwUZBQ9eL-b':
+    #   'id': '-LzhUhvHdnwUZBQ9eL-b'
+    #   'name': 'Southeast'
+    #   'region': '-LzhTkAMq4eBlRoeuYzo'
+    '-MR70WcQn_Sf2VBbQoVU':
+      'id': '-MR70WcQn_Sf2VBbQoVU'
+      'name': 'Sleep South Central'
+      'region': '--LzhTmo1WsBymrteELGk'
 
   activeRegions:
-    '-LzhTkAMq4eBlRoeuYzo':
-      'id': '-LzhTkAMq4eBlRoeuYzo'
-      'name': 'South Area'
+    # '-LzhTkAMq4eBlRoeuYzo':
+    #   'id': '-LzhTkAMq4eBlRoeuYzo'
+    #   'name': 'South Area'
+    #   'districts': [
+    #     '-LzhUhvHdnwUZBQ9eL-b'
+    #   ]
+    '--LzhTmo1WsBymrteELGk':
+      'id': '--LzhTmo1WsBymrteELGk'
+      'name': 'West Area'
       'districts': [
-        '-LzhUhvHdnwUZBQ9eL-b'
+        '-MR70WcQn_Sf2VBbQoVU'
       ]
 
   activeTeam:
-    id: '-LzhU2DAlCznHw7NiB1F'
+    id: '-MR6fgloK4ZfAyw73TcR'
     name: 'Sleep Sales'
     manager:
       email: 'dave.hirsch@jazzpharma.com'
       id: '-LzhWho4tx2_lyRIEv21'
       name: 'National Sales Director'
+    # id: '-LzhU2DAlCznHw7NiB1F'
+    # name: 'Sleep Sales'
+    # manager:
+    #   email: 'dave.hirsch@jazzpharma.com'
+    #   id: '-LzhWho4tx2_lyRIEv21'
+    #   name: 'National Sales Director'
 
   colors: [
     '#EB3A6E'
