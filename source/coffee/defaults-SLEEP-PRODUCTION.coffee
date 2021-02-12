@@ -77,7 +77,7 @@ module.exports =
     '-MR70WcQn_Sf2VBbQoVU':
       'id': '-MR70WcQn_Sf2VBbQoVU'
       'name': 'Sleep South Central'
-      'region': '--LzhTmo1WsBymrteELGk'
+      'region': '-LzhTmo1WsBymrteELGk'
 
   activeRegions:
     # '-LzhTkAMq4eBlRoeuYzo':
@@ -86,8 +86,8 @@ module.exports =
     #   'districts': [
     #     '-LzhUhvHdnwUZBQ9eL-b'
     #   ]
-    '--LzhTmo1WsBymrteELGk':
-      'id': '--LzhTmo1WsBymrteELGk'
+    '-LzhTmo1WsBymrteELGk':
+      'id': '-LzhTmo1WsBymrteELGk'
       'name': 'West Area'
       'districts': [
         '-MR70WcQn_Sf2VBbQoVU'
