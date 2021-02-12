@@ -28,10 +28,12 @@ section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
               span(ng-bind-html="::$root.locale.components.evaluatees.lastCompletedDate | trust")
             th(md-column md-order-by="reps")
               span(ng-bind-html="::$root.locale.components.glance.totalDays | trust")
-            th(md-column md-order-by="reps")
+            th(md-column md-order-by="totalDaysLive")
               span(ng-bind-html="::$root.locale.components.glance.totalDaysLive | trust")
-            th(md-column md-order-by="reps")
+            th(md-column md-order-by="totalDaysVirtual")
               span(ng-bind-html="::$root.locale.components.glance.totalDaysVirtual | trust")
+            th(md-column md-order-by="totalDaysOther")
+              span(ng-bind-html="::$root.locale.components.glance.totalDaysOther | trust")
             th(md-column md-order-by="totalCompleted")
               span(ng-bind-html="::$root.locale.components.evaluatees.totalCompleted | trust")
             th(md-column width="1%")
@@ -47,6 +49,7 @@ section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
             td(md-cell) {{ data.totalDays }}
             td(md-cell) {{ data.totalDaysLive }}
             td(md-cell) {{ data.totalDaysVirtual }}
+            td(md-cell) {{ data.totalDaysOther }}
             td(md-cell) {{ data.totalCompleted }}
             td(md-cell width="1%")
               md-menu

@@ -100,6 +100,7 @@ module.exports = (angular, defaults) ->
               totalDays: 0
               totalDaysLive: 0
               totalDaysVirtual: 0
+              totalDaysOther: 0
               totalCompleted: 0
               timestamp: null
               evaluateeName: Users.getName evaluatee
@@ -119,8 +120,9 @@ module.exports = (angular, defaults) ->
               employeeData.totalDays += form.payload.daysInField
 
               switch form.payload.activity.toLowerCase()
-                when 'live' then employeeData.totalDaysLive += form.payload.daysInField
-                when 'virtual' then employeeData.totalDaysVirtual += form.payload.daysInField
+                when 'hcp face to face' then employeeData.totalDaysLive += form.payload.daysInField
+                when 'hcp virtual' then employeeData.totalDaysVirtual += form.payload.daysInField
+                when 'hcp other' then employeeData.totalDaysOther += form.payload.daysInField
 
               employeeData.totalCompleted++
 

@@ -253,6 +253,16 @@ module.exports = (angular, defaults) ->
                       username: 'boco-super-gabe'
                       organization: '-Lye-Zvt1ifjQy4TMJD7'
 
+                    when 'roddy-mcilwain'
+                      id: '-Lzhl7ys-TgHOkT6XJY8'
+                      name: 'Roddy Mcilwain'
+                      email: 'roddy.mcilwain@jazzpharma.com'
+                      mgrEmail: null
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-Lzhjc1dGSoz2316nOSk'
+                      username: 'boco-super-gabe'
+                      organization: '-M5wItiXmCUeFq5ji8E8'
+
           # ------------------------------------------------------------------------
 
           getUserDelphire: () ->

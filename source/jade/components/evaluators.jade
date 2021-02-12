@@ -32,6 +32,8 @@ section#evaluators(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
               span(ng-bind-html="::$root.locale.components.evaluators.totalCompletedLive | trust")
             th(md-column md-order-by="totalCompletedVirtual")
               span(ng-bind-html="::$root.locale.components.evaluators.totalCompletedVirtual | trust")
+            th(md-column md-order-by="totalCompletedOther")
+              span(ng-bind-html="::$root.locale.components.evaluators.totalCompletedOther | trust")
             th(md-column md-order-by="lastCompletedDate")
               span(ng-bind-html="::$root.locale.components.evaluators.lastCompletedDate | trust")
             th(md-column md-order-by="timeToSubmit.inDays")
@@ -47,6 +49,7 @@ section#evaluators(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
             td(md-cell) {{ data.totalCompleted }}
             td(md-cell) {{ data.totalCompletedLive }}
             td(md-cell) {{ data.totalCompletedVirtual }}
+            td(md-cell) {{ data.totalCompletedOther }}
             td(md-cell) {{ data.lastCompletedDate | date:'M/d/yyyy' }}
             td(md-cell) {{ data.timeToSubmit.inDays }}
             td(md-cell width="1%")

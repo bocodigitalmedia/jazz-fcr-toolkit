@@ -157,15 +157,18 @@ section#glance(layout="column" layout-padding)
               th(md-column md-order-by="reps")
                 //- # Reps
                 span(ng-bind-html="::$root.locale.components.glance.numReps | trust")
-              th(md-column md-order-by="reps")
+              th(md-column md-order-by="totalDays")
                 //- # Reps
                 span(ng-bind-html="::$root.locale.components.glance.totalDays | trust")
-              th(md-column md-order-by="reps")
+              th(md-column md-order-by="totalDaysLive")
                 //- # Reps
                 span(ng-bind-html="::$root.locale.components.glance.totalDaysLive | trust")
-              th(md-column md-order-by="reps")
+              th(md-column md-order-by="totalDaysVirtual")
                 //- # Reps
                 span(ng-bind-html="::$root.locale.components.glance.totalDaysVirtual | trust")
+              th(md-column md-order-by="totalDaysOther")
+                //- # Reps
+                span(ng-bind-html="::$root.locale.components.glance.totalDaysOther | trust")
               th(md-column md-order-by="totalCompleted")
                 //- # Completed<br>FCRs
                 span(ng-bind-html="::$root.locale.components.glance.completedFcrs | trust")
@@ -182,6 +185,7 @@ section#glance(layout="column" layout-padding)
               td(md-cell) {{ data.totalDays }}
               td(md-cell) {{ data.totalDaysLive }}
               td(md-cell) {{ data.totalDaysVirtual }}
+              td(md-cell) {{ data.totalDaysOther }}
               td(md-cell) {{ data.totalCompleted }}
               //- td(md-cell) {{ data.avgRating }}
               td(md-cell width="1%")

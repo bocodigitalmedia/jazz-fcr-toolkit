@@ -206,6 +206,7 @@ module.exports = (angular, defaults) ->
               totalDays: 0
               totalDaysLive: 0
               totalDaysVirtual: 0
+              totalDaysOther: 0
               totalCompleted: 0
               timestamp: null
               evaluateeName: ''
@@ -235,8 +236,9 @@ module.exports = (angular, defaults) ->
               userData.totalDays += form.payload.daysInField
 
               switch form.payload.activity.toLowerCase()
-                when 'live' then userData.totalDaysLive += form.payload.daysInField
-                when 'virtual' then userData.totalDaysVirtual += form.payload.daysInField
+                when 'hcp face to face' then userData.totalDaysLive += form.payload.daysInField
+                when 'hcp virtual' then userData.totalDaysVirtual += form.payload.daysInField
+                when 'hcp other' then userData.totalDaysOther += form.payload.daysInField
 
               userData.totalCompleted++
 
@@ -366,6 +368,7 @@ module.exports = (angular, defaults) ->
               totalDays: 0
               totalDaysLive: 0
               totalDaysVirtual: 0
+              totalDaysOther: 0
               totalCompleted: 0
               avgRating: 0
               evaluatorName: Users.getName district.manager
@@ -384,8 +387,9 @@ module.exports = (angular, defaults) ->
               DistrictData.totalDays += form.payload.daysInField
 
               switch form.payload.activity.toLowerCase()
-                when 'live' then DistrictData.totalDaysLive += form.payload.daysInField
-                when 'virtual' then DistrictData.totalDaysVirtual += form.payload.daysInField
+                when 'hcp face to face' then DistrictData.totalDaysLive += form.payload.daysInField
+                when 'hcp virtual' then DistrictData.totalDaysVirtual += form.payload.daysInField
+                when 'hcp other' then DistrictData.totalDaysOther += form.payload.daysInField
 
               DistrictData.totalCompleted++
 

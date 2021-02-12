@@ -84,6 +84,7 @@ module.exports = (angular, defaults) ->
                 totalCompleted: 0
                 totalCompletedLive: 0
                 totalCompletedVirtual: 0
+                totalCompletedOther: 0
                 lastCompletedDate: null
                 timeToSubmit: {}
                 districtId: id
@@ -100,6 +101,7 @@ module.exports = (angular, defaults) ->
                 totalCompleted: 0
                 totalCompletedLive: 0
                 totalCompletedVirtual: 0
+                totalCompletedOther: 0
                 lastCompletedDate: null
                 timeToSubmit: {}
                 districtId: form.payload.evaluatee.districtId
@@ -113,8 +115,9 @@ module.exports = (angular, defaults) ->
             for id, form of forms
 
               switch form.payload.activity.toLowerCase()
-                when 'live' then evaluatorData.totalCompletedLive++
-                when 'virtual' then evaluatorData.totalCompletedVirtual++
+                when 'hcp face to face' then evaluatorData.totalCompletedLive++
+                when 'hcp virtual' then evaluatorData.totalCompletedVirtual++
+                when 'hcp other' then evaluatorData.totalCompletedOther++
 
               evaluatorData.totalCompleted++
 
