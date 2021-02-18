@@ -56,11 +56,11 @@ module.exports =
     #   'id': '-Lzhjc1dGSoz2316nOSk'
     #   'name': 'National Sales Manager'
     #   'level': 3
-    # '-Lz81nYlZEh8PxWY4wYz':
-    #   'id': '-Lz81nYlZEh8PxWY4wYz'
-    #   'name': 'Jazz Training Team'
-    #   'level': 3
-    #   'super': true
+    '-Lz82Kjh3XHZ90PiRd9W':
+      'id': '-Lz82Kjh3XHZ90PiRd9W'
+      'name': 'Jazz Training Team'
+      'level': 4
+      'super': true
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'

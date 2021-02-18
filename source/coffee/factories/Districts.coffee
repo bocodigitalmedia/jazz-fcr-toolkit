@@ -26,7 +26,7 @@ module.exports = (angular, defaults) ->
 
           getAll: () ->
 
-            localVerbose = false
+            localVerbose = true
 
             #* set up a promise
             deferred = $q.defer()
@@ -49,7 +49,7 @@ module.exports = (angular, defaults) ->
               # loop all the organizations (which each have a single string property, managerId)
               for organizationId, managerId of $firebaseUtils.toJSON(@allManagers)
 
-                console.log '------'
+                console.log '------' if localVerbose
                 console.log '%c organizationId ', 'background-color: red; color: #000', organizationId if localVerbose
                 console.log '%c managerId ', 'background-color: lime; color: #000', managerId if localVerbose
 
@@ -61,7 +61,7 @@ module.exports = (angular, defaults) ->
               # now loop all our districts and add them to our lookup arrays for convenience later
               for districtId, district of @all
 
-                console.log '------'
+                console.log '------' if localVerbose
                 console.log '%c districtId ', 'background-color: red; color: #000', districtId if localVerbose
                 console.log '%c district ', 'background-color: lime; color: #000', district if localVerbose
                 @lookup[ district.id ] = district
