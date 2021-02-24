@@ -76,25 +76,36 @@ section#fcr(layout="column")
                     input(value="{{ ctrl.data.activity }}" disabled)
 
             //----------------------------------------------------------------------------
-            //- Alignment to Brand Strategy
+            //- Business Imperatives
 
             md-divider
 
             section(layout="column")
               h4(ng-bind-html="::$root.locale.components.fcr.form.sectionA.sectionTitle | trust")
 
-              section(layout="column")
+              section(layout="column" ng-if="ctrl.data.salesProduct == 'sunosi'")
                 div(layout="row")
                   .col(flex="33" layout="row")
-                    p.field-text
-                      content(ng-bind-html="::$root.locale.components.fcr.form.sectionA.data1 | trust")
-
-                  .col(flex="66" layout="row")
-                    p.field-text
+                    h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductSunosi | trust")
+                    p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.p1 | trust")
                       ol
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency2 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.competency3 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet1 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet2 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet3 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet4 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet5 | trust")
+
+              section(layout="column" ng-if="ctrl.data.salesProduct == 'xywav'")
+                div(layout="row")
+                  .col(flex="33" layout="row")
+                    h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductXywav | trust")
+                    p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.p1 | trust")
+                      ol
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet1 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet2 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet3 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet4 | trust")
+                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet5 | trust")
 
 
             //----------------------------------------------------------------------------
