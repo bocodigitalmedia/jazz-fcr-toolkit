@@ -92,16 +92,61 @@
       },
       "form": {
         "sectionA": {
-          "sectionTitle": "Business Imperatives",
-          "sectionTitleNote": "MANDATORY",
-          "data1": "SLEEP BU Imperatives",
-          "competency1": "Meet and Exceed your Xyrem goal and  generate SUNOSI TRxs to support the Region and National goals",
-          "competency2": "Drive PE growth to meet and exceed your quarterly goal",
-          "competency3": "Expand SUNOSI prescriber base in OSA through increased reach and frequency to SUNOSI only targets",
-          "data1a": "Heme-Onc BU Imperatives",
-          "competency1a": "Position VYXEOS as the first choice in fit sAML patients in both academic and community settings",
-          "competency2a": "Accelerate adoption through enhanced targeting in community practices",
-          "competency3a": "Ensure VYXEOS is top of mind with HCPs so they prescribe VYXEOS whenever they see fit sAML patients"
+          "sectionTitle": "Business Imperatives (From Sales Leadership)",
+          "buHeader": "BU Imperatives",
+          "buProductZepzelca": "Zepzelca:",
+          "buProductVyxeos": "Vyxeos:",
+          "buProductDefitelio": "Defitelio:",
+          "buProductSunosi": "Sunosi:",
+          "buProductXywav": "Xywav:",
+          "buZepzelca":{
+            "p1":"<strong>Increase awareness of ZEPZELCA benefits with prescribers and key stakeholders</strong>",
+            "p2":"<strong>Actively define the treatment algorithm and patient types with ZEPZELCA as the first post-platinum therapy</strong>",
+            "p3":"<strong>Eliminate adoption barriers by driving reimbursement confidence, supporting patient access, and integrating into protocols / pathways and formularies</strong>",
+            "p4":"Enhance and apply virtual skills during customer engagements",
+            "p1Bullet1":"Exceed established goals for reach and frequency",
+            "p1Bullet2":"Leverage all available resources-speaker programs, product theatres, prospective patient data, Zoom info, etc.-to drive awareness",
+            "p1Bullet3":"Effectively collaborate with RMM to increase conviction amongst KOLs",
+            "p1Bullet4":"Consistently analyze the business to identify trends/issues that can  provide direction to promotional efforts",
+            "p2Bullet1":"Emphasis on providing context around Zepzelca’s clinical profile, ie telling the story",
+            "p2Bullet2":"Effectively overcome objections that hinder utilization in 2L, particularly in the platinum sensitive patient ",
+            "p3Bullet1":"Total office call including support staff, reimbursement specialists, and practice manager(s)",
+            "p3Bullet2":"Effectively collaborate with functional partners to eliminate adoption barriers",
+            "p3Bullet3":"Escalate non local barriers to utilization ie GPO contract/pathway, insurer issues, etc to leverage One Jazz"
+          },
+          "buVyxeos":{
+            "p1":"Leverage 5-year data to <strong>entrench VYXEOS</strong> as <u>the</u> standard-of-care for newly diagnosed sAML patients eligible for intensive induction",
+            "p2":"<strong>Drive adoption</strong> of VYXEOS in <u>community accounts</u> through expanded reach and increased adoption of outpatient dosing",
+            "p3":"Enhance and apply virtual skills during customer engagements",
+            "p1Bullet1":"Focus on getting the 5 year message out to key target customers; Academic and Community; direct mailers, virtual meetings, phone calls to ensure awareness",
+            "p1Bullet2":"Peer to peer virtual programs, Live programs when allowed",
+            "p1Bullet3":"OneJazz involvement immediately upon faced with customer issues/objections: ARM, MSL, RMM",
+            "p2Bullet1":"Ensure target Community customers receive JCO 301 re-print",
+            "p2Bullet2":"Deliver impactful messaging on out-patient induction",
+            "p2Bullet3":"Increase share of voice in community accounts to raise awareness or reinforce messaging"
+          },
+          "buDefitelio":{
+            "bullet1":"Accelerate Patient Identification – Focus on identifying patients at risk for VOD, create a prepared mindset for inclusion in differential diagnosis",
+            "bullet2":"Uncover Barriers – Identify barriers to Tx initiation and drive urgency to intervene with Defitelio",
+            "bullet3":"Targeted Execution – Maintain and grow the believers while convincing and growing the skeptics/dabblers",
+            "bullet4":"Enhance and apply virtual skills during customer engagements "
+          },
+          "buSunosi":{
+            "p1":"Objective: Drive new patient SUNOSI starts in EDS by establishing SUNOSI as the Rx of choice",
+            "bullet1":"Maintain a bi - weekly frequency on key accounts",
+            "bullet2":"Using a visual aid, deliver a prevalence, relevance and screening message on each call",
+            "bullet3":"Utilize samples or vouchers and a cost and coverage message on each call",
+            "bullet4":"Gain a commitment for action by asking a “will you” close on each call",
+            "bullet5":"Enhance and apply virtual skills during customer engagements "
+          },
+          "buXywav":{
+            "p1":"Objective: Drive transition of existing Oxybate patients to XYWAV",
+            "bullet1":"Maintain a bi – weekly frequency on key accounts",
+            "bullet2":"Using a visual aid, communicate the increased risk of CV/CM comorbidities narcolepsy patients face and that Xywav has the same active Moiety as Xyrem ",
+            "bullet3":"Gain a commitment for action by asking a “will you” close on each call",
+            "bullet4":"Collaborate with ARMs and MSL to help OC’s pull through each patient",
+            "bullet5":"Enhance and apply virtual skills during customer engagements"
+          },
         },
         "sectionB": {
           "sectionTitle": "Current Sales Performance",
