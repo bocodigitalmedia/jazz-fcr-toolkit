@@ -47,7 +47,7 @@ module.exports = (angular, defaults) ->
             @info = angular.copy Forms.active
             @actionItems = []
             for actionItem in @data.actionItemIds
-              @actionItems.push Data.forms.actionItems[ actionItem ]
+              @actionItems.push Data.forms.actionItemsAll[ actionItem ]
             $('.fcr-form').scrollTop(0)
 
         # ---------------------------------------------------------------------------------------------------
