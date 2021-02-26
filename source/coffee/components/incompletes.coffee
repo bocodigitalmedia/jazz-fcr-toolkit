@@ -42,6 +42,7 @@ module.exports = (angular, defaults) ->
           submittedForms = angular.copy Data.forms.allByStatus.submitted
           forms = []
           for formId, form of submittedForms
+            form.payload.regionInitials = Regions.lookup[ form.payload.evaluator.regionIdOriginal ].initials
             form.payload.repId = form.payload.evaluatee.id
             form.payload.repName = Users.getName form.payload.evaluatee
             form.payload.managerName = form.payload.evaluator.name

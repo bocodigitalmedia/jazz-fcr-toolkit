@@ -259,12 +259,14 @@ module.exports = (angular, defaults) ->
 
           parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
 
-            console.log '%c ------- ', 'background-color: red; color: #000'
-            console.log '%c actionItemId ', 'background-color: red; color: #000', actionItemId
-            console.log '%c actionItemValue ', 'background-color: red; color: #000', actionItemValue
-            console.log '%c evaluateeId ', 'background-color: lime; color: #000', evaluateeId
-            console.log '%c actionItemValue.submissionId ', 'background-color: lime; color: #000', actionItemValue.submissionId
-            console.log '%c @forms.allAll[ actionItemValue.submissionId ] ', 'background-color: lime; color: #000', @forms.allAll[ actionItemValue.submissionId ]
+            localVerbose = false
+
+            console.log '%c ------- ', 'background-color: red; color: #000' if localVerbose
+            console.log '%c actionItemId ', 'background-color: red; color: #000', actionItemId if localVerbose
+            console.log '%c actionItemValue ', 'background-color: red; color: #000', actionItemValue if localVerbose
+            console.log '%c evaluateeId ', 'background-color: lime; color: #000', evaluateeId if localVerbose
+            console.log '%c actionItemValue.submissionId ', 'background-color: lime; color: #000', actionItemValue.submissionId if localVerbose
+            console.log '%c @forms.allAll[ actionItemValue.submissionId ] ', 'background-color: lime; color: #000', @forms.allAll[ actionItemValue.submissionId ] if localVerbose
 
             # ignore this orphaned action item, someone deleted its parent form
             return if !@forms.allAll[ actionItemValue.submissionId ]

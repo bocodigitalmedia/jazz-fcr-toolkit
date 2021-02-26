@@ -65,12 +65,14 @@ module.exports =
     '-M03BXyv8l_rQZJqjW9F':
       'id': '-M03BXyv8l_rQZJqjW9F'
       'name': 'Boco East'
+      'initials': 'BE'
       'districts': [
         '-M03BTgcsR1xpi8H6w-7'
       ]
     '-M03B_4wAvDCNicrj2RW':
       'id': '-M03B_4wAvDCNicrj2RW'
       'name': 'Boco West'
+      'initials': 'BW'
       'districts': [
         '-M03BVeWmqPCtySIrzgP'
       ]
