@@ -173,11 +173,11 @@ module.exports =
       'name': 'West Area'
       'initials': 'A'
       'districts': [
-      '-MR71fiJp6wRK1K-e1en'
-      '-MR71hGie1YA5MGSlAn8'
-      '-MR71iw4VRBRZROHUwAz'
-      '-MR71l9dhj-TyTZaT-_C'
-      '-MR71nw66ttr0t3NvqHI'
+        '-MR71fiJp6wRK1K-e1en'
+        '-MR71hGie1YA5MGSlAn8'
+        '-MR71iw4VRBRZROHUwAz'
+        '-MR71l9dhj-TyTZaT-_C'
+        '-MR71nw66ttr0t3NvqHI'
       ]
     '-M5wJ0--M3ZKGhGhJi4C':
       'id': '-M5wJ0--M3ZKGhGhJi4C'
