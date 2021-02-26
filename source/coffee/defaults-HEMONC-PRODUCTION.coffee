@@ -67,6 +67,7 @@ module.exports =
       'id': '-Lzhjc1dGSoz2316nOSk'
       'name': 'HemOnc National'
       'level': 4
+      'super': true
     # '-Lzhj0M8qEjtiHBs9TDk':
     #   'id': '-Lzhj0M8qEjtiHBs9TDk'
     #   'name': 'Oncology Account Manager'
@@ -116,6 +117,7 @@ module.exports =
       'id': '-MR71cQQ8loRcGsm-xQS'
       'name': 'HemOnc Michiana'
       'region': '-MR715rTi75n9uaD0F6S'
+
     '-MR71fiJp6wRK1K-e1en':
       'id': '-MR71fiJp6wRK1K-e1en'
       'name': 'HemOnc Midwest'
@@ -136,6 +138,7 @@ module.exports =
       'id': '-MR71nw66ttr0t3NvqHI'
       'name': 'HemOnc Great Plains'
       'region': '-MR71IAOu3xawM_Ayt4_'
+
     '-MUAG6rubNyj7nL8MfxI':
       'id': '-MUAG6rubNyj7nL8MfxI'
       'name': 'HemOnc L&T West'

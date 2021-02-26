@@ -346,6 +346,8 @@ module.exports = (angular, defaults) ->
               # regional manager
               when 3
 
+                console.log '%c @subordinates ', 'background-color: red; color: #000', @subordinates
+
                 # each subordinate is a manager, so get their users
                 for dmInfo in @subordinates
 
@@ -360,6 +362,10 @@ module.exports = (angular, defaults) ->
 
                   # get the district so we know its id
                   district = Districts.lookupByManagerId[ dm.id ]
+
+                  console.log '%c ----- ', 'background-color: red; color: #000'
+                  console.log '%c dm.id ', 'background-color: lime; color: #000', dm.id
+                  console.log '%c district ', 'background-color: lime; color: #000', district
 
                   # get all members of this district and put them into descendant users
                   @descendants.users = @descendants.users.concat @lookupByDistrict[ district.id ]
