@@ -26,7 +26,7 @@ module.exports = (angular, defaults) ->
 
           getAll: () ->
 
-            localVerbose = true
+            localVerbose = false
 
             #* set up a promise
             deferred = $q.defer()

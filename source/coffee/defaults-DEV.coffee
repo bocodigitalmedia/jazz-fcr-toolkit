@@ -16,10 +16,11 @@ module.exports =
     appId: "1:898601993167:web:714d1ac170576f43c888ba"
     measurementId: "G-VEHMJ8Z0P9"
     stateShard: "https://delphire-jazz-io-state.firebaseio.com/"
-    dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/"
+    dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/" #! HEMONC
+    # dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/" #? SLEEP
   formId:
-    # production: "7533a241-20b6-4e4d-8a9f-a55afdf9defd"
-    production: "12bdfe6a-c475-41e3-876e-0fd007eb4015"
+    production: "test-hemeonc-fcr" #! HEMONC
+    # production: "test-sleep-fcr" #? SLEEP
   naValue: 5
   integrityQuestion: 30
   noDataMessage: "No data to show."
@@ -28,87 +29,59 @@ module.exports =
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
   activeGroups:
-    '-MTCw80e5Joovj4aTD5N':
-      'id': '-MTCw80e5Joovj4aTD5N'
-      'name': 'HemOnc February FCR Group - Rep'
+    '-M03B4-G4OgGYz4dnjVt':
+      'id': '-M03B4-G4OgGYz4dnjVt'
+      'name': 'Boco Reps'
       'level': 1
-    '-MTCoAhtO5M4HzRHG9HM':
-      'id': '-MTCoAhtO5M4HzRHG9HM'
-      'name': 'HemOnc February FCR Group - RSM'
+    '-M03BCiWABXAUuo2xEoU':
+      'id': '-M03BCiWABXAUuo2xEoU'
+      'name': 'Boco DMs'
       'level': 2
-    '-M5wIK3iPnSIq8dmC1kV':
-      'id': '-M5wIK3iPnSIq8dmC1kV'
-      'name': 'HemOnc ADBs'
+    '-M03BGAcmENfAf5jdq93':
+      'id': '-M03BGAcmENfAf5jdq93'
+      'name': 'Boco RMs'
       'level': 3
-    '-Lzhjc1dGSoz2316nOSk':
-      'id': '-Lzhjc1dGSoz2316nOSk'
-      'name': 'HemOnc National'
+    '-M03BGAcmENfAf5jdq93':
+      'id': '-M03BGAcmENfAf5jdq93'
+      'name': 'Boco NSM'
       'level': 4
-    # '-Lzhj0M8qEjtiHBs9TDk':
-    #   'id': '-Lzhj0M8qEjtiHBs9TDk'
-    #   'name': 'Oncology Account Manager'
-    #   'level': 1
-    # '-LzhjCGdSnN4nSqfkLby':
-    #   'id': '-LzhjCGdSnN4nSqfkLby'
-    #   'name': 'Regional Sales Manager'
-    #   'level': 2
-    # '-Lzhjc1dGSoz2316nOSk':
-    #   'id': '-Lzhjc1dGSoz2316nOSk'
-    #   'name': 'National Sales Manager'
-    #   'level': 3
-    '-Lz82Kjh3XHZ90PiRd9W':
-      'id': '-Lz82Kjh3XHZ90PiRd9W'
-      'name': 'Jazz Training Team'
-      'level': 4
-      'super': true
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
       'level': 4
       'super': true
-    # "-Lzhjc1dGSoz2316nOSk":
-    #   'id': "-Lzhjc1dGSoz2316nOSk"
-    #   'name': "Hem-Onc Sales Lead"
-    #   'level': 3
-    #   'super': true
 
   activeDistricts:
-    '-MR71hGie1YA5MGSlAn8':
-      'id': '-MR71hGie1YA5MGSlAn8'
-      'name': 'HemOnc Sales AO - Gulf Coast'
-      'region': '-MR71IAOu3xawM_Ayt4_'
-    # '-Lzhk3eLULX2FJmqQScU':
-    #   'id': '-Lzhk3eLULX2FJmqQScU'
-    #   'name': 'Southwest'
-    #   'region': '-M-ziGQR_6dvQy1VrHTZ'
+    '-M03BTgcsR1xpi8H6w-7':
+      'id': '-M03BTgcsR1xpi8H6w-7'
+      'name': 'Boco Philadelphia'
+      'region': '-M03BXyv8l_rQZJqjW9F'
+    '-M03BVeWmqPCtySIrzgP':
+      'id': '-M03BVeWmqPCtySIrzgP'
+      'name': 'Boco San Diego'
+      'region': '-M03B_4wAvDCNicrj2RW'
 
   activeRegions:
-    '-MR71IAOu3xawM_Ayt4_':
-      'id': '-MR71IAOu3xawM_Ayt4_'
-      'name': 'HemOnc West Area'
+    '-M03BXyv8l_rQZJqjW9F':
+      'id': '-M03BXyv8l_rQZJqjW9F'
+      'name': 'Boco East'
       'districts': [
-        '-MR71hGie1YA5MGSlAn8'
+        '-M03BTgcsR1xpi8H6w-7'
       ]
-    # '-M-ziGQR_6dvQy1VrHTZ':
-    #   'id': '-M-ziGQR_6dvQy1VrHTZ'
-    #   'name': 'All Regions'
-    #   'districts': [
-    #     '-Lzhk3eLULX2FJmqQScU'
-    #   ]
+    '-M03B_4wAvDCNicrj2RW':
+      'id': '-M03B_4wAvDCNicrj2RW'
+      'name': 'Boco West'
+      'districts': [
+        '-M03BVeWmqPCtySIrzgP'
+      ]
 
   activeTeam:
-    id: '-M5wItiXmCUeFq5ji8E8'
-    name: 'National'
+    id: '-M03Bq3CZoyZsNUo0i-D'
+    name: 'Boco NSM'
     manager:
-      email: 'roddy.mcilwain@jazzpharma.com'
-      id: '-Lzhl7ys-TgHOkT6XJY8'
-      name: 'National Sales Director'
-    # id: '-M-ziGQR_6dvQy1VrHTZ'
-    # name: 'National'
-    # manager:
-    #   email: 'roddy.mcilwain@jazzpharma.com'
-    #   id: '-Lzhl7ys-TgHOkT6XJY8'
-    #   name: 'National Sales Director'
+      email: 'boco.national.director@gmail.com'
+      id: '-M-QREGos1cWmgTsDoeM'
+      name: 'National Sales Manager'
 
   colors: [
     '#EB3A6E'

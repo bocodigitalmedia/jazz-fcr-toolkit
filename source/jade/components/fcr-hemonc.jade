@@ -33,7 +33,7 @@ section#fcr(layout="column")
           div(flex layout="row" layout-align="end center")
             md-button.md-raised.accept(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'completed')" ng-bind-html="::$root.locale.components.fcr.common.acceptFCR | trust")
             //- Accept FCR
-            
+
 
             //- md-button.md-raised.reject(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'rejected')" ng-bind-html="::$root.locale.components.fcr.common.rejectFCR | trust")
             //- Reject FCR - removed from JAZZ
@@ -85,37 +85,37 @@ section#fcr(layout="column")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'vyxeosZepzelca'")
                 div(layout="row")
-                  .col(flex="33" layout="row")
+                  .col(flex="100" layout="row")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductZepzelca | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1 | trust")
-                      ul
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet2 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet3 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet4 | trust")
+                    ul
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet1 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet2 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet3 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1Bullet4 | trust")
 
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p2 | trust")
-                      ul
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p2Bullet1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p2Bullet2 | trust")
+                    ul
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p2Bullet1 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p2Bullet2 | trust")
 
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3 | trust")
-                      ul
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3Bullet1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3Bullet2 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3Bullet3 | trust")
+                    ul
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3Bullet1 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3Bullet2 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p3Bullet3 | trust")
 
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p4 | trust")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'defitelio'")
                 div(layout="row")
-                  .col(flex="33" layout="row")
+                  .col(flex="100" layout="row")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductDefitelio | trust")
-                      ul
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet2 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet3 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet4 | trust")
+                    ul
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet1 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet2 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet3 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet4 | trust")
 
             //----------------------------------------------------------------------------
             //- Current Sales Performance

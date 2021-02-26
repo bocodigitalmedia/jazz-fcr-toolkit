@@ -10,6 +10,14 @@ angular = require 'angular'
 #! ---------------------------------------------------------------------------------------------------------------
 
 #? --------------------------------------------
+#? HEMONC TEST PRODUCTION                           -
+#? --------------------------------------------
+
+window.defaults = defaults = require './defaults-DEV'
+window.locale = locale = require '../../public/locale/en-jazz.json'
+defaults.testUserHemonc = "boco-super-emmons"
+
+#? --------------------------------------------
 #? SLEEP PRODUCTION                           -
 #? --------------------------------------------
 
@@ -39,8 +47,8 @@ angular = require 'angular'
 #? HEMONC PRODUCTION                          -
 #? --------------------------------------------
 
-window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
-window.locale = locale = require '../../public/locale/en-jazz.json'
+# window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
+# window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserHemonc = "roddy-mcilwain"
 # defaults.testUserHemonc = "boco-super-emmons"
 # defaults.testUserHemonc = "boco-super-mcdonald"

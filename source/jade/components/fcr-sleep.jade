@@ -33,7 +33,7 @@ section#fcr(layout="column")
           div(flex layout="row" layout-align="end center")
             md-button.md-raised.accept(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'completed')" ng-bind-html="::$root.locale.components.fcr.common.acceptFCR | trust")
             //- Accept FCR
-            
+
 
             //- md-button.md-raised.reject(ng-if="!$root.Users.loggedIn && $root.Users.active.group.level == 1 && ctrl.data.status == 'submitted'" ng-click="$root.Forms.acceptReject($event, 'rejected')" ng-bind-html="::$root.locale.components.fcr.common.rejectFCR | trust")
             //- Reject FCR - removed from JAZZ
@@ -85,27 +85,27 @@ section#fcr(layout="column")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'sunosi'")
                 div(layout="row")
-                  .col(flex="33" layout="row")
+                  .col(flex="100" layout="row")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductSunosi | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.p1 | trust")
-                      ol
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet2 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet3 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet4 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet5 | trust")
+                    ol
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet1 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet2 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet3 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet4 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.bullet5 | trust")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'xywav'")
                 div(layout="row")
-                  .col(flex="33" layout="row")
+                  .col(flex="100" layout="row")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductXywav | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.p1 | trust")
-                      ol
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet1 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet2 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet3 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet4 | trust")
-                        li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet5 | trust")
+                    ol
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet1 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet2 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet3 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet4 | trust")
+                      li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.bullet5 | trust")
 
 
             //----------------------------------------------------------------------------
