@@ -10,7 +10,7 @@ angular = require 'angular'
 #! ---------------------------------------------------------------------------------------------------------------
 
 #? --------------------------------------------
-#? HEMONC TEST PRODUCTION                           -
+#? HEMONC TEST PRODUCTION                     -
 #? --------------------------------------------
 
 # window.defaults = defaults = require './defaults-DEV'
@@ -49,7 +49,7 @@ angular = require 'angular'
 
 window.defaults = defaults = require './defaults-HEMONC-PRODUCTION'
 window.locale = locale = require '../../public/locale/en-jazz.json'
-defaults.testUserHemonc = "roddy-mcilwain"
+# defaults.testUserHemonc = "roddy-mcilwain"
 # defaults.testUserHemonc = "boco-super-emmons"
 # defaults.testUserHemonc = "boco-super-mcdonald"
 # defaults.testUserHemonc = "rep-southwest-1"

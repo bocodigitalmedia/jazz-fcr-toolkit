@@ -5,7 +5,7 @@ module.exports =
   brand: 'hemonc'
   language: 'en'
   hasRegions: true
-  isDelphire: false
+  isDelphire: true
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -99,24 +99,23 @@ module.exports =
     '-MR71Wzd594z2IVmUouY':
       'id': '-MR71Wzd594z2IVmUouY'
       'name': 'HemOnc Northeast'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-MR715rTi75n9uaD0F6S'
     '-MR71YOXgZIjjHVeyoRL':
       'id': '-MR71YOXgZIjjHVeyoRL'
       'name': 'HemOnc Tri-State'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-MR715rTi75n9uaD0F6S'
     '-MR71_JVd_W2W7BP1-Ot':
       'id': '-MR71_JVd_W2W7BP1-Ot'
       'name': 'HemOnc Mid-Atlantic'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-MR715rTi75n9uaD0F6S'
     '-MR71ai6sKFxydeAhfdJ':
       'id': '-MR71ai6sKFxydeAhfdJ'
       'name': 'HemOnc Southeast'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-MR715rTi75n9uaD0F6S'
     '-MR71cQQ8loRcGsm-xQS':
       'id': '-MR71cQQ8loRcGsm-xQS'
       'name': 'HemOnc Michiana'
-      'region': '-MR71IAOu3xawM_Ayt4_'
-
+      'region': '-MR715rTi75n9uaD0F6S'
     '-MR71fiJp6wRK1K-e1en':
       'id': '-MR71fiJp6wRK1K-e1en'
       'name': 'HemOnc Midwest'
@@ -137,19 +136,18 @@ module.exports =
       'id': '-MR71nw66ttr0t3NvqHI'
       'name': 'HemOnc Great Plains'
       'region': '-MR71IAOu3xawM_Ayt4_'
-
     '-MUAG6rubNyj7nL8MfxI':
       'id': '-MUAG6rubNyj7nL8MfxI'
       'name': 'HemOnc L&T West'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-M5wJ0--M3ZKGhGhJi4C'
     '-MUAGHVx-GZPSQIf6Fv3':
       'id': '-MUAGHVx-GZPSQIf6Fv3'
       'name': 'HemOnc L&T Northeast'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-M5wJ0--M3ZKGhGhJi4C'
     '-MUAGNJx3qK4tRUEwd-o':
       'id': '-MUAGNJx3qK4tRUEwd-o'
       'name': 'HemOnc L&T Southeast'
-      'region': '-MR71IAOu3xawM_Ayt4_'
+      'region': '-M5wJ0--M3ZKGhGhJi4C'
 
     # '-Lzhk3eLULX2FJmqQScU':
     #   'id': '-Lzhk3eLULX2FJmqQScU'
