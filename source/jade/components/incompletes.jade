@@ -20,7 +20,7 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
-              th(md-column md-order-by="repName")
+              th(md-column md-order-by="repName" ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.hasRegions ) || ($root.Users.active.group.level == 4 && $root.defaults.hasRegions) )")
                 span Team
 
               th(md-column md-order-by="repName")
@@ -39,7 +39,8 @@ section#glance(layout="column" layout-padding)
 
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.repId)')
-              td(md-cell) {{ data.regionInitials }}
+              td(md-cell ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.hasRegions ) || ($root.Users.active.group.level == 4 && $root.defaults.hasRegions) )")
+                span.initials(ng-class="['initial-' + data.regionInitials]") {{ data.regionInitials }}
               td(md-cell) {{ data.repName | shorten }}
               td(md-cell) {{ data.managerName | shorten }}
               td(md-cell) {{ data.districtName }}
