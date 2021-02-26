@@ -28,18 +28,41 @@ module.exports =
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
   activeGroups:
-    '-MTCw80e5Joovj4aTD5N':
-      'id': '-MTCw80e5Joovj4aTD5N'
-      'name': 'HemOnc February FCR Group - Rep'
+    '-MUVAGg1LWrWR6Wynv5j':
+      'id': '-MUVAGg1LWrWR6Wynv5j'
+      'name': 'Hemonc New Hire OAMs - Adult'
       'level': 1
-    '-MTCoAhtO5M4HzRHG9HM':
-      'id': '-MTCoAhtO5M4HzRHG9HM'
-      'name': 'HemOnc February FCR Group - RSM'
+    '-MUVAJ5v_nf9gsR8AXSq':
+      'id': '-MUVAJ5v_nf9gsR8AXSq'
+      'name': 'Hemonc New Hire OAMs - L&T'
+      'level': 1
+    '-MUOsyIqV7SS1nXQNctX':
+      'id': '-MUOsyIqV7SS1nXQNctX'
+      'name': 'Hemonc OAMs - Adult'
+      'level': 1
+    '-MUOtOqUaPY-uIDeaB4J':
+      'id': '-MUOtOqUaPY-uIDeaB4J'
+      'name': 'Hemonc OAMs - L&T'
+      'level': 1
+
+    '-M5wIMJ4wBOP5_LUcffa':
+      'id': '-M5wIMJ4wBOP5_LUcffa'
+      'name': 'HemOnc RSMs - Adult'
       'level': 2
+    '-MQn2PDDJSAYBtJQQImH':
+      'id': '-MQn2PDDJSAYBtJQQImH'
+      'name': 'HemOnc RSMs - L&T'
+      'level': 2
+
     '-M5wIK3iPnSIq8dmC1kV':
       'id': '-M5wIK3iPnSIq8dmC1kV'
       'name': 'HemOnc ADBs'
       'level': 3
+    '-MQnLQ84JiSNPuKzIVvM':
+      'id': '-MQnLQ84JiSNPuKzIVvM'
+      'name': 'ABD - L&T'
+      'level': 3
+
     '-Lzhjc1dGSoz2316nOSk':
       'id': '-Lzhjc1dGSoz2316nOSk'
       'name': 'HemOnc National'
@@ -73,21 +96,97 @@ module.exports =
     #   'super': true
 
   activeDistricts:
+    '-MR71Wzd594z2IVmUouY':
+      'id': '-MR71Wzd594z2IVmUouY'
+      'name': 'HemOnc Northeast'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71YOXgZIjjHVeyoRL':
+      'id': '-MR71YOXgZIjjHVeyoRL'
+      'name': 'HemOnc Tri-State'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71_JVd_W2W7BP1-Ot':
+      'id': '-MR71_JVd_W2W7BP1-Ot'
+      'name': 'HemOnc Mid-Atlantic'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71ai6sKFxydeAhfdJ':
+      'id': '-MR71ai6sKFxydeAhfdJ'
+      'name': 'HemOnc Southeast'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71cQQ8loRcGsm-xQS':
+      'id': '-MR71cQQ8loRcGsm-xQS'
+      'name': 'HemOnc Michiana'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+
+    '-MR71fiJp6wRK1K-e1en':
+      'id': '-MR71fiJp6wRK1K-e1en'
+      'name': 'HemOnc Midwest'
+      'region': '-MR71IAOu3xawM_Ayt4_'
     '-MR71hGie1YA5MGSlAn8':
       'id': '-MR71hGie1YA5MGSlAn8'
-      'name': 'HemOnc Sales AO - Gulf Coast'
+      'name': 'HemOnc Gulf Coast'
       'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71iw4VRBRZROHUwAz':
+      'id': '-MR71iw4VRBRZROHUwAz'
+      'name': 'HemOnc Southwest'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71l9dhj-TyTZaT-_C':
+      'id': '-MR71l9dhj-TyTZaT-_C'
+      'name': 'HemOnc West'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MR71nw66ttr0t3NvqHI':
+      'id': '-MR71nw66ttr0t3NvqHI'
+      'name': 'HemOnc Great Plains'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+
+    '-MUAG6rubNyj7nL8MfxI':
+      'id': '-MUAG6rubNyj7nL8MfxI'
+      'name': 'HemOnc L&T West'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MUAGHVx-GZPSQIf6Fv3':
+      'id': '-MUAGHVx-GZPSQIf6Fv3'
+      'name': 'HemOnc L&T Northeast'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+    '-MUAGNJx3qK4tRUEwd-o':
+      'id': '-MUAGNJx3qK4tRUEwd-o'
+      'name': 'HemOnc L&T Southeast'
+      'region': '-MR71IAOu3xawM_Ayt4_'
+
     # '-Lzhk3eLULX2FJmqQScU':
     #   'id': '-Lzhk3eLULX2FJmqQScU'
     #   'name': 'Southwest'
     #   'region': '-M-ziGQR_6dvQy1VrHTZ'
 
   activeRegions:
+    '-MR715rTi75n9uaD0F6S':
+      'id': '-MR715rTi75n9uaD0F6S'
+      'name': 'East Area'
+      'initials': 'A'
+      'districts': [
+        '-MR71Wzd594z2IVmUouY'
+        '-MR71YOXgZIjjHVeyoRL'
+        '-MR71_JVd_W2W7BP1-Ot'
+        '-MR71ai6sKFxydeAhfdJ'
+        '-MR71cQQ8loRcGsm-xQS'
+      ]
     '-MR71IAOu3xawM_Ayt4_':
       'id': '-MR71IAOu3xawM_Ayt4_'
-      'name': 'HemOnc West Area'
+      'name': 'West Area'
+      'initials': 'A'
       'districts': [
-        '-MR71hGie1YA5MGSlAn8'
+      '-MR71fiJp6wRK1K-e1en'
+      '-MR71hGie1YA5MGSlAn8'
+      '-MR71iw4VRBRZROHUwAz'
+      '-MR71l9dhj-TyTZaT-_C'
+      '-MR71nw66ttr0t3NvqHI'
+      ]
+    '-M5wJ0--M3ZKGhGhJi4C':
+      'id': '-M5wJ0--M3ZKGhGhJi4C'
+      'name': 'L&T Area'
+      'initials': 'LT'
+      'districts': [
+        '-MUAG6rubNyj7nL8MfxI'
+        '-MUAGHVx-GZPSQIf6Fv3'
+        '-MUAGNJx3qK4tRUEwd-o'
       ]
     # '-M-ziGQR_6dvQy1VrHTZ':
     #   'id': '-M-ziGQR_6dvQy1VrHTZ'
@@ -97,7 +196,7 @@ module.exports =
     #   ]
 
   activeTeam:
-    id: '-M5wItiXmCUeFq5ji8E8'
+    id: '-M5wIrtDrAovUDNMipbC'
     name: 'National'
     manager:
       email: 'roddy.mcilwain@jazzpharma.com'

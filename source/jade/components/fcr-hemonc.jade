@@ -85,7 +85,7 @@ section#fcr(layout="column")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'vyxeosZepzelca'")
                 div(layout="row")
-                  .col(flex="100" layout="row")
+                  .col(flex="100" layout="column")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductZepzelca | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p1 | trust")
                     ul
@@ -108,7 +108,7 @@ section#fcr(layout="column")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buZepzelca.p4 | trust")
 
                 div(layout="row")
-                  .col(flex="100" layout="row")
+                  .col(flex="100" layout="column")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductVyxeos | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buVyxeos.p1 | trust")
                     ul
@@ -127,7 +127,7 @@ section#fcr(layout="column")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'defitelio'")
                 div(layout="row")
-                  .col(flex="100" layout="row")
+                  .col(flex="100" layout="column")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductDefitelio | trust")
                     ul
                       li(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buDefitelio.bullet1 | trust")
