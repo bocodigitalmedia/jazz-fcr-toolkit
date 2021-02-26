@@ -266,6 +266,9 @@ module.exports = (angular, defaults) ->
             console.log '%c actionItemValue.submissionId ', 'background-color: lime; color: #000', actionItemValue.submissionId
             console.log '%c @forms.allAll[ actionItemValue.submissionId ] ', 'background-color: lime; color: #000', @forms.allAll[ actionItemValue.submissionId ]
 
+            # ignore this orphaned action item, someone deleted its parent form
+            return if !@forms.allAll[ actionItemValue.submissionId ]
+
             # don't include it if the form isn't submitted yet
             return if @forms.allAll[ actionItemValue.submissionId ].payload.status is 'saved'
 
