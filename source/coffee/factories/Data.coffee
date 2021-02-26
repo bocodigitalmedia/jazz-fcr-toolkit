@@ -218,7 +218,7 @@ module.exports = (angular, defaults) ->
 
                   actionItemUserEmail = Users.lookup[ actionItemValue.userId ].email
                   isBocoForm = actionItemUserEmail.indexOf("@gmail.com") > -1 or actionItemUserEmail.indexOf("@bocodigital.com") > -1
-                  # continue if !isBocoLoggedIn and isBocoForm
+                  continue if !isBocoLoggedIn and isBocoForm
 
                   # add to all action items
                   @forms.actionItemsAll[actionItemId] = actionItemValue
@@ -259,7 +259,7 @@ module.exports = (angular, defaults) ->
 
           parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
 
-            localVerbose = false
+            localVerbose = true
 
             console.log '%c ------- ', 'background-color: red; color: #000' if localVerbose
             console.log '%c actionItemId ', 'background-color: red; color: #000', actionItemId if localVerbose
