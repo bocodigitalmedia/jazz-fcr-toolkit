@@ -16,11 +16,11 @@ module.exports =
     appId: "1:898601993167:web:714d1ac170576f43c888ba"
     measurementId: "G-VEHMJ8Z0P9"
     stateShard: "https://delphire-jazz-io-state.firebaseio.com/"
-    dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/" #! HEMONC
-    # dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/" #? SLEEP
+    # dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/" #! HEMONC
+    dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/" #? SLEEP
   formId:
-    production: "test-hemeonc-fcr" #! HEMONC
-    # production: "test-sleep-fcr" #? SLEEP
+    # production: "test-hemeonc-fcr" #! HEMONC
+    production: "test-sleep-fcr" #? SLEEP
   naValue: 5
   integrityQuestion: 30
   noDataMessage: "No data to show."
@@ -28,10 +28,18 @@ module.exports =
   dataLoadingMessage: "Data loading..."
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
-  activeGroups:
-    '-M03B4-G4OgGYz4dnjVt':
-      'id': '-M03B4-G4OgGYz4dnjVt'
-      'name': 'Boco Reps'
+  activeGroups: #TODO ADD USERS TO CORRECT GROUPS IN THE CMS
+    # '-M03B4-G4OgGYz4dnjVt': #! HEMONC - all 6 boco reps from philadelphia and san diego
+    #   'id': '-M03B4-G4OgGYz4dnjVt'
+    #   'name': 'Boco Reps'
+    #   'level': 1
+    '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI) - 3 boco philadelphia reps
+      'id': '-MUiS1vC2-ARhE99QGvk'
+      'name': 'Boco Reps SUNOSI'
+      'level': 1
+    '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV) - 3 san diego reps
+      'id': '-MUiSC_ADzZKAOV5APWO'
+      'name': 'Boco Reps XYWAV'
       'level': 1
     '-M03BCiWABXAUuo2xEoU':
       'id': '-M03BCiWABXAUuo2xEoU'
