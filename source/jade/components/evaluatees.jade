@@ -20,6 +20,8 @@ section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
 
         thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
           tr(md-row)
+            th(md-column md-order-by="repName" ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.hasRegions ) || ($root.Users.active.group.level == 4 && $root.defaults.hasRegions) )")
+              span Team
             th(md-column md-order-by="evaluatee")
               span(ng-bind-html="::$root.locale.components.evaluatees.evaluatee | trust")
             th(md-column md-order-by="evaluator")
@@ -43,6 +45,8 @@ section#evaluees(ng-class="{ 'pad': !ctrl.dataLoading }" layout-padding)
           //- ng-repeat="student in (filterResult = (students | filter: search | orderBy: query.order | limitTo: query.limit : (query.page -1) * query.limit as fStudents))"
           //- tr(md-row ng-repeat="data in (filterResult = (ctrl.tableData | filter:filter:strict | orderBy: ctrl.query.order | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit as fTableData))")
           tr.clickable(md-row ng-repeat="data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click="ctrl.viewEmployeeData(data.evaluateeId)")
+            td(md-cell ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.hasRegions ) || ($root.Users.active.group.level == 4 && $root.defaults.hasRegions) )")
+              span.initials(ng-class="['initial-' + data.regionInitials]") {{ data.regionInitials }}
             td(md-cell) {{ data.evaluateeName }}
             td(md-cell) {{ data.evaluatorName }}
             td(md-cell) {{ data.lastCompletedDate | date:'M/d/yyyy' }}
