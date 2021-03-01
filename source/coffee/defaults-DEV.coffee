@@ -29,15 +29,15 @@ module.exports =
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
   activeGroups: #TODO ADD USERS TO CORRECT GROUPS IN THE CMS
-    # '-M03B4-G4OgGYz4dnjVt': #! HEMONC - all 6 boco reps from philadelphia and san diego
+    # '-M03B4-G4OgGYz4dnjVt': #! HEMONC - all 6 boco reps from district 1 and distric 2
     #   'id': '-M03B4-G4OgGYz4dnjVt'
     #   'name': 'Boco Reps'
     #   'level': 1
-    '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI) - 3 boco philadelphia reps
+    '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI) - 3 boco reps from district 1
       'id': '-MUiS1vC2-ARhE99QGvk'
       'name': 'Boco Reps SUNOSI'
       'level': 1
-    '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV) - 3 san diego reps
+    '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV) - 3 boco reps from district 2
       'id': '-MUiSC_ADzZKAOV5APWO'
       'name': 'Boco Reps XYWAV'
       'level': 1
