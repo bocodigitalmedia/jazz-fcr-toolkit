@@ -44,12 +44,14 @@ module.exports =
       'dataSet': true
       'dataSetLabel': 'SUNOSI'
       'level': 1
+      'brand': 'sunosi'
     '-MUo0YnEn0KppnGI2MKE': #? SLEEP (SUNOSI/XYWAV)
       'id': '-MUo0YnEn0KppnGI2MKE'
       'name': 'Boco Reps SUNOSI/XYWAV'
       'initials': 'Su'
       'dataSet': false
       'level': 1
+      'brand': 'sunosi'
     '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV)
       'id': '-MUiSC_ADzZKAOV5APWO'
       'name': 'Boco Reps XYWAV'
@@ -57,6 +59,7 @@ module.exports =
       'dataSet': true
       'dataSetLabel': 'XYWAV'
       'level': 1
+      'brand': 'xywav'
     '-M03BCiWABXAUuo2xEoU':
       'id': '-M03BCiWABXAUuo2xEoU'
       'name': 'Boco DMs'
