@@ -58,7 +58,7 @@
       label Select a Data Set
       md-select(ng-model="selectedDataSet" ng-change="setDataSet(selectedDataSet)")
         md-option(ng-repeat="set in dataSets" ng-value="set")
-          span.initials(ng-class="['initial-' + set.initials]") {{ set.initials }}
+          span.initials(ng-if="set.id" ng-class="['initial-' + set.initials]") {{ set.initials }}
           | {{ set.dataSetLabel }} Data
 
   .md-content.component-container(layout="column" layout-padding)
