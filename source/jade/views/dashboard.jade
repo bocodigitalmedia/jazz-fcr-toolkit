@@ -35,7 +35,7 @@
       span(ng-if="Users.active.group.level == 4") {{ $root.defaults.activeTeam.name }}
     div(flex)
     div(flex layout="row" layout-align="end center" class="date-picker")
-      md-date-range(
+      md-date-range.no-arrow(
         ng-model='$root.Data.selectedRange'
         md-on-select='$root.Data.onSelect()'
         date-start='$root.Data.selectedRange.dateStart'
@@ -58,7 +58,7 @@
       label Select a Data Set
       md-select(ng-model="selectedDataSet" ng-change="setDataSet(selectedDataSet)")
         md-option(ng-repeat="set in dataSets" ng-value="set")
-          span.initials(ng-if="set.id" ng-class="['initial-' + set.initials]") {{ set.initials }}
+          span.initials.dropdown(ng-if="set.id" ng-class="['initial-' + set.initials]") {{ set.initials }}
           | {{ set.dataSetLabel }} Data
 
   .md-content.component-container(layout="column" layout-padding)
