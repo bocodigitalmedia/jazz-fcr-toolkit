@@ -20,7 +20,7 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
-              th(md-column md-order-by="repName" ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.initials.active ) || ($root.Users.active.group.level == 4 && $root.defaults.initials.active) )")
+              th(md-column ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.initials.active ) || ($root.Users.active.group.level == 4 && $root.defaults.initials.active) )")
                 span(ng-bind="$root.defaults.initials.type")
 
               th(md-column md-order-by="repName")
