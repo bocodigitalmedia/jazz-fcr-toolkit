@@ -68,8 +68,8 @@ module.exports =
       'id': '-M03BGAcmENfAf5jdq93'
       'name': 'Boco RMs'
       'level': 3
-    '-M03BGAcmENfAf5jdq93':
-      'id': '-M03BGAcmENfAf5jdq93'
+    '-M03BLyXd0n-QzSKbYEu':
+      'id': '-M03BLyXd0n-QzSKbYEu'
       'name': 'Boco NSM'
       'level': 4
     '-Lydv3QoOrsCWuVJ5EUG':

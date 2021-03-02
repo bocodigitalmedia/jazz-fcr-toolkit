@@ -259,7 +259,7 @@ module.exports = (angular, defaults) ->
 
           parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
 
-            localVerbose = true
+            localVerbose = false
 
             console.log '%c ------- ', 'background-color: red; color: #000' if localVerbose
             console.log '%c actionItemId ', 'background-color: red; color: #000', actionItemId if localVerbose

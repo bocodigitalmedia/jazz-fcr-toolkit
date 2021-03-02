@@ -132,7 +132,7 @@ module.exports = (angular, defaults) ->
             for groupId, group of Groups.all when group.level is 1 and group.dataSet
               $scope.dataSets.push group
 
-          console.log '%c[ $scope.dataSets ]', 'color: deeppink', $scope.dataSets
+          # console.log '%c[ $scope.dataSets ]', 'color: deeppink', $scope.dataSets
 
           # legacy 'wait for digest cycle' fix
           $timeout ->
@@ -147,10 +147,10 @@ module.exports = (angular, defaults) ->
 
         $scope.setDataSet = (group) ->
           if group?.id
-            console.log '%c[ setDataSet() | group id/name ]', 'color: yellow', group.id, '/', group.name
+            # console.log '%c[ setDataSet() | group id/name ]', 'color: yellow', group.id, '/', group.name
             Data.selectedGroupId = group.id
           else
-            console.log '%c[ SHOW ALL DATA ]', 'color: yellow'
+            # console.log '%c[ SHOW ALL DATA ]', 'color: yellow'
             Data.selectedGroupId = null
 
           $scope.$broadcast 'dataLoading'
