@@ -2,10 +2,14 @@ module.exports =
   app:
     name: 'jazz-fcr-toolkit'
   environment: 'production'
-  brand: 'hemonc'
+  # brand: 'hemonc' #! HEMONC
+  brand: 'sleep' #? SLEEP
   language: 'en'
   hasRegions: true
   isDelphire: false
+  initials:
+    active: true
+    type: 'brand' # or 'team' 'brand' #~ TEAM = GROUPS / BRAND = REGIONS
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -33,13 +37,25 @@ module.exports =
     #   'id': '-M03B4-G4OgGYz4dnjVt'
     #   'name': 'Boco Reps'
     #   'level': 1
-    '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI) - 3 boco reps from district 1
+    '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI)
       'id': '-MUiS1vC2-ARhE99QGvk'
       'name': 'Boco Reps SUNOSI'
+      'initials': 'Su'
+      'dataSet': true
+      'dataSetLabel': 'SUNOSI'
       'level': 1
-    '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV) - 3 boco reps from district 2
+    '-MUo0YnEn0KppnGI2MKE': #? SLEEP (SUNOSI/XYWAV)
+      'id': '-MUo0YnEn0KppnGI2MKE'
+      'name': 'Boco Reps SUNOSI/XYWAV'
+      'initials': 'Su'
+      'dataSet': false
+      'level': 1
+    '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV)
       'id': '-MUiSC_ADzZKAOV5APWO'
       'name': 'Boco Reps XYWAV'
+      'initials': 'Xy'
+      'dataSet': true
+      'dataSetLabel': 'XYWAV'
       'level': 1
     '-M03BCiWABXAUuo2xEoU':
       'id': '-M03BCiWABXAUuo2xEoU'

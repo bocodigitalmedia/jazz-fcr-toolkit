@@ -52,6 +52,15 @@
   //- ================================================================================================
 
 #dashboard(ng-class="{ 'rbl-view' : !Users.superUser }")
+
+  .md-content(flex="100" layout="row" layout-align="center center")
+    md-input-container(flex="15")
+      label Select a Data Set
+      md-select(ng-model="selectedDataSet" ng-change="setDataSet(selectedDataSet)")
+        md-option(ng-repeat="set in dataSets" ng-value="set")
+          span.initials(ng-class="['initial-' + set.initials]") {{ set.initials }}
+          | {{ set.dataSetLabel }} Data
+
   .md-content.component-container(layout="column" layout-padding)
 
     //---------------------------------------------------------------------

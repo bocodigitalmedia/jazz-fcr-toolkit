@@ -15,7 +15,8 @@ angular = require 'angular'
 
 window.defaults = defaults = require './defaults-DEV'
 window.locale = locale = require '../../public/locale/en-jazz.json'
-defaults.testUserHemonc = "boco-super-emmons"
+# defaults.testUserHemonc = "boco-super-emmons"
+defaults.testUserSleep = "boco-super-emmons"
 
 #? --------------------------------------------
 #? SLEEP PRODUCTION                           -

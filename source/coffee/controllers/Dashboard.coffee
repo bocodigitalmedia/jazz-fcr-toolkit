@@ -11,6 +11,7 @@ module.exports = (angular, defaults) ->
       'Dialogs'
       'Districts'
       'Forms'
+      'Groups'
       'Regions'
       'Users'
       'mdcDefaultParams'
@@ -24,6 +25,7 @@ module.exports = (angular, defaults) ->
         Dialogs
         Districts
         Forms
+        Groups
         Regions
         Users
         mdcDefaultParams
@@ -48,6 +50,7 @@ module.exports = (angular, defaults) ->
         $rootScope.Dialogs = Dialogs
         $rootScope.Districts = Districts
         $rootScope.Forms = Forms
+        $rootScope.Groups = Groups
         $rootScope.Regions = Regions
         $rootScope.Users = Users
         $rootScope.defaults = defaults
@@ -67,6 +70,7 @@ module.exports = (angular, defaults) ->
           # load the data
           Users.init()
             .then => Districts.init()
+            .then => Groups.init()
             .then => Regions.init()
             .then => Users.getSubordinates()
             .then => Users.getDescendants()
@@ -101,6 +105,7 @@ module.exports = (angular, defaults) ->
           console.log '[ Dialogs ]', Dialogs
           console.log '[ Districts ]', Districts
           console.log '[ Forms ]', Forms
+          console.log '[ Groups ]', Groups
           console.log '[ Regions ]', Regions
           console.log '[ Users ]', Users
           console.groupEnd()
@@ -116,6 +121,19 @@ module.exports = (angular, defaults) ->
           # log all the loaded data
           loadLogs()
 
+          # create dataSet dropdown if tenant is SLEEP
+          if defaults.brand is 'sleep'
+            $scope.dataSets = []
+
+            showAll =
+              dataSetLabel: 'All'
+            $scope.dataSets.push showAll
+
+            for groupId, group of Groups.all when group.level is 1 and group.dataSet
+              $scope.dataSets.push group
+
+          console.log '%c[ $scope.dataSets ]', 'color: deeppink', $scope.dataSets
+
           # legacy 'wait for digest cycle' fix
           $timeout ->
 
@@ -124,6 +142,14 @@ module.exports = (angular, defaults) ->
 
             # let the components know they can draw their charts
             $scope.$broadcast 'dataReady'
+
+        #~----------------------------
+
+        $scope.setDataSet = (group) ->
+          if group?.id
+            console.log '%c[ setDataSet() | group id/name ]', 'color: yellow', group.id, '/', group.name
+          else
+            console.log '%c[ SHOW ALL DATA ]', 'color: yellow'
 
         #~----------------------------
 

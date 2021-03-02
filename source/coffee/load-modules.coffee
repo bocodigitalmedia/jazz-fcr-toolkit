@@ -15,6 +15,7 @@ module.exports = (angular, defaults) ->
     require './factories/Districts'
     require './factories/Email'
     require './factories/Forms'
+    require './factories/Groups'
     require './factories/Regions'
     require './factories/Users'
 

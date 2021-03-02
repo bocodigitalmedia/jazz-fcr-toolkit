@@ -12,7 +12,7 @@ module.exports = (angular, defaults) ->
 
       # =========================================================================================================
 
-      controller: ($rootScope, $scope, $timeout, Data, Districts, Forms, Regions, Users) ->
+      controller: ($rootScope, $scope, $timeout, Data, Districts, Groups, Forms, Regions, Users) ->
 
         # to maintain scope across promises and functions
         ctrl = @
@@ -42,7 +42,7 @@ module.exports = (angular, defaults) ->
           submittedForms = angular.copy Data.forms.allByStatus.submitted
           forms = []
           for formId, form of submittedForms
-            form.payload.regionInitials = Regions.lookup[ form.payload.evaluator.regionIdOriginal ].initials
+            form.payload.initials = Groups.lookup[ form.payload.evaluatee.groupId ].initials
             form.payload.repId = form.payload.evaluatee.id
             form.payload.repName = Users.getName form.payload.evaluatee
             form.payload.managerName = form.payload.evaluator.name
