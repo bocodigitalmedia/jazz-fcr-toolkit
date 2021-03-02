@@ -148,8 +148,13 @@ module.exports = (angular, defaults) ->
         $scope.setDataSet = (group) ->
           if group?.id
             console.log '%c[ setDataSet() | group id/name ]', 'color: yellow', group.id, '/', group.name
+            Data.selectedGroupId = group.id
           else
             console.log '%c[ SHOW ALL DATA ]', 'color: yellow'
+            Data.selectedGroupId = null
+
+          $scope.$broadcast 'dataLoading'
+          $scope.$broadcast 'dataReady'
 
         #~----------------------------
 

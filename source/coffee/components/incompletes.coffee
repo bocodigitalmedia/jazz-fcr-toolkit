@@ -39,6 +39,8 @@ module.exports = (angular, defaults) ->
           # stop errors from happening if no completed forms
           return false if ctrl.noData
 
+          showAll = !(Data.selectedGroupId?)
+
           submittedForms = angular.copy Data.forms.allByStatus.submitted
           forms = []
           for formId, form of submittedForms
@@ -50,7 +52,7 @@ module.exports = (angular, defaults) ->
             form.payload.districtName = Districts.lookupByManagerId[ form.payload.evaluator.id ].name if form.payload.evaluator.id?
             form.payload.submissionDate = form.createdAt
             form.payload.submissionId = formId
-            forms.push form.payload
+            forms.push form.payload if showAll or (Data.selectedGroupId? and form.payload.evaluatee.groupId is Data.selectedGroupId)
 
           ctrl.tableData = forms
 
