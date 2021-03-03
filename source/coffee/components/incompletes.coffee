@@ -55,7 +55,6 @@ module.exports = (angular, defaults) ->
             forms.push form.payload if showAll or (Data.selectedGroupId? and form.payload.evaluatee.groupId is Data.selectedGroupId)
 
           ctrl.tableData = forms
-          console.log '%c[ ctrl.tableData ]', 'color: lime', ctrl.tableData
 
           ctrl.query =
             order : '-payload.timestamp'
