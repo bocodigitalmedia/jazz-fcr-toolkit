@@ -19,6 +19,8 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
+              th(md-column ng-if="$root.Users.showInitials('competencies')")
+                span(ng-bind="$root.defaults.initials.type")
               th(md-column md-order-by="repName"): span Employee
               th(md-column): span PRE-CALL<br>PLANNING
               th(md-column): span OPEN/ESTAB <br>RAPPORT
@@ -33,18 +35,20 @@ section#glance(layout="column" layout-padding)
               //- th(md-column width="1%")
 
           tbody(md-body)
-            tr.clickable(md-row ng-repeat="item in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, item.userId)')
-              td(md-cell) {{ item.name }}
-              td(md-cell) {{ item.totals[0] }}
-              td(md-cell) {{ item.totals[1] }}
-              td(md-cell) {{ item.totals[2] }}
-              td(md-cell) {{ item.totals[3] }}
-              td(md-cell) {{ item.totals[4] }}
-              td(md-cell) {{ item.totals[5] }}
-              td(md-cell) {{ item.totals[6] }}
-              td(md-cell) {{ item.totals[7] }}
-              td(md-cell) {{ item.totals[8] }}
-              td(md-cell) {{ item.totals[9] }}
+            tr.clickable(md-row ng-repeat="data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.userId)')
+              td(md-cell ng-if="$root.Users.showInitials('competencies')")
+                span.initials(ng-class="['initial-' + $root.Users.getInitials(data.userId)]") {{ $root.Users.getInitials(data.userId) }}
+              td(md-cell) {{ data.name }}
+              td(md-cell) {{ data.totals[0] }}
+              td(md-cell) {{ data.totals[1] }}
+              td(md-cell) {{ data.totals[2] }}
+              td(md-cell) {{ data.totals[3] }}
+              td(md-cell) {{ data.totals[4] }}
+              td(md-cell) {{ data.totals[5] }}
+              td(md-cell) {{ data.totals[6] }}
+              td(md-cell) {{ data.totals[7] }}
+              td(md-cell) {{ data.totals[8] }}
+              td(md-cell) {{ data.totals[9] }}
               //- td(md-cell width="1%")
                 md-menu
                   md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')

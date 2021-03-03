@@ -71,6 +71,8 @@ section#glance(layout="column" layout-padding)
 
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
+              th(md-column ng-if="$root.Users.showInitials('glance')")
+                span(ng-bind="$root.defaults.initials.type")
               th(md-column md-order-by="employee")
                 span(ng-bind-html="::$root.locale.components.evaluatees.evaluatee | trust")
               th(md-column md-order-by="lastCompletedDate")
@@ -87,6 +89,8 @@ section#glance(layout="column" layout-padding)
 
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewEmployeeData($event, data.employee.id)')
+              td(md-cell ng-if="$root.Users.showInitials('competencies')")
+                span.initials(ng-class="['initial-' + $root.Users.getInitials(data.employee.id)]") {{ $root.Users.getInitials(data.employee.id) }}
               td(md-cell) {{ data.evaluateeName | shorten }}
               td(md-cell) {{ data.lastCompletedDate | tsFormat }}
               td(md-cell) {{ data.totalDays }}

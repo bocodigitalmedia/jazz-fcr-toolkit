@@ -19,6 +19,8 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
+              th(md-column ng-if="$root.Users.showInitials('actions')")
+                span(ng-bind="$root.defaults.initials.type")
               th(md-column md-order-by="repName"): span Employee
               th(md-column md-order-by="dateAssigned"): span DATE ASSIGNED
               th(md-column md-order-by="competencyAssigned"): span COMPETENCY ASSIGNED
@@ -29,6 +31,8 @@ section#glance(layout="column" layout-padding)
           tbody(md-body)
             //- tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewEmployeeData($event, data.employee.id)')
             tr(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit")
+              td(md-cell ng-if="$root.Users.showInitials('actions')")
+                span.initials(ng-class="['initial-' + $root.Users.getInitials(data.repId)]") {{ $root.Users.getInitials(data.repId) }}
               td(md-cell) {{ data.repName }}
               td(md-cell) {{ data.dateAssigned | date:'M/d/yyyy' }}
               td(md-cell) {{ data.competencyAssigned }}

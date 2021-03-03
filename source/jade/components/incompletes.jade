@@ -20,7 +20,7 @@ section#glance(layout="column" layout-padding)
           thead(md-head md-order="ctrl.query.order" md-on-reorder="ctrl.reorder")
             tr(md-row)
 
-              th(md-column ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.initials.active ) || ($root.Users.active.group.level == 4 && $root.defaults.initials.active) )")
+              th(md-column ng-if="$root.Users.showInitials('incompletes')")
                 span(ng-bind="$root.defaults.initials.type")
 
               th(md-column md-order-by="repName")
@@ -39,8 +39,8 @@ section#glance(layout="column" layout-padding)
 
           tbody(md-body)
             tr.clickable(md-row ng-repeat=" data in ctrl.tableData | orderBy: ctrl.query.order | filter:filter:strict | limitTo:ctrl.query.limit:(ctrl.query.page - 1) * ctrl.query.limit" ng-click='ctrl.viewData($event, data.repId)')
-              td(md-cell ng-if="( ( $root.Users.active.group.level == 3 && !$root.defaults.initials.active ) || ($root.Users.active.group.level == 4 && $root.defaults.initials.active) )")
-                span.initials(ng-class="['initial-' + data.initials]") {{ data.initials }}
+              td(md-cell ng-if="$root.Users.showInitials('incompletes')")
+                span.initials(ng-class="['initial-' + $root.Users.getInitials(data.evaluatee.id)]") {{ $root.Users.getInitials(data.evaluatee.id) }}
               td(md-cell) {{ data.repName | shorten }}
               td(md-cell) {{ data.managerName | shorten }}
               td(md-cell) {{ data.districtName }}

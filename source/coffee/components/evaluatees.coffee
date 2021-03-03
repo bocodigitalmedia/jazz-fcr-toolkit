@@ -110,8 +110,6 @@ module.exports = (angular, defaults) ->
 
             for id, form of forms
 
-              employeeData.regionInitials = Regions.lookup[ form.payload.evaluator.regionIdOriginal ].initials
-
               completedDates.push form.payload.timestamp
 
               averageRatings.push form.payload.average

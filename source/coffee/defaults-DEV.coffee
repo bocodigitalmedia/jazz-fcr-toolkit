@@ -9,7 +9,18 @@ module.exports =
   isDelphire: false
   initials:
     active: true
-    type: 'brand' # or 'team' 'brand' #~ TEAM = GROUPS / BRAND = REGIONS
+    type: 'brand' # or 'team' 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
+    included:
+      evaluatees:
+        levels: [3,4]
+      competencies:
+        levels: [2..4]
+      incompletes:
+        levels: [2..4]
+      actions:
+        levels: [2..4]
+      glance:
+        levels: [2]
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"

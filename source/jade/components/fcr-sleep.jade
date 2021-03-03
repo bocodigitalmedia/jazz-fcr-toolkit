@@ -527,7 +527,7 @@ section#fcr(layout="column")
                   span(ng-bind-html="::$root.locale.components.fcr.common.evaluatedBy | trust")
                   //- Evaluated by
                   span &nbsp;{{ form.payload.evaluator.name }}
-              i.material-icons.md-secondary open_in_new
+              //- i.material-icons.md-secondary open_in_new
               md-divider
             md-list-item(
               ng-repeat="form in $root.Data.forms.byEvaluateeByStatus[ $root.Forms.selectedUserEmail ].completed | orderBy: '-payload.timestamp'"
@@ -545,7 +545,7 @@ section#fcr(layout="column")
                   span(ng-bind-html="::$root.locale.components.fcr.common.evaluatedBy | trust")
                   //- Evaluated by
                   span &nbsp;{{ form.payload.evaluator.name }}
-              i.material-icons.md-secondary open_in_new
+              //- i.material-icons.md-secondary open_in_new
               md-divider
 
       .cover(ng-click="$root.Forms.close()" ng-class="{ 'show': $root.Forms.formListOpen }" )

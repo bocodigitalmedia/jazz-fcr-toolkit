@@ -27,6 +27,11 @@ defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "rep1-district2"
 # defaults.testUserSleep = "rep2-district2"
 # defaults.testUserSleep = "rep3-district2"
+defaults.testUserSleep = "manager1-district1" # PHILADELPHIA
+# defaults.testUserSleep = "manager2-district2" # SAN DIEGO
+# defaults.testUserSleep = "regional-manager-1" # EAST
+# defaults.testUserSleep = "regional-manager-2" # WEST
+# defaults.testUserSleep = "national-director"
 
 #? --------------------------------------------
 #? SLEEP PRODUCTION                           -

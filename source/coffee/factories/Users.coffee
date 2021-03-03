@@ -120,27 +120,47 @@ module.exports = (angular, defaults) ->
 
                     #? DISTRICT MANAGER (LEVEL 2)
 
-                    when 'manager-southeast'
+                    when 'manager1-district1'
+                      id: '-LzlmRXnvyLOZTUbKKEO'
+                      name: 'Manager 1 District 1'
+                      email: 'boco.manager1-district1@gmail.com'
+                      mgrEmail: 'boco.regional.manager1@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03BCiWABXAUuo2xEoU'
+                      username: 'manager1-district1'
+                      organization: '-M03BXyv8l_rQZJqjW9F'
+
+                    when 'manager2-district2'
                       id: '-LzlnqPruZjFhPS8Ab0F'
-                      name: 'Manager Southeast 3'
+                      name: 'Manager 2 District 2'
                       email: 'boco.manager2.district2@gmail.com'
                       mgrEmail: 'boco.regional.manager2@gmail.com'
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-LzhVQI35fCFGR2uSDfo'
-                      username: 'manager-southeast'
-                      organization: '-LzhTkAMq4eBlRoeuYzo'
+                      groupId: '-M03BCiWABXAUuo2xEoU'
+                      username: 'manager2-district2'
+                      organization: '-M03B_4wAvDCNicrj2RW'
 
                     #? REGIONAL USER (LEVEL 3)
 
-                    when 'regional-manager-south'
+                    when 'regional-manager-1'
+                      id: '-M-QTRVGC13ZFE9YePFm'
+                      name: 'Regional Manager 1'
+                      email: 'boco.regional.manager1@gmail.com'
+                      mgrEmail: 'boco.national.director@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03BGAcmENfAf5jdq93'
+                      username: 'regional-manager-1'
+                      organization: '-M03Bq3CZoyZsNUo0i-D'
+
+                    when 'regional-manager-2'
                       id: '-M-QN0ADBO86ebiOInsf'
-                      name: 'Regional Manager South'
+                      name: 'Regional Manager 2'
                       email: 'boco.regional.manager2@gmail.com'
                       mgrEmail: 'boco.national.director@gmail.com'
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-LzhVdGiGrnnPzEx6Uto'
-                      username: 'regional-manager-south'
-                      organization: '-LzhU2DAlCznHw7NiB1F'
+                      groupId: '-M03BGAcmENfAf5jdq93'
+                      username: 'regional-manager-2'
+                      organization: '-M03Bq3CZoyZsNUo0i-D'
 
                     #? NATIONAL (LEVEL 4)
 
@@ -150,9 +170,9 @@ module.exports = (angular, defaults) ->
                       email: 'boco.national.director@gmail.com'
                       mgrEmail: null
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-Lzhjc1dGSoz2316nOSk'
+                      groupId: '-M03BLyXd0n-QzSKbYEu'
                       username: 'national-director'
-                      organization: '-LzhkOXj4Q1ANu18NM4a'
+                      organization: '-M03Bq3CZoyZsNUo0i-D'
 
                     #? SUPER USER (LEVEL 4)
 
@@ -445,6 +465,27 @@ module.exports = (angular, defaults) ->
                   updatedAt: user.updatedAt
 
             $q.when()
+
+          #~ ================================================================================================
+          #~ INITIALS
+          #~ ================================================================================================
+
+          showInitials: (section) ->
+            return false if !$rootScope.defaults.initials.active
+            allowed = $rootScope.defaults.initials.included[section].levels
+            return  true if $rootScope.Users.active.group.level in allowed
+
+          getInitials: (userId) ->
+            Groups = $injector.get 'Groups'
+            user = @lookup[userId]
+
+            switch defaults.initials.type
+              when 'brand'
+                return Groups.lookup[ user.groupId ].initials
+              when 'team'
+                #? employeeData.regionInitials = Regions.lookup[ form.payload.evaluator.regionIdOriginal ].initials
+                return 'HEMONC LOGIC'
+
 
           #~ ================================================================================================
           #~ GET ALL
