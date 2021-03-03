@@ -58,6 +58,9 @@ module.exports = (angular, defaults) ->
 
           openActionItems = angular.copy Data.forms.actionItemsByStatus.inprogress
           data = []
+
+          console.log '%c openActionItems ', 'background-color: red; color: #000', openActionItems
+
           for actionItemId, actionItem of openActionItems
 
             continue if Data.forms.all[ actionItem.submissionId ].payload.status is 'saved'

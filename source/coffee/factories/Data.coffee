@@ -210,6 +210,15 @@ module.exports = (angular, defaults) ->
                   # only add it to the form array if it belongs to this user (based on level)
                   @parseRawLoop formId, formValue, evaluateeId
 
+            # loop through all the raw userData
+            for userId, userData of @forms.raw
+
+              hasFormProgress = userData.FormProgress? and userData.FormProgress[@formId]?
+              hasActionItems = userData.FormActionItems? and userData.FormActionItems[@formId]?
+              user = Users.lookup[ userId ]
+              userEmail = user.email
+              isBocoLoggedIn = userEmail.indexOf("@gmail.com") > -1 or userEmail.indexOf("@bocodigital.com") > -1
+
               # but actually now we want two things
               if hasActionItems
 
@@ -218,6 +227,7 @@ module.exports = (angular, defaults) ->
 
                   actionItemUserEmail = Users.lookup[ actionItemValue.userId ].email
                   isBocoForm = actionItemUserEmail.indexOf("@gmail.com") > -1 or actionItemUserEmail.indexOf("@bocodigital.com") > -1
+
                   continue if !isBocoLoggedIn and isBocoForm
 
                   # add to all action items
@@ -259,7 +269,7 @@ module.exports = (angular, defaults) ->
 
           parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
 
-            localVerbose = false
+            localVerbose = true
 
             console.log '%c ------- ', 'background-color: red; color: #000' if localVerbose
             console.log '%c actionItemId ', 'background-color: red; color: #000', actionItemId if localVerbose
@@ -269,7 +279,7 @@ module.exports = (angular, defaults) ->
             console.log '%c @forms.allAll[ actionItemValue.submissionId ] ', 'background-color: lime; color: #000', @forms.allAll[ actionItemValue.submissionId ] if localVerbose
 
             # ignore this orphaned action item, someone deleted its parent form
-            return if !@forms.allAll[ actionItemValue.submissionId ]
+            return if !(@forms.allAll[ actionItemValue.submissionId ]?)
 
             # don't include it if the form isn't submitted yet
             return if @forms.allAll[ actionItemValue.submissionId ].payload.status is 'saved'
@@ -285,6 +295,8 @@ module.exports = (angular, defaults) ->
                 addIt = true if evaluateeId in Users.descendants.users
               when 4
                 addIt = true
+
+            console.log '%c addIt ', 'background-color: orangered; color: #000', addIt
 
             # don't add it if it's not valid for this user
             return if not addIt
