@@ -53,7 +53,7 @@
 
 #dashboard(ng-class="{ 'rbl-view' : !Users.superUser }")
 
-  .md-content(flex="100" layout="row" layout-align="center center")
+  .md-content(ng-if="Users.active.group.level > 1" flex="100" layout="row" layout-align="center center")
     md-input-container(flex="15")
       label Select a Data Set
       md-select(ng-model="selectedDataSet" ng-change="setDataSet(selectedDataSet)")

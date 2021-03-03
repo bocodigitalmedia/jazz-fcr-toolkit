@@ -67,6 +67,7 @@ module.exports = (angular, defaults) ->
                       username: 'rep1-district1'
                       organization: '-M03BTgcsR1xpi8H6w-7'
 
+                    when 'rep2-district1'
                       id: '-LzlmBywBOy4GuOZKUAG'
                       name: 'Rep 2 District 1'
                       email: 'boco.rep2.district1@gmail.com'
@@ -76,6 +77,7 @@ module.exports = (angular, defaults) ->
                       username: 'rep2-district1'
                       organization: '-M03BTgcsR1xpi8H6w-7'
 
+                    when 'rep3-district1'
                       id: '-LzlmK9LTtWofIcfu_M4'
                       name: 'Rep 3 District 1'
                       email: 'boco.rep3.district1@gmail.com'
@@ -85,6 +87,7 @@ module.exports = (angular, defaults) ->
                       username: 'rep3-district1'
                       organization: '-M03BTgcsR1xpi8H6w-7'
 
+                    when 'rep1-district2'
                       id: '-LzlnOC86t3ru5T82CTT'
                       name: 'Rep 1 District 2'
                       email: 'boco.rep1.district2@gmail.com'
@@ -94,6 +97,7 @@ module.exports = (angular, defaults) ->
                       username: 'rep1-district2'
                       organization: '-M03BVeWmqPCtySIrzgP'
 
+                    when 'rep2-district2'
                       id: '-LzlnTy8zJFZVGqaa4xP'
                       name: 'Rep 2 District 2'
                       email: 'boco.rep2.district2@gmail.com'
@@ -103,6 +107,7 @@ module.exports = (angular, defaults) ->
                       username: 'rep2-district2'
                       organization: '-M03BVeWmqPCtySIrzgP'
 
+                    when 'rep3-district2'
                       id: '-Lzln_SbXBOaUpRkOtUV'
                       name: 'Rep 3 District 2'
                       email: 'boco.rep3.district2@gmail.com'
