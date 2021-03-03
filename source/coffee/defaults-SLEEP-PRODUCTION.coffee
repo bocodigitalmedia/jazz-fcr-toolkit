@@ -6,6 +6,20 @@ module.exports =
   language: 'en'
   hasRegions: true
   isDelphire: true
+  initials:
+    active: true
+    type: 'brand' # 'team' or 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
+    included:
+      evaluatees:
+        levels: [3,4]
+      competencies:
+        levels: [2..4]
+      incompletes:
+        levels: [2..4]
+      actions:
+        levels: [2..4]
+      glance:
+        levels: [2]
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -19,7 +33,6 @@ module.exports =
     dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/"
 
   formId:
-    # production: "836f7797-ab87-4755-82ae-ca74f90eeb8b"
     production: "f1b61dd4-615f-49d1-a382-2f4ce571e868"
   naValue: 5
   noDataMessage: "No data to show."
@@ -29,83 +42,216 @@ module.exports =
   evaluateeTerm: "Employee"
 
   activeGroups:
-    '-MTDKsyMXHgl10_OQQ_R':
-      'id': '-MTDKsyMXHgl10_OQQ_R'
-      'name': 'Sleep February FCR Group - Rep'
+    '':
+      'id': ''
+      'name': 'SUNOSI Reps'
       'level': 1
-    # '-LzhVD3Qsk4LOqCdSL4c':
-    #   'id': '-LzhVD3Qsk4LOqCdSL4c'
-    #   'name': 'Sleep Sales Consultant'
-    #   'level': 1
-    '-MTCixV2n5xGEkJPr9Cn':
-      'id': '-MTCixV2n5xGEkJPr9Cn'
-      'name': 'Sleep February FCR Group - RSM'
+
+    '':
+      'id': ''
+      'name': 'ZYWAV Reps'
+      'level': 1
+
+    '-LzhVQI35fCFGR2uSDfo':
+      'id': '-LzhVQI35fCFGR2uSDfo'
+      'name': 'Regional Sales Managers'
       'level': 2
-    # '-LzhVQI35fCFGR2uSDfo':
-    #   'id': '-LzhVQI35fCFGR2uSDfo'
-    #   'name': 'Regional Sales Manager'
-    #   'level': 2
+
     '-LzhVdGiGrnnPzEx6Uto':
       'id': '-LzhVdGiGrnnPzEx6Uto'
       'name': 'Area Business Director'
       'level': 3
+
     '-LzhW9U390xXwcNb5NZX':
       'id': '-LzhW9U390xXwcNb5NZX'
       'name': 'National Sales Director'
       'level': 4
+
     '-Lz82Kjh3XHZ90PiRd9W':
       'id': '-Lz82Kjh3XHZ90PiRd9W'
       'name': 'Jazz Training Team'
       'level': 4
       'super': true
+
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
       'level': 4
       'super': true
-    # "-Lzhjc1dGSoz2316nOSk":
-    #   'id': "-Lzhjc1dGSoz2316nOSk"
-    #   'name': "Hem-Onc Sales Lead"
-    #   'level': 4
-    #   'super': true
 
   activeDistricts:
-    # '-LzhUhvHdnwUZBQ9eL-b':
-    #   'id': '-LzhUhvHdnwUZBQ9eL-b'
-    #   'name': 'Southeast'
-    #   'region': '-LzhTkAMq4eBlRoeuYzo'
+
+    '-MR7-znppnQvjE8gGKdk':
+      'id': '-MR7-znppnQvjE8gGKdk'
+      'name': 'New England'
+      'region': '-MUAUBaKQpMTuFkxWgKa'
+
+    '-MR700QXI4TFyaETay9a':
+      'id': '-MR700QXI4TFyaETay9a'
+      'name': 'NY Metro'
+      'region': '-MUAUBaKQpMTuFkxWgKa'
+
+    '-MUAYoAc3XqpiP9SZXGV':
+      'id': '-MUAYoAc3XqpiP9SZXGV'
+      'name': 'Penn-NY'
+      'region': '-MUAUBaKQpMTuFkxWgKa'
+
+    '-MR707sxIAddRyvOPVzZ':
+      'id': '-MR707sxIAddRyvOPVzZ'
+      'name': 'Mid-Atlantic'
+      'region': '-MUAUBaKQpMTuFkxWgKa'
+
+    '-MR70Ed-2b-IcuEygEHx':
+      'id': '-MR70Ed-2b-IcuEygEHx'
+      'name': 'Capital'
+      'region': '-MUAUBaKQpMTuFkxWgKa'
+
+    '-MUAZ474GBkmiz0wMoRg':
+      'id': '-MUAZ474GBkmiz0wMoRg'
+      'name': 'Blue Ridge Mountains'
+      'region': '-MUAUBaKQpMTuFkxWgKa'
+
+    '-MUAZDoUSdRz6zwyHzHf':
+      'id': '-MUAZDoUSdRz6zwyHzHf'
+      'name': 'Panhandle'
+      'region': '-LzhUhvHdnwUZBQ9eL-b'
+
+    '-MR70GGI25g8bSsomUaH':
+      'id': '-MR70GGI25g8bSsomUaH'
+      'name': 'Carolinas'
+      'region': '-LzhUhvHdnwUZBQ9eL-b'
+
+    '-MR70HMfwhvxu2P-hYao':
+      'id': '-MR70HMfwhvxu2P-hYao'
+      'name': 'South Florida'
+      'region': '-LzhUhvHdnwUZBQ9eL-b'
+
+    '-MUAZga_4bfZ6gpvE7ar':
+      'id': '-MUAZga_4bfZ6gpvE7ar'
+      'name': 'Alabama-Georgia'
+      'region': '-LzhUhvHdnwUZBQ9eL-b'
+
+    '-MR70OK1oB78Ba7pdH1y':
+      'id': '-MR70OK1oB78Ba7pdH1y'
+      'name': 'Tennessee Valley'
+      'region': '-LzhUhvHdnwUZBQ9eL-b'
+
+    '-MR70QimjJCx8okTT4OL':
+      'id': '-MR70QimjJCx8okTT4OL'
+      'name': 'Gulf Coast'
+      'region': '-LzhUhvHdnwUZBQ9eL-b'
+
+    '-MR705q1g8VOJX8bT2bS':
+      'id': '-MR705q1g8VOJX8bT2bS'
+      'name': 'Ohio Valley'
+      'region': '-MUAUiIiJs-oZMxZQN8l'
+
+    '-MR70Bu-l_BHgitJdsX8':
+      'id': '-MR70Bu-l_BHgitJdsX8'
+      'name': 'North Central'
+      'region': '-MUAUiIiJs-oZMxZQN8l'
+
+    '-MUA_jYln8JhZXwiKWXg':
+      'id': '-MUA_jYln8JhZXwiKWXg'
+      'name': 'Mid-West'
+      'region': '-MUAUiIiJs-oZMxZQN8l'
+
+    '-MR709seshnHz3foRBdN':
+      'id': '-MR709seshnHz3foRBdN'
+      'name': 'Great Lakes'
+      'region': '-MUAUiIiJs-oZMxZQN8l'
+
+    '-MUA_zT5fy4bKgtQ4REz':
+      'id': '-MUA_zT5fy4bKgtQ4REz'
+      'name': 'Northern Plains'
+      'region': '-MUAUiIiJs-oZMxZQN8l'
+
+    '-MR70UXxP2IDenRNWCcJ':
+      'id': '-MR70UXxP2IDenRNWCcJ'
+      'name': 'Heartland'
+      'region': '-MUAUiIiJs-oZMxZQN8l'
+
     '-MR70WcQn_Sf2VBbQoVU':
       'id': '-MR70WcQn_Sf2VBbQoVU'
-      'name': 'Sleep South Central'
+      'name': 'South Central'
+      'region': '-LzhTmo1WsBymrteELGk'
+
+    '-MR70d5-_yKrp4GlEaob':
+      'id': '-MR70d5-_yKrp4GlEaob'
+      'name': 'Pacific Northwest'
+      'region': '-LzhTmo1WsBymrteELGk'
+
+    '-MUAcyTsgfiqaqq8csiV':
+      'id': '-MUAcyTsgfiqaqq8csiV'
+      'name': 'Texas'
+      'region': '-LzhTmo1WsBymrteELGk'
+
+    '-MR70aa5ZczenZa_omWp':
+      'id': '-MR70aa5ZczenZa_omWp'
+      'name': 'SoCal'
+      'region': '-LzhTmo1WsBymrteELGk'
+
+    '-MUAdHkqRTHORWTNYpmd':
+      'id': '-MUAdHkqRTHORWTNYpmd'
+      'name': 'Rocky Mountains'
       'region': '-LzhTmo1WsBymrteELGk'
 
   activeRegions:
-    # '-LzhTkAMq4eBlRoeuYzo':
-    #   'id': '-LzhTkAMq4eBlRoeuYzo'
-    #   'name': 'South Area'
-    #   'districts': [
-    #     '-LzhUhvHdnwUZBQ9eL-b'
-    #   ]
+    '-MUAUBaKQpMTuFkxWgKa':
+      'id': '-MUAUBaKQpMTuFkxWgKa'
+      'name': 'Northeast Area'
+      'districts': [
+        '-MR7-znppnQvjE8gGKdk'
+        '-MR700QXI4TFyaETay9a'
+        '-MUAYoAc3XqpiP9SZXGV'
+        '-MR707sxIAddRyvOPVzZ'
+        '-MR70Ed-2b-IcuEygEHx'
+        '-MUAZ474GBkmiz0wMoRg'
+      ]
+
+    '-LzhUhvHdnwUZBQ9eL-b':
+      'id': '-LzhUhvHdnwUZBQ9eL-b'
+      'name': 'Southeast Area'
+      'districts': [
+        '-MUAZDoUSdRz6zwyHzHf'
+        '-MR70GGI25g8bSsomUaH'
+        '-MR70HMfwhvxu2P-hYao'
+        '-MUAZga_4bfZ6gpvE7ar'
+        '-MR70OK1oB78Ba7pdH1y'
+        '-MR70QimjJCx8okTT4OL'
+      ]
+
+    '-MUAUiIiJs-oZMxZQN8l':
+      'id': '-MUAUiIiJs-oZMxZQN8l'
+      'name': 'Central Area'
+      'districts': [
+        '-MR705q1g8VOJX8bT2bS'
+        '-MR70Bu-l_BHgitJdsX8'
+        '-MUA_jYln8JhZXwiKWXg'
+        '-MR709seshnHz3foRBdN'
+        '-MUA_zT5fy4bKgtQ4REz'
+        '-MR70UXxP2IDenRNWCcJ'
+      ]
+
     '-LzhTmo1WsBymrteELGk':
       'id': '-LzhTmo1WsBymrteELGk'
       'name': 'West Area'
       'districts': [
         '-MR70WcQn_Sf2VBbQoVU'
+        '-MR70d5-_yKrp4GlEaob'
+        '-MUAcyTsgfiqaqq8csiV'
+        '-MR70aa5ZczenZa_omWp'
+        '-MUAdHkqRTHORWTNYpmd'
       ]
 
   activeTeam:
     id: '-MR6fgloK4ZfAyw73TcR'
-    name: 'Sleep Sales'
+    name: 'Sleep National'
     manager:
       email: 'dave.hirsch@jazzpharma.com'
       id: '-LzhWho4tx2_lyRIEv21'
       name: 'National Sales Director'
-    # id: '-LzhU2DAlCznHw7NiB1F'
-    # name: 'Sleep Sales'
-    # manager:
-    #   email: 'dave.hirsch@jazzpharma.com'
-    #   id: '-LzhWho4tx2_lyRIEv21'
-    #   name: 'National Sales Director'
+
 
   colors: [
     '#EB3A6E'
