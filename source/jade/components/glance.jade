@@ -161,6 +161,12 @@ section#glance(layout="column" layout-padding)
               th(md-column md-order-by="reps")
                 //- # Reps
                 span(ng-bind-html="::$root.locale.components.glance.numReps | trust")
+              th(md-column md-order-by="totalDaysSunosi")
+                //- # Reps
+                span(ng-bind-html="::$root.locale.components.glance.totalDaysSunosi | trust")
+              th(md-column md-order-by="totalDaysXywav")
+                //- # Reps
+                span(ng-bind-html="::$root.locale.components.glance.totalDaysXywav | trust")
               th(md-column md-order-by="totalDays")
                 //- # Reps
                 span(ng-bind-html="::$root.locale.components.glance.totalDays | trust")
@@ -186,6 +192,8 @@ section#glance(layout="column" layout-padding)
               td(md-cell) {{ data.name }}
               td(md-cell) {{ data.evaluatorName }}
               td(md-cell) {{ data.reps }}
+              td(md-cell) {{ data.totalDaysSunosi }}
+              td(md-cell) {{ data.totalDaysXywav }}
               td(md-cell) {{ data.totalDays }}
               td(md-cell) {{ data.totalDaysLive }}
               td(md-cell) {{ data.totalDaysVirtual }}

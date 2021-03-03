@@ -374,6 +374,8 @@ module.exports = (angular, defaults) ->
               evaluatorId: district.manager.id
               reps: 0
               totalDays: 0
+              totalDaysSunosi: 0
+              totalDaysXywav: 0
               totalDaysLive: 0
               totalDaysVirtual: 0
               totalDaysOther: 0
@@ -393,6 +395,8 @@ module.exports = (angular, defaults) ->
               DistrictData.avgRating = avg.toFixed 2
 
               DistrictData.totalDays += form.payload.daysInField
+              DistrictData.totalDaysSunosi += form.payload.daysInField if form.payload.salesProduct is 'sunosi'
+              DistrictData.totalDaysXywav += form.payload.daysInField if form.payload.salesProduct is 'xywav'
 
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then DistrictData.totalDaysLive += form.payload.daysInField

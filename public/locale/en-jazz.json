@@ -276,6 +276,8 @@
       "minRating": "Min<br>Rating",
       "maxRating": "Max<br>Rating",
       "totalDays": "Total<br>Days",
+      "totalDaysSunosi": "Sunosi<br>Days",
+      "totalDaysXywav": "Xywav<br>Days",
       "totalDaysLive": "Total Days<br>HCP Face to Face",
       "totalDaysVirtual": "Total Days<br>Virtual",
       "totalDaysOther": "Total Days<br>\"Other\"",
