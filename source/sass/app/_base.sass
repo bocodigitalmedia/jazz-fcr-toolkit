@@ -47,6 +47,24 @@ body
     background-color: #CCCCCC !important
     color: #666666 !important
 
+  md-select-menu md-content md-option[selected],
+  md-input-container:not(.md-input-invalid).md-input-focused label,
+  md-select-menu md-content md-option[selected],
+  md-select-menu md-content md-option[selected]:focus
+    color: #880464
+
+  .data-set
+    background-color: #EFE2ED
+    padding: 1em 0.5em
+
+
+    .md-select-value
+      padding: 0.25em
+
+    md-select:not([disabled]):focus md-select-value
+      padding: 0.25em
+      border-bottom-color: #880464
+
   #dashboard
     // margin-top: 136px
     position: relative
