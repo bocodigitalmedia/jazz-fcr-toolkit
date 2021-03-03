@@ -42,15 +42,31 @@ module.exports =
   evaluateeTerm: "Employee"
 
   activeGroups:
-    '':
-      'id': ''
-      'name': 'SUNOSI Reps'
+    '-MUPEuIxnVe_TghroQ-3':
+      'id': '-MUPEuIxnVe_TghroQ-3'
+      'name': 'SSCs OXYBATE'
+      'initials': 'Xy'
+      'dataSet': true
+      'dataSetLabel': 'XYWAV'
       'level': 1
+      'brand': 'xywav'
 
-    '':
-      'id': ''
-      'name': 'ZYWAV Reps'
+    '-MUeuB7Oyg9AQtjM0IV6':
+      'id': '-MUeuB7Oyg9AQtjM0IV6'
+      'name': 'SSCs SUNOSI'
+      'initials': 'Su'
+      'dataSet': true
+      'dataSetLabel': 'SUNOSI'
       'level': 1
+      'brand': 'sunosi'
+
+    '-MUQYHt6n3cOdRvIlTyP':
+      'id': '-MUQYHt6n3cOdRvIlTyP'
+      'name': 'SSCs OXYBATE and SUNOSI'
+      'initials': 'Su'
+      'dataSet': false
+      'level': 1
+      'brand': 'sunosi'
 
     '-LzhVQI35fCFGR2uSDfo':
       'id': '-LzhVQI35fCFGR2uSDfo'
