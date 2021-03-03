@@ -105,7 +105,6 @@ module.exports = (angular, defaults) ->
             all = Firebase.getObject 'userData', userId, 'FormActionItems', defaults.formId[defaults.environment]
             all.$loaded().then =>
               Data.actionItems.all = $firebaseUtils.toJSON all
-              console.log '%c Data.actionItems.all ', 'background-color: red; color: #000', Data.actionItems.all
 
           # ================================================================================================
 
@@ -269,7 +268,7 @@ module.exports = (angular, defaults) ->
 
           parseRawLoopActionItems: (actionItemId, actionItemValue, evaluateeId) ->
 
-            localVerbose = true
+            localVerbose = false
 
             console.log '%c ------- ', 'background-color: red; color: #000' if localVerbose
             console.log '%c actionItemId ', 'background-color: red; color: #000', actionItemId if localVerbose
@@ -296,7 +295,7 @@ module.exports = (angular, defaults) ->
               when 4
                 addIt = true
 
-            console.log '%c addIt ', 'background-color: orangered; color: #000', addIt
+            console.log '%c addIt ', 'background-color: orangered; color: #000', addIt if localVerbose
 
             # don't add it if it's not valid for this user
             return if not addIt

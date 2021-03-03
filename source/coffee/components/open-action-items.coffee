@@ -61,8 +61,6 @@ module.exports = (angular, defaults) ->
           openActionItems = angular.copy Data.forms.actionItemsByStatus.inprogress
           data = []
 
-          console.log '%c openActionItems ', 'background-color: red; color: #000', openActionItems
-
           for actionItemId, actionItem of openActionItems
 
             continue if Data.forms.all[ actionItem.submissionId ].payload.status is 'saved'
@@ -82,12 +80,6 @@ module.exports = (angular, defaults) ->
 
             thePayload = Data.forms.all[ actionItem.submissionId ].payload
             validGroup = ( showAll or (Data.selectedGroupId? and thePayload.evaluatee.groupId is Data.selectedGroupId) )
-
-            console.log '%c ------ ', 'background-color: red; color: #000'
-            console.log '%c thePayload ', 'background-color: red; color: #000', thePayload
-            console.log '%c thePayload.groupId ', 'background-color: lime; color: #000', thePayload.groupId
-            console.log '%c Data.selectedGroupId ', 'background-color: lime; color: #000', Data.selectedGroupId
-            console.log '%c validGroup ', 'background-color: lime; color: #000', validGroup
 
             data.push obj if validGroup
 
