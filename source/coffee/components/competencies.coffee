@@ -39,6 +39,8 @@ module.exports = (angular, defaults) ->
           # stop errors from happening if no completed forms
           return false if ctrl.noData
 
+          showAll = !(Data.selectedGroupId?)
+
           totals = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
           userTally = {}
           data = []
@@ -55,6 +57,8 @@ module.exports = (angular, defaults) ->
               userId: userId
               totals: angular.copy totals
 
+            groupId = null
+
             if userForms?.completed?
               for form in userForms.completed
                 numCompletedForms++
@@ -68,8 +72,10 @@ module.exports = (angular, defaults) ->
                 userTally.totals[7]++ if form.payload.subsections.subsection2
                 userTally.totals[8]++ if form.payload.subsections.subsection3
                 userTally.totals[9]++ if form.payload.subsections.subsection4
+                groupId = form.payload.evaluatee.groupId
 
-            data.push userTally if numCompletedForms isnt 0
+            validGroup = ( showAll or (Data.selectedGroupId? and groupId is Data.selectedGroupId) )
+            data.push userTally if ( ( numCompletedForms isnt 0 ) and validGroup )
 
           ctrl.tableData = data
 

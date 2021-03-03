@@ -39,6 +39,8 @@ module.exports = (angular, defaults) ->
           # stop errors from happening if no completed forms
           return false if ctrl.noData
 
+          showAll = !(Data.selectedGroupId?)
+
           competenciesLookup =
             precall: "Pre-Call Planning"
             rapport: "Opening/Establishes Rapport"
@@ -78,7 +80,16 @@ module.exports = (angular, defaults) ->
               status: statusLookup[ actionItem.status ]
               daysOpen: duration
 
-            data.push obj
+            thePayload = Data.forms.all[ actionItem.submissionId ].payload
+            validGroup = ( showAll or (Data.selectedGroupId? and thePayload.evaluatee.groupId is Data.selectedGroupId) )
+
+            console.log '%c ------ ', 'background-color: red; color: #000'
+            console.log '%c thePayload ', 'background-color: red; color: #000', thePayload
+            console.log '%c thePayload.groupId ', 'background-color: lime; color: #000', thePayload.groupId
+            console.log '%c Data.selectedGroupId ', 'background-color: lime; color: #000', Data.selectedGroupId
+            console.log '%c validGroup ', 'background-color: lime; color: #000', validGroup
+
+            data.push obj if validGroup
 
           ctrl.tableData = data
 

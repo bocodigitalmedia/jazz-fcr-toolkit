@@ -122,6 +122,8 @@ module.exports = (angular, defaults) ->
           # console.log '%c[ @user ]', 'color: yellow', @user
           # console.log '%c[ defaults.activeDistricts ]', 'color: aqua', defaults.activeDistricts
 
+          showAll = !(Data.selectedGroupId?)
+
           @info =
             timeToSubmit: {}
             completed: 0
@@ -212,6 +214,8 @@ module.exports = (angular, defaults) ->
               evaluateeName: ''
               evaluatorName: ''
 
+            groupId = null
+
             # for form in forms when form.payload.status is 'completed'
             for form in forms
               # console.log '[ form ]', form
@@ -244,6 +248,8 @@ module.exports = (angular, defaults) ->
 
               userData.timestamp = form.payload.timestamp
 
+              groupId = form.payload.evaluatee.groupId
+
             # console.log 'completedDates', completedDates
 
             orderedDates = completedDates.sort (a, b) ->
@@ -257,7 +263,9 @@ module.exports = (angular, defaults) ->
             # userData.avgRating = Math.round(avg * 10) / 10
             userData.avgRating = avg.toFixed 2
 
-            @tableData.push userData
+            validGroup = ( showAll or (Data.selectedGroupId? and groupId is Data.selectedGroupId) )
+
+            @tableData.push userData if validGroup
 
           # console.log '%c[ @info ]', 'color: lime', @info
           # console.log '%c[ @tableData ]', 'color: deeppink', @tableData

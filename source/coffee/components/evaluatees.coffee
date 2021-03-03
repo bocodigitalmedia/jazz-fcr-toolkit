@@ -78,6 +78,8 @@ module.exports = (angular, defaults) ->
 
           # console.log '[ @byEmployee ]', @byEmployee
 
+          showAll = !(Data.selectedGroupId?)
+
           for id, forms of @byEmployee
 
             # console.log '[ form ]', form
@@ -108,6 +110,8 @@ module.exports = (angular, defaults) ->
 
             # console.log '[ employeeData ]', employeeData
 
+            groupId = null
+
             for id, form of forms
 
               completedDates.push form.payload.timestamp
@@ -128,6 +132,8 @@ module.exports = (angular, defaults) ->
 
               employeeData.timestamp = form.payload.timestamp
 
+              groupId = form.payload.evaluatee.groupId
+
             orderedDates = completedDates.sort (a, b) ->
               return Date.parse(a) > Date.parse(b)
 
@@ -136,7 +142,7 @@ module.exports = (angular, defaults) ->
             # employeeData.avgRating = Math.round(avg * 10) / 10
             employeeData.avgRating = avg.toFixed 2
 
-            ctrl.tableData.push employeeData
+            ctrl.tableData.push employeeData if showAll or (Data.selectedGroupId? and groupId is Data.selectedGroupId)
 
           sort = 'evaluatee'
           sort = '-avgRating' if ctrl.sort is 'rating'
