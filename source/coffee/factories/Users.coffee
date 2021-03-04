@@ -476,8 +476,13 @@ module.exports = (angular, defaults) ->
             return  true if $rootScope.Users.active.group.level in allowed
 
           getInitials: (userId) ->
+
+            return '' if !userId?
+
             Groups = $injector.get 'Groups'
             user = @lookup[userId]
+
+            return '' if !user?
 
             switch defaults.initials.type
               when 'brand'
