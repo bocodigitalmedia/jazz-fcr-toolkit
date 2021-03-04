@@ -51,8 +51,8 @@ module.exports =
       'level': 1
       'brand': 'xywav'
 
-    '-MUeuB7Oyg9AQtjM0IV6':
-      'id': '-MUeuB7Oyg9AQtjM0IV6'
+    '-MUPEw7VWw4IH-HRt50z':
+      'id': '-MUPEw7VWw4IH-HRt50z'
       'name': 'SSCs SUNOSI'
       'initials': 'Su'
       'dataSet': true

@@ -36,6 +36,7 @@ module.exports = (angular, defaults) ->
     require './components/incompletes'
     require './components/competencies'
     require './components/open-action-items'
+    require './components/completed-action-items'
 
   ]
   module angular, defaults for module in modules
