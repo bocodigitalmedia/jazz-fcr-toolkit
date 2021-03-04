@@ -399,7 +399,7 @@ module.exports = (angular, defaults) ->
 
               DistrictData.totalDays += form.payload.daysInField
               DistrictData.totalDaysSunosi += form.payload.daysInField if form.payload.salesProduct is 'sunosi'
-              DistrictData.totalDaysXywav += form.payload.daysInField if form.payload.salesProduct is 'xywav'
+              DistrictData.totalDaysXywav += form.payload.daysInField if (form.payload.salesProduct is 'xywav') or (form.payload.salesProduct is 'oxybate')
 
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then DistrictData.totalDaysLive += form.payload.daysInField
