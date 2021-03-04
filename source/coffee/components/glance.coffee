@@ -129,6 +129,7 @@ module.exports = (angular, defaults) ->
             completed: 0
             employees: Users.subordinates.length
 
+          tableData = []
           @tableData = []
           @byId = []
           @durations = []
@@ -265,10 +266,12 @@ module.exports = (angular, defaults) ->
 
             validGroup = ( showAll or (Data.selectedGroupId? and groupId is Data.selectedGroupId) )
 
-            @tableData.push userData if validGroup
+            tableData.push userData if validGroup
 
           # console.log '%c[ @info ]', 'color: lime', @info
           # console.log '%c[ @tableData ]', 'color: deeppink', @tableData
+
+          @tableData = angular.copy tableData
 
           ctrl.query =
             order : 'evaluatee.email'

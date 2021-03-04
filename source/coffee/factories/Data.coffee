@@ -632,6 +632,9 @@ module.exports = (angular, defaults) ->
                 completed: 0
                 live: 0
                 virtual: 0
+                "hcp face to face": 0
+                "hcp virtual": 0
+                "other": 0
 
               # loop through each form and gather up info
               for formId, form of userForms

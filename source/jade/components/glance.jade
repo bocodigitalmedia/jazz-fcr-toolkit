@@ -13,13 +13,18 @@ section#glance(layout="column" layout-padding)
     .grid(flex layout="row")
       .grid-section(flex="40")
         .grid-tile(layout="column" layout-align="center center")
-          label # Completed FCRs Virtual
-          span(ng-if="!ctrl.noData") {{ ctrl.info.statusCounts.virtual }}
+          label # Completed FCRs HCP Face to Face
+          span(ng-if="!ctrl.noData") {{ ctrl.info.statusCounts["hcp face to face"] }}
           span(ng-if="ctrl.noData") 0
-        .grid-tile(layout="column" layout-align="center center")
-          label # Completed FCRs Live
-          span(ng-if="!ctrl.noData") {{ ctrl.info.statusCounts.live }}
-          span(ng-if="ctrl.noData") 0
+        .grid-section(flex layout="row")
+          .grid-tile(flex="50" layout="column" layout-align="center center" style="margin-top: 0")
+            label # Completed FCRs HCP Virtual
+            span(ng-if="!ctrl.noData") {{ ctrl.info.statusCounts["hcp virtual"] }}
+            span(ng-if="ctrl.noData") 0
+          .grid-tile(flex="50" layout="column" layout-align="center center" style="margin-top: 0")
+            label # Completed FCRs "Other"
+            span(ng-if="!ctrl.noData") {{ ctrl.info.statusCounts.other }}
+            span(ng-if="ctrl.noData") 0
       .grid-section.chart(flex="40" layout="column" layout-align="center center")
         label(ng-bind-html="::$root.locale.components.glance.manager | trust")
         //- Manager
