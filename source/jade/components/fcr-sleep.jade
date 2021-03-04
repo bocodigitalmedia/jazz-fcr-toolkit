@@ -85,7 +85,7 @@ section#fcr(layout="column")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'sunosi'")
                 div(layout="row")
-                  .col(flex="100" layout="row")
+                  .col(flex="100" layout="column")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductSunosi | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buSunosi.p1 | trust")
                     ol
@@ -97,7 +97,7 @@ section#fcr(layout="column")
 
               section(layout="column" ng-if="ctrl.data.salesProduct == 'xywav' || ctrl.data.salesProduct == 'oxybate'")
                 div(layout="row")
-                  .col(flex="100" layout="row")
+                  .col(flex="100" layout="column")
                     h3.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buProductXywav | trust")
                     p.field-text(ng-bind-html="::$root.locale.components.fcr.form.sectionA.buXywav.p1 | trust")
                     ol
