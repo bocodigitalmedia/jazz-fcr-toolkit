@@ -13,14 +13,14 @@ angular = require 'angular'
 #? BOCO TEST PRODUCTION                     -
 #? --------------------------------------------
 
-window.defaults = defaults = require './defaults-DEV'
-window.locale = locale = require '../../public/locale/en-jazz.json'
+# window.defaults = defaults = require './defaults-DEV'
+# window.locale = locale = require '../../public/locale/en-jazz.json'
 
 #~ HEMONC
 # defaults.testUserHemonc = "boco-super-emmons"
 
 #~ SLEEP
-defaults.testUserSleep = "boco-super-emmons"
+# defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "rep1-district1"
 # defaults.testUserSleep = "rep2-district1"
 # defaults.testUserSleep = "rep3-district1"
@@ -37,8 +37,8 @@ defaults.testUserSleep = "boco-super-emmons"
 #? SLEEP PRODUCTION                           -
 #? --------------------------------------------
 
-# window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
-# window.locale = locale = require '../../public/locale/en-jazz.json'
+window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
+window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "boco-super-mcdonald"
 # defaults.testUserSleep = "boco-super-gabe"
