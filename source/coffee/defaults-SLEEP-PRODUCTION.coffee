@@ -73,9 +73,19 @@ module.exports =
       'name': 'Regional Sales Managers'
       'level': 2
 
+    '-MGnUVpxL5PpMNI1wfyl':
+      'id': '-MGnUVpxL5PpMNI1wfyl'
+      'name': 'Sleep New Hire RSMs'
+      'level': 2
+
     '-LzhVdGiGrnnPzEx6Uto':
       'id': '-LzhVdGiGrnnPzEx6Uto'
       'name': 'Area Business Director'
+      'level': 3
+
+      '-MUyJk2j47pq6dACNlaP':
+      'id': '-MUyJk2j47pq6dACNlaP'
+      'name': 'New Hire ABDs'
       'level': 3
 
     '-LzhW9U390xXwcNb5NZX':
