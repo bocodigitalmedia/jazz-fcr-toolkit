@@ -642,7 +642,7 @@ module.exports = (angular, defaults) ->
                 scores.push form.payload.average
                 timestamps.push new Date(form.payload.timestamp) if form.payload.timestamp?
                 statusCounts[form.payload.status]++
-                statusCounts[form.payload.activity.toLowerCase()]++
+                statusCounts[form.payload.activity.toLowerCase()]++ if form.payload.status is 'completed'
                 daysInField += form.payload.daysInField
 
               totalScore = scores.reduce ((a, b) -> a + b), 0
