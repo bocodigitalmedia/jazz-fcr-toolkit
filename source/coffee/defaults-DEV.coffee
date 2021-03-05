@@ -2,25 +2,41 @@ module.exports =
   app:
     name: 'jazz-fcr-toolkit'
   environment: 'production'
-  # brand: 'hemonc' #! HEMONC
-  brand: 'sleep' #? SLEEP
+  brand: 'hemonc' #! HEMONC
+  # brand: 'sleep' #? SLEEP
   language: 'en'
   hasRegions: true
   isDelphire: false
+  #? SLEEP
+  # initials:
+  #   active: true
+  #   type: 'brand' # or 'team' 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
+  #   included:
+  #     evaluatees:
+  #       levels: [3,4]
+  #     competencies:
+  #       levels: [2..4]
+  #     incompletes:
+  #       levels: [2..4]
+  #     actions:
+  #       levels: [2..4]
+  #     glance:
+  #       levels: [2]
+  #! HEMONC
   initials:
     active: true
-    type: 'brand' # or 'team' 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
+    type: 'team' # or 'team' 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
     included:
       evaluatees:
         levels: [3,4]
       competencies:
-        levels: [2..4]
+        levels: [3,4]
       incompletes:
-        levels: [2..4]
+        levels: [3,4]
       actions:
-        levels: [2..4]
+        levels: [3,4]
       glance:
-        levels: [2]
+        levels: []
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -31,11 +47,11 @@ module.exports =
     appId: "1:898601993167:web:714d1ac170576f43c888ba"
     measurementId: "G-VEHMJ8Z0P9"
     stateShard: "https://delphire-jazz-io-state.firebaseio.com/"
-    # dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/" #! HEMONC
-    dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/" #? SLEEP
+    dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/" #! HEMONC
+    # dataShard: "https://delphire-jazz-io-sleep.firebaseio.com/" #? SLEEP
   formId:
-    # production: "test-hemeonc-fcr" #! HEMONC
-    production: "test-sleep-fcr" #? SLEEP
+    production: "test-hemeonc-fcr" #! HEMONC
+    # production: "test-sleep-fcr" #? SLEEP
   naValue: 5
   integrityQuestion: 30
   noDataMessage: "No data to show."
@@ -44,33 +60,33 @@ module.exports =
   evaluatorTerm: "Evaluator"
   evaluateeTerm: "Employee"
   activeGroups: #TODO ADD USERS TO CORRECT GROUPS IN THE CMS
-    # '-M03B4-G4OgGYz4dnjVt': #! HEMONC - all 6 boco reps from district 1 and distric 2
-    #   'id': '-M03B4-G4OgGYz4dnjVt'
-    #   'name': 'Boco Reps'
+    '-M03B4-G4OgGYz4dnjVt': #! HEMONC - all 6 boco reps from district 1 and distric 2
+      'id': '-M03B4-G4OgGYz4dnjVt'
+      'name': 'Boco Reps'
+      'level': 1
+    # '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI)
+    #   'id': '-MUiS1vC2-ARhE99QGvk'
+    #   'name': 'Boco Reps SUNOSI'
+    #   'initials': 'Su'
+    #   'dataSet': true
+    #   'dataSetLabel': 'SUNOSI'
     #   'level': 1
-    '-MUiS1vC2-ARhE99QGvk': #? SLEEP (SUNOSI)
-      'id': '-MUiS1vC2-ARhE99QGvk'
-      'name': 'Boco Reps SUNOSI'
-      'initials': 'Su'
-      'dataSet': true
-      'dataSetLabel': 'SUNOSI'
-      'level': 1
-      'brand': 'sunosi'
-    '-MUo0YnEn0KppnGI2MKE': #? SLEEP (SUNOSI/XYWAV)
-      'id': '-MUo0YnEn0KppnGI2MKE'
-      'name': 'Boco Reps SUNOSI/XYWAV'
-      'initials': 'Su'
-      'dataSet': false
-      'level': 1
-      'brand': 'sunosi'
-    '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV)
-      'id': '-MUiSC_ADzZKAOV5APWO'
-      'name': 'Boco Reps XYWAV'
-      'initials': 'Xy'
-      'dataSet': true
-      'dataSetLabel': 'XYWAV'
-      'level': 1
-      'brand': 'xywav'
+    #   'brand': 'sunosi'
+    # '-MUo0YnEn0KppnGI2MKE': #? SLEEP (SUNOSI/XYWAV)
+    #   'id': '-MUo0YnEn0KppnGI2MKE'
+    #   'name': 'Boco Reps SUNOSI/XYWAV'
+    #   'initials': 'Su'
+    #   'dataSet': false
+    #   'level': 1
+    #   'brand': 'sunosi'
+    # '-MUiSC_ADzZKAOV5APWO': #? SLEEP (XYWAV)
+    #   'id': '-MUiSC_ADzZKAOV5APWO'
+    #   'name': 'Boco Reps XYWAV'
+    #   'initials': 'Xy'
+    #   'dataSet': true
+    #   'dataSetLabel': 'XYWAV'
+    #   'level': 1
+    #   'brand': 'xywav'
     '-M03BCiWABXAUuo2xEoU':
       'id': '-M03BCiWABXAUuo2xEoU'
       'name': 'Boco DMs'

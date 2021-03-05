@@ -218,49 +218,112 @@ module.exports = (angular, defaults) ->
 
                     #? SALES REP (LEVEL 1)
 
-                    when 'rep-southwest-1'
+                    when 'rep1-district1'
                       id: '-Lzlm3jE_d6GEMHVQq8B'
-                      name: 'Rep Southwest 1'
+                      name: 'Rep 1 District 1'
                       email: 'boco.rep1.district1@gmail.com'
                       mgrEmail: 'boco.manager1.district1@gmail.com'
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-Lzhj0M8qEjtiHBs9TDk'
-                      username: 'rep-southwest-1'
-                      organization: '-Lzhk3eLULX2FJmqQScU'
+                      groupId: '-M03B4-G4OgGYz4dnjVt'
+                      username: 'rep1-district1'
+                      organization: '-M03BTgcsR1xpi8H6w-7'
 
-                    when 'rep-southwest-2'
+                    when 'rep2-district1'
                       id: '-LzlmBywBOy4GuOZKUAG'
-                      name: 'Rep Southwest 2'
+                      name: 'Rep 2 District 1'
                       email: 'boco.rep2.district1@gmail.com'
                       mgrEmail: 'boco.manager1.district1@gmail.com'
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-Lzhj0M8qEjtiHBs9TDk'
-                      username: 'rep-southwest-1'
-                      organization: '-Lzhk3eLULX2FJmqQScU'
+                      groupId: '-M03B4-G4OgGYz4dnjVt'
+                      username: 'rep2-district1'
+                      organization: '-M03BTgcsR1xpi8H6w-7'
 
-                    when 'rep-southwest-3'
+                    when 'rep3-district1'
                       id: '-LzlmK9LTtWofIcfu_M4'
-                      name: 'Rep Southwest 3'
+                      name: 'Rep 3 District 1'
                       email: 'boco.rep3.district1@gmail.com'
                       mgrEmail: 'boco.manager1.district1@gmail.com'
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-Lzhj0M8qEjtiHBs9TDk'
-                      username: 'rep-southwest-1'
-                      organization: '-Lzhk3eLULX2FJmqQScU'
+                      groupId: '-M03B4-G4OgGYz4dnjVt'
+                      username: 'rep3-district1'
+                      organization: '-M03BTgcsR1xpi8H6w-7'
+
+                    when 'rep1-district2'
+                      id: '-LzlnOC86t3ru5T82CTT'
+                      name: 'Rep 1 District 2'
+                      email: 'boco.rep1.district2@gmail.com'
+                      mgrEmail: 'boco.manager2.district2@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03B4-G4OgGYz4dnjVt'
+                      username: 'rep1-district2'
+                      organization: '-M03BVeWmqPCtySIrzgP'
+
+                    when 'rep2-district2'
+                      id: '-LzlnTy8zJFZVGqaa4xP'
+                      name: 'Rep 2 District 2'
+                      email: 'boco.rep2.district2@gmail.com'
+                      mgrEmail: 'boco.manager2.district2@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03B4-G4OgGYz4dnjVt'
+                      username: 'rep2-district2'
+                      organization: '-M03BVeWmqPCtySIrzgP'
+
+                    when 'rep3-district2'
+                      id: '-Lzln_SbXBOaUpRkOtUV'
+                      name: 'Rep 3 District 2'
+                      email: 'boco.rep3.district2@gmail.com'
+                      mgrEmail: 'boco.manager2.district2@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03B4-G4OgGYz4dnjVt'
+                      username: 'rep3-district2'
+                      organization: '-M03BVeWmqPCtySIrzgP'
+
 
                     #? DISTRICT MANAGER (LEVEL 2)
 
-                    when 'manager-southwest'
+                    when 'manager1-district1'
                       id: '-LzlmRXnvyLOZTUbKKEO'
-                      name: 'Manager Southwest'
-                      email: 'boco.manager1.district1@gmail.com'
+                      name: 'Manager 1 District 1'
+                      email: 'boco.manager1-district1@gmail.com'
+                      mgrEmail: 'boco.regional.manager1@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03BCiWABXAUuo2xEoU'
+                      username: 'manager1-district1'
+                      organization: '-M03BXyv8l_rQZJqjW9F'
+
+                    when 'manager2-district2'
+                      id: '-LzlnqPruZjFhPS8Ab0F'
+                      name: 'Manager 2 District 2'
+                      email: 'boco.manager2.district2@gmail.com'
+                      mgrEmail: 'boco.regional.manager2@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03BCiWABXAUuo2xEoU'
+                      username: 'manager2-district2'
+                      organization: '-M03B_4wAvDCNicrj2RW'
+
+                    #? REGIONAL USER (LEVEL 3)
+
+                    when 'regional-manager-1'
+                      id: '-M-QTRVGC13ZFE9YePFm'
+                      name: 'Regional Manager 1'
+                      email: 'boco.regional.manager1@gmail.com'
                       mgrEmail: 'boco.national.director@gmail.com'
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-LzhjCGdSnN4nSqfkLby'
-                      username: 'manager-southwest'
-                      organization: '-LzhkOXj4Q1ANu18NM4a'
+                      groupId: '-M03BGAcmENfAf5jdq93'
+                      username: 'regional-manager-1'
+                      organization: '-M03Bq3CZoyZsNUo0i-D'
 
-                    #? NATIONAL (LEVEL 3)
+                    when 'regional-manager-2'
+                      id: '-M-QN0ADBO86ebiOInsf'
+                      name: 'Regional Manager 2'
+                      email: 'boco.regional.manager2@gmail.com'
+                      mgrEmail: 'boco.national.director@gmail.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-M03BGAcmENfAf5jdq93'
+                      username: 'regional-manager-2'
+                      organization: '-M03Bq3CZoyZsNUo0i-D'
+
+                    #? NATIONAL (LEVEL 4)
 
                     when 'national-director'
                       id: '-M-QREGos1cWmgTsDoeM'
@@ -268,11 +331,11 @@ module.exports = (angular, defaults) ->
                       email: 'boco.national.director@gmail.com'
                       mgrEmail: null
                       avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
-                      groupId: '-Lzhjc1dGSoz2316nOSk'
+                      groupId: '-M03BLyXd0n-QzSKbYEu'
                       username: 'national-director'
-                      organization: '-LzhU2DAlCznHw7NiB1F'
+                      organization: '-M03Bq3CZoyZsNUo0i-D'
 
-                    #? SUPER USER (LEVEL 3)
+                    #? SUPER USER (LEVEL 4)
 
                     when 'boco-super-emmons'
                       id: '-LyeUJIasLRkbCD6R-eW'
@@ -480,6 +543,7 @@ module.exports = (angular, defaults) ->
             return '' if !userId?
 
             Groups = $injector.get 'Groups'
+            Regions = $injector.get 'Regions'
             user = @lookup[userId]
 
             return '' if !user?
@@ -489,7 +553,7 @@ module.exports = (angular, defaults) ->
                 return Groups.lookup[ user.groupId ].initials
               when 'team'
                 #? employeeData.regionInitials = Regions.lookup[ form.payload.evaluator.regionIdOriginal ].initials
-                return 'HEMONC LOGIC'
+                return Regions.lookup[ user.regionId ].initials
 
 
           #~ ================================================================================================
