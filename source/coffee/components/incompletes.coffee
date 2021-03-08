@@ -52,7 +52,21 @@ module.exports = (angular, defaults) ->
             form.payload.districtName = Districts.lookupByManagerId[ form.payload.evaluator.id ].name if form.payload.evaluator.id?
             form.payload.submissionDate = form.createdAt
             form.payload.submissionId = formId
-            forms.push form.payload if showAll or (Data.selectedGroupId? and form.payload.evaluatee.groupId is Data.selectedGroupId)
+
+            validGroup = ( showAll or (Data.selectedGroupId? and form.payload.evaluatee.groupId is Data.selectedGroupId) )
+
+            validUser = false
+            switch Users.active.group.level
+              when 1 then validUser = true
+              when 2
+                evaluatee = Users.lookup[ form.payload.evaluatee.id ]
+                validUser = evaluatee.districtId is Districts.lookupByManagerId[ Users.active.id ].id
+              when 3
+                evaluator = Users.lookup[ form.payload.evaluator.id ]
+                validUser = evaluator.regionId is Regions.lookupByManagerId[ Users.active.id ].id
+              when 4 then validUser = true
+
+            forms.push form.payload if validGroup && validUser
 
           ctrl.tableData = forms
 

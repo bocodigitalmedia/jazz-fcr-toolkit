@@ -12,7 +12,7 @@ module.exports = (angular, defaults) ->
 
       # =========================================================================================================
 
-      controller: ($rootScope, $scope, $timeout, Data, Forms, Regions, Users) ->
+      controller: ($rootScope, $scope, $timeout, Data, Forms, Regions, Users, Districts) ->
 
         # to maintain scope across promises and functions
         ctrl = @
@@ -75,7 +75,19 @@ module.exports = (angular, defaults) ->
                 groupId = form.payload.evaluatee.groupId
 
             validGroup = ( showAll or (Data.selectedGroupId? and groupId is Data.selectedGroupId) )
-            data.push userTally if ( ( numCompletedForms isnt 0 ) and validGroup )
+
+            validUser = false
+            switch Users.active.group.level
+              when 1 then validUser = true
+              when 2
+                evaluatee = Users.lookup[ form.payload.evaluatee.id ]
+                validUser = evaluatee.districtId is Districts.lookupByManagerId[ Users.active.id ].id
+              when 3
+                evaluator = Users.lookup[ form.payload.evaluator.id ]
+                validUser = evaluator.regionId is Regions.lookupByManagerId[ Users.active.id ].id
+              when 4 then validUser = true
+
+            data.push userTally if ( ( numCompletedForms isnt 0 ) and validGroup and validUser )
 
           ctrl.tableData = data
 

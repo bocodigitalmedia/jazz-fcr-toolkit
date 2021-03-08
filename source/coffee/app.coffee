@@ -32,7 +32,7 @@ window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserHemonc = "roddy-mcilwain"
 
 #~ SLEEP
-defaults.testUserSleep = "boco-super-emmons"
+# defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "rep1-district1"
 # defaults.testUserSleep = "rep2-district1"
 # defaults.testUserSleep = "rep3-district1"
@@ -43,7 +43,7 @@ defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "manager2-district2" # SAN DIEGO
 # defaults.testUserSleep = "regional-manager-1" # EAST
 # defaults.testUserSleep = "regional-manager-2" # WEST
-# defaults.testUserSleep = "national-director"
+defaults.testUserSleep = "national-director"
 
 #? --------------------------------------------
 #? SLEEP PRODUCTION                           -
