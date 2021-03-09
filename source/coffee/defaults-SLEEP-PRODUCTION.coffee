@@ -300,41 +300,11 @@ module.exports =
   ]
 
   questions: [
-    'Average Compliance'
-    'Average Compliance'
+    'Employee compliance'
+    'Meeting expectations'
   ]
 
   includedQuestions: [
     false
-    false
-    false
-    false
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
     false
   ]
