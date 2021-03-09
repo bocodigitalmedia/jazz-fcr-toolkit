@@ -93,9 +93,9 @@ module.exports =
       'name': 'National Sales Director'
       'level': 4
 
-    '-Lz82Kjh3XHZ90PiRd9W':
-      'id': '-Lz82Kjh3XHZ90PiRd9W'
-      'name': 'Jazz Training Team'
+    '-MVMYf7t9IOJAOU30oX6':
+      'id': '-MVMYf7t9IOJAOU30oX6'
+      'name': 'Jazz FCR/Training Super Users'
       'level': 4
       'super': true
 

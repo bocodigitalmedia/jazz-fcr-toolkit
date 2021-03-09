@@ -17,8 +17,21 @@ module.exports =
     measurementId: "G-VEHMJ8Z0P9"
     stateShard: "https://delphire-jazz-io-state.firebaseio.com/"
     dataShard: "https://delphire-jazz-io-heme-onc.firebaseio.com/"
+  initials:
+    active: true
+    type: 'team' # or 'team' 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
+    included:
+      evaluatees:
+        levels: [3,4]
+      competencies:
+        levels: [3,4]
+      incompletes:
+        levels: [3,4]
+      actions:
+        levels: [3,4]
+      glance:
+        levels: []
   formId:
-    # production: "7533a241-20b6-4e4d-8a9f-a55afdf9defd"
     production: "12bdfe6a-c475-41e3-876e-0fd007eb4015"
   naValue: 5
   integrityQuestion: 30
@@ -32,14 +45,17 @@ module.exports =
       'id': '-MUVAGg1LWrWR6Wynv5j'
       'name': 'Hemonc New Hire OAMs - Adult'
       'level': 1
+
     '-MUVAJ5v_nf9gsR8AXSq':
       'id': '-MUVAJ5v_nf9gsR8AXSq'
       'name': 'Hemonc New Hire OAMs - L&T'
       'level': 1
+
     '-MUOsyIqV7SS1nXQNctX':
       'id': '-MUOsyIqV7SS1nXQNctX'
       'name': 'Hemonc OAMs - Adult'
       'level': 1
+
     '-MUOtOqUaPY-uIDeaB4J':
       'id': '-MUOtOqUaPY-uIDeaB4J'
       'name': 'Hemonc OAMs - L&T'
@@ -68,33 +84,18 @@ module.exports =
       'name': 'HemOnc National'
       'level': 4
       'super': true
-    # '-Lzhj0M8qEjtiHBs9TDk':
-    #   'id': '-Lzhj0M8qEjtiHBs9TDk'
-    #   'name': 'Oncology Account Manager'
-    #   'level': 1
-    # '-LzhjCGdSnN4nSqfkLby':
-    #   'id': '-LzhjCGdSnN4nSqfkLby'
-    #   'name': 'Regional Sales Manager'
-    #   'level': 2
-    # '-Lzhjc1dGSoz2316nOSk':
-    #   'id': '-Lzhjc1dGSoz2316nOSk'
-    #   'name': 'National Sales Manager'
-    #   'level': 3
-    '-Lz82Kjh3XHZ90PiRd9W':
-      'id': '-Lz82Kjh3XHZ90PiRd9W'
-      'name': 'Jazz Training Team'
+
+    '-MVMYf7t9IOJAOU30oX6':
+      'id': '-MVMYf7t9IOJAOU30oX6'
+      'name': 'Jazz FCR/Training Super Users'
       'level': 4
       'super': true
+
     '-Lydv3QoOrsCWuVJ5EUG':
       'id': '-Lydv3QoOrsCWuVJ5EUG'
       'name': 'Boco Super'
       'level': 4
       'super': true
-    # "-Lzhjc1dGSoz2316nOSk":
-    #   'id': "-Lzhjc1dGSoz2316nOSk"
-    #   'name': "Hem-Onc Sales Lead"
-    #   'level': 3
-    #   'super': true
 
   activeDistricts:
     '-MR71Wzd594z2IVmUouY':
@@ -152,11 +153,6 @@ module.exports =
       'name': 'HemOnc L&T Southeast'
       'region': '-M5wJ0--M3ZKGhGhJi4C'
 
-    # '-Lzhk3eLULX2FJmqQScU':
-    #   'id': '-Lzhk3eLULX2FJmqQScU'
-    #   'name': 'Southwest'
-    #   'region': '-M-ziGQR_6dvQy1VrHTZ'
-
   activeRegions:
     '-MR715rTi75n9uaD0F6S':
       'id': '-MR715rTi75n9uaD0F6S'
@@ -189,12 +185,6 @@ module.exports =
         '-MUAGHVx-GZPSQIf6Fv3'
         '-MUAGNJx3qK4tRUEwd-o'
       ]
-    # '-M-ziGQR_6dvQy1VrHTZ':
-    #   'id': '-M-ziGQR_6dvQy1VrHTZ'
-    #   'name': 'All Regions'
-    #   'districts': [
-    #     '-Lzhk3eLULX2FJmqQScU'
-    #   ]
 
   activeTeam:
     id: '-M5wIrtDrAovUDNMipbC'
@@ -203,12 +193,6 @@ module.exports =
       email: 'roddy.mcilwain@jazzpharma.com'
       id: '-Lzhl7ys-TgHOkT6XJY8'
       name: 'National Sales Director'
-    # id: '-M-ziGQR_6dvQy1VrHTZ'
-    # name: 'National'
-    # manager:
-    #   email: 'roddy.mcilwain@jazzpharma.com'
-    #   id: '-Lzhl7ys-TgHOkT6XJY8'
-    #   name: 'National Sales Director'
 
   colors: [
     '#EB3A6E'
