@@ -5,7 +5,7 @@ module.exports =
   brand: 'hemonc'
   language: 'en'
   hasRegions: true
-  isDelphire: true
+  isDelphire: false
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -215,70 +215,11 @@ module.exports =
   ]
 
   questions: [
-    'Quality of Resource Usage'
-    'Quality of Boostrix Delivery'
-    'Quality of Disease State Delivery'
-    'Quality Call to Action'
-    'Diagnose'
-    'Build Your Plan | Resource Utilization'
-    'Execute & Evaluate | Targeting/Routing'
-    'Disease State'
-    'Product'
-    'Promotion/Selling'
-    'Prepare to Sell'
-    'Open the Sales Call'
-    'Uncover Opportunities'
-    'Align Brand and Handle Objections'
-    'Close with Commitment'
-    'Total Office Call'
-    'Analyze Call and Plan Next Steps'
-    'Payer Pull Through'
-    'Initiative | Seize Opportunity'
-    'Drive Performance'
-    'Coachability'
-    'Personal Development'
-    'Effective Collaboration'
-    'Builds Trust'
-    'Effective Communication'
-    'Expense Management'
-    'Sample/Resource Management'
-    'Fleet Management'
-    'Report Timeliness'
-    'Recording of Activity in CRM'
-    'Compliance'
+    'Employee compliance'
+    'Meeting expectations'
   ]
 
   includedQuestions: [
     false
-    false
-    false
-    false
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
-    true
     false
   ]
