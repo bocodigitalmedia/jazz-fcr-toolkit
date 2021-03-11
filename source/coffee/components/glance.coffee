@@ -243,7 +243,7 @@ module.exports = (angular, defaults) ->
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then userData.totalDaysLive += form.payload.daysInField
                 when 'hcp virtual' then userData.totalDaysVirtual += form.payload.daysInField
-                when 'hcp other' then userData.totalDaysOther += form.payload.daysInField
+                when 'other' then userData.totalDaysOther += form.payload.daysInField
 
               userData.totalCompleted++
 
@@ -404,7 +404,7 @@ module.exports = (angular, defaults) ->
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then DistrictData.totalDaysLive += form.payload.daysInField
                 when 'hcp virtual' then DistrictData.totalDaysVirtual += form.payload.daysInField
-                when 'hcp other' then DistrictData.totalDaysOther += form.payload.daysInField
+                when 'other' then DistrictData.totalDaysOther += form.payload.daysInField
 
               DistrictData.totalCompleted++
 

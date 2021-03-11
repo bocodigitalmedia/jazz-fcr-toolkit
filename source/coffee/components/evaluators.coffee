@@ -117,7 +117,7 @@ module.exports = (angular, defaults) ->
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then evaluatorData.totalCompletedLive++
                 when 'hcp virtual' then evaluatorData.totalCompletedVirtual++
-                when 'hcp other' then evaluatorData.totalCompletedOther++
+                when 'other' then evaluatorData.totalCompletedOther++
 
               evaluatorData.totalCompleted++
 
