@@ -25,7 +25,7 @@ section#glance(layout="column" layout-padding)
               th(md-column md-order-by="dateAssigned"): span DATE ASSIGNED
               th(md-column md-order-by="competencyAssigned"): span COMPETENCY ASSIGNED
               th(md-column md-order-by="status"): span STATUS
-              th(md-column md-order-by="daysOpen"): span # DAYS OPEN
+              th(md-column md-order-by="daysOpen"): span DATE COMPLETED
               th(md-column width="1%")
 
           tbody(md-body)
@@ -37,7 +37,7 @@ section#glance(layout="column" layout-padding)
               td(md-cell) {{ data.dateAssigned | date:'M/d/yyyy' }}
               td(md-cell) {{ data.competencyAssigned }}
               td(md-cell) {{ data.status }}
-              td(md-cell) {{ data.daysOpen }}
+              td(md-cell) {{ data.dateCompleted | date:'M/d/yyyy' }}
               td(md-cell width="1%")
                 md-menu
                   md-button.md-icon-button(aria-label='Open row interactions menu', ng-click='ctrl.openMenu($mdMenu, $event)')

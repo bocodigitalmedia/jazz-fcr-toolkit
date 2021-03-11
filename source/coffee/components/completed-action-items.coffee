@@ -77,6 +77,7 @@ module.exports = (angular, defaults) ->
               competencyAssigned: competenciesLookup[ actionItem.competencyList ]
               status: statusLookup[ actionItem.status ]
               daysOpen: duration
+              dateCompleted: actionItem.completedAt
 
             thePayload = Data.forms.all[ actionItem.submissionId ].payload
             validGroup = ( showAll or (Data.selectedGroupId? and thePayload.evaluatee.groupId is Data.selectedGroupId) )
