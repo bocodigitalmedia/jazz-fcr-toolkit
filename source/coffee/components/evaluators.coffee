@@ -68,51 +68,48 @@ module.exports = (angular, defaults) ->
                   @data[ evaluatorId ] ?= []
                   @data[ evaluatorId ].push form
 
-          # console.log '[ @data ]', @data
+          console.log '[ @data ]', @data
 
           for id, forms of @data
 
-            # console.log '[ id ]', id
-
             completedDates = []
 
-            if Users.active.group.level is 3
-              evaluator = Districts.lookup[id].manager
-              evaluatorData =
-                evaluator: evaluator.email
-                evaluatorId: evaluator.id
-                totalCompleted: 0
-                totalCompletedLive: 0
-                totalCompletedVirtual: 0
-                totalCompletedOther: 0
-                lastCompletedDate: null
-                timeToSubmit: {}
-                districtId: id
-                district: Districts.lookup[id].name
-                region: Regions.lookupByManagerId[Users.active.id].name
-                regionId: Regions.lookupByManagerId[Users.active.id].id
-                evaluatorName: Users.getName evaluator
+            for formId, form of forms
 
-            if Users.active.group.level is 4
-              evaluator = Districts.lookupByManagerId[id].manager
-              evaluatorData =
-                evaluator: Users.lookup[id].email
-                evaluatorId: Users.lookup[id].id
-                totalCompleted: 0
-                totalCompletedLive: 0
-                totalCompletedVirtual: 0
-                totalCompletedOther: 0
-                lastCompletedDate: null
-                timeToSubmit: {}
-                districtId: form.payload.evaluatee.districtId
-                district: form.payload.evaluatee.districtName
-                regionId: form.payload.evaluatee.regionId
-                region: form.payload.evaluatee.regionName
-                evaluatorName: Users.getName evaluator
+              if Users.active.group.level is 3
+                evaluator = Districts.lookup[id].manager
+                evaluatorData =
+                  evaluator: evaluator.email
+                  evaluatorId: evaluator.id
+                  totalCompleted: 0
+                  totalCompletedLive: 0
+                  totalCompletedVirtual: 0
+                  totalCompletedOther: 0
+                  lastCompletedDate: null
+                  timeToSubmit: {}
+                  districtId: id
+                  district: Districts.lookup[id].name
+                  region: Regions.lookupByManagerId[Users.active.id].name
+                  regionId: Regions.lookupByManagerId[Users.active.id].id
+                  evaluatorName: Users.getName evaluator
 
-            # console.log '[ evaluatorData ]', evaluatorData
-
-            for id, form of forms
+              if Users.active.group.level is 4
+                evaluator = Districts.lookupByManagerId[id].manager
+                evaluatorManagesDistrict = Districts.lookupByManagerId[id]
+                evaluatorData =
+                  evaluator: Users.lookup[id].email
+                  evaluatorId: Users.lookup[id].id
+                  totalCompleted: 0
+                  totalCompletedLive: 0
+                  totalCompletedVirtual: 0
+                  totalCompletedOther: 0
+                  lastCompletedDate: null
+                  timeToSubmit: {}
+                  districtId: evaluatorManagesDistrict.id
+                  district: evaluatorManagesDistrict.name
+                  regionId: form.payload.evaluator.regionId
+                  region: form.payload.evaluator.regionName
+                  evaluatorName: Users.getName evaluator
 
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then evaluatorData.totalCompletedLive++
@@ -160,6 +157,8 @@ module.exports = (angular, defaults) ->
             evaluatorData.timeToSubmit.breakdown = times
 
             ctrl.tableData.push evaluatorData
+
+          console.log '%c ctrl.tableData ', 'background-color: red; color: #000', ctrl.tableData
 
           ctrl.query =
             order : 'evaluator'
