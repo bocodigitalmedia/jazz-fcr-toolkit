@@ -70,46 +70,52 @@ module.exports = (angular, defaults) ->
 
           console.log '[ @data ]', @data
 
-          for id, forms of @data
+          for id, person of @data
 
             completedDates = []
 
-            for formId, form of forms
+            evaluatorData = null
+
+            for formId, form of person
 
               if Users.active.group.level is 3
                 evaluator = Districts.lookup[id].manager
-                evaluatorData =
-                  evaluator: evaluator.email
-                  evaluatorId: evaluator.id
-                  totalCompleted: 0
-                  totalCompletedLive: 0
-                  totalCompletedVirtual: 0
-                  totalCompletedOther: 0
-                  lastCompletedDate: null
-                  timeToSubmit: {}
-                  districtId: id
-                  district: Districts.lookup[id].name
-                  region: Regions.lookupByManagerId[Users.active.id].name
-                  regionId: Regions.lookupByManagerId[Users.active.id].id
-                  evaluatorName: Users.getName evaluator
+
+                if !evaluatorData?
+                  evaluatorData =
+                    evaluator: evaluator.email
+                    evaluatorId: evaluator.id
+                    totalCompleted: 0
+                    totalCompletedLive: 0
+                    totalCompletedVirtual: 0
+                    totalCompletedOther: 0
+                    lastCompletedDate: null
+                    timeToSubmit: {}
+                    districtId: id
+                    district: Districts.lookup[id].name
+                    region: Regions.lookupByManagerId[Users.active.id].name
+                    regionId: Regions.lookupByManagerId[Users.active.id].id
+                    evaluatorName: Users.getName evaluator
 
               if Users.active.group.level is 4
                 evaluator = Districts.lookupByManagerId[id].manager
                 evaluatorManagesDistrict = Districts.lookupByManagerId[id]
-                evaluatorData =
-                  evaluator: Users.lookup[id].email
-                  evaluatorId: Users.lookup[id].id
-                  totalCompleted: 0
-                  totalCompletedLive: 0
-                  totalCompletedVirtual: 0
-                  totalCompletedOther: 0
-                  lastCompletedDate: null
-                  timeToSubmit: {}
-                  districtId: evaluatorManagesDistrict.id
-                  district: evaluatorManagesDistrict.name
-                  regionId: form.payload.evaluator.regionId
-                  region: form.payload.evaluator.regionName
-                  evaluatorName: Users.getName evaluator
+
+                if !evaluatorData?
+                  evaluatorData =
+                    evaluator: Users.lookup[id].email
+                    evaluatorId: Users.lookup[id].id
+                    totalCompleted: 0
+                    totalCompletedLive: 0
+                    totalCompletedVirtual: 0
+                    totalCompletedOther: 0
+                    lastCompletedDate: null
+                    timeToSubmit: {}
+                    districtId: evaluatorManagesDistrict.id
+                    district: evaluatorManagesDistrict.name
+                    regionId: form.payload.evaluator.regionId
+                    region: form.payload.evaluator.regionName
+                    evaluatorName: Users.getName evaluator
 
               switch form.payload.activity.toLowerCase()
                 when 'hcp face to face' then evaluatorData.totalCompletedLive++
@@ -127,7 +133,7 @@ module.exports = (angular, defaults) ->
               duration = moment.duration(submitted.diff(end))
 
               ms = duration.asMilliseconds()
-              ms = 0 if ms < 0 #? let ms be 0 is negative
+              ms = 0 if ms < 0 || isNaN(ms) #? let ms be 0 is negative or NaN
               @durations.push ms
 
               # console.log '[ duration ]', duration

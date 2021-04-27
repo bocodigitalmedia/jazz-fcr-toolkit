@@ -13,8 +13,8 @@ angular = require 'angular'
 #? BOCO TEST PRODUCTION                     -
 #? --------------------------------------------
 
-window.defaults = defaults = require './defaults-DEV'
-window.locale = locale = require '../../public/locale/en-jazz.json'
+# window.defaults = defaults = require './defaults-DEV'
+# window.locale = locale = require '../../public/locale/en-jazz.json'
 
 #~ HEMONC
 # defaults.testUserHemonc = "boco-super-emmons"
@@ -43,15 +43,15 @@ window.locale = locale = require '../../public/locale/en-jazz.json'
 # defaults.testUserSleep = "manager2-district2" # SAN DIEGO
 # defaults.testUserSleep = "regional-manager-1" # EAST
 # defaults.testUserSleep = "regional-manager-2" # WEST
-defaults.testUserSleep = "national-director"
+# defaults.testUserSleep = "national-director"
 
 #? --------------------------------------------
 #? SLEEP PRODUCTION                           -
 #? --------------------------------------------
 
-# window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
-# window.locale = locale = require '../../public/locale/en-jazz.json'
-# defaults.testUserSleep = "boco-super-emmons"
+window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
+window.locale = locale = require '../../public/locale/en-jazz.json'
+defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "boco-super-mcdonald"
 # defaults.testUserSleep = "boco-super-gabe"
 # defaults.testUserSleep = "national-director"

@@ -156,6 +156,21 @@ module.exports = (angular, defaults) ->
 
           parseRaw: () ->
 
+            months = [
+              'Jan'
+              'Feb'
+              'Mar'
+              'Apr'
+              'May'
+              'Jun'
+              'Jul'
+              'Aug'
+              'Sep'
+              'Oct'
+              'Nov'
+              'Dec'
+            ]
+
             # loop through all the raw userData
             for userId, userData of @forms.raw
 
@@ -176,6 +191,23 @@ module.exports = (angular, defaults) ->
 
                   # make sure we save the submissionId with the form
                   formValue.payload.submissionId = formId
+
+                  if formValue.payload.firstSubmitted?
+                    switch true
+                      when /^-?\d+$/.test(formValue.payload.firstSubmitted)
+                        break
+                      when formValue.payload.firstSubmitted.indexOf('Z') > -1
+                        break
+                      else
+                        # Wed Mar 31st, 2021
+                        pieces = formValue.payload.firstSubmitted.split(' ')
+                        monthName = pieces[1]
+                        monthNum = months.indexOf(monthName)
+                        dayNum = parseInt pieces[2]
+                        yearNum = pieces[3]
+                        momentDate = moment({ year: yearNum, month: monthNum, day: dayNum})
+                        formValue.payload.firstSubmitted = momentDate
+
 
                   # this is the RAW list of ALL forms regardless of status (whereas forms.raw is the USERDATA NODE)
                   @forms.allAll[formId] = formValue

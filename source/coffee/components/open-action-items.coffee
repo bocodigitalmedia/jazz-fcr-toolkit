@@ -63,6 +63,8 @@ module.exports = (angular, defaults) ->
 
           for actionItemId, actionItem of openActionItems
 
+            console.log '%c actionItem ', 'background-color: red; color: #000', actionItem
+
             continue if Data.forms.all[ actionItem.submissionId ].payload.status is 'saved'
             user = Users.lookup[ actionItem.userId ]
 
