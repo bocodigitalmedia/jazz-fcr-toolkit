@@ -52,6 +52,7 @@ module.exports = (angular, defaults) ->
             knowledge: "Product / Scientific Knowledge"
             business: "Business Analytics and Planning"
             effectiveness: "Team and Leadership Effectiveness"
+            other: "Other"
 
           statusLookup =
             inprogress: "In Progress"
@@ -63,10 +64,15 @@ module.exports = (angular, defaults) ->
 
           for actionItemId, actionItem of openActionItems
 
+            console.log '---'
             console.log '%c actionItem ', 'background-color: red; color: #000', actionItem
+            console.log '%c user ', 'background-color: lime; color: #000', user
+
+            user = Users.lookup[ actionItem.userId ]
+            continue if !user?.districtId?
 
             continue if Data.forms.all[ actionItem.submissionId ].payload.status is 'saved'
-            user = Users.lookup[ actionItem.userId ]
+
 
             end = moment()
             submitted = moment actionItem.createdAt

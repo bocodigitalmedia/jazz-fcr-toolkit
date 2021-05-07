@@ -52,6 +52,7 @@ module.exports = (angular, defaults) ->
             knowledge: "Product / Scientific Knowledge"
             business: "Business Analytics and Planning"
             effectiveness: "Team and Leadership Effectiveness"
+            other: "Other"
 
           statusLookup =
             inprogress: "In Progress"
