@@ -139,7 +139,7 @@ module.exports =
 
     '-MUAZDoUSdRz6zwyHzHf':
       'id': '-MUAZDoUSdRz6zwyHzHf'
-      'name': 'Panhandle'
+      'name': 'Sleep North Florida'
       'region': '-LzhUhvHdnwUZBQ9eL-b'
 
     '-MR70GGI25g8bSsomUaH':
@@ -199,7 +199,7 @@ module.exports =
 
     '-MR70WcQn_Sf2VBbQoVU':
       'id': '-MR70WcQn_Sf2VBbQoVU'
-      'name': 'South Central'
+      'name': 'Sleep TexOma'
       'region': '-LzhTmo1WsBymrteELGk'
 
     '-MR70d5-_yKrp4GlEaob':

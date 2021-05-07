@@ -27,6 +27,9 @@ module.exports = (angular, defaults) ->
           send: (response) ->
             console.log '[ EMAIL ][ send: response ]', response
 
+            #! TODO - comment this in for our test users
+            # return $q.when()
+
             # store subject and to
             @setup response
 

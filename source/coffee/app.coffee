@@ -51,7 +51,7 @@ angular = require 'angular'
 
 window.defaults = defaults = require './defaults-SLEEP-PRODUCTION'
 window.locale = locale = require '../../public/locale/en-jazz.json'
-defaults.testUserSleep = "boco-super-emmons"
+# defaults.testUserSleep = "boco-super-emmons"
 # defaults.testUserSleep = "boco-super-mcdonald"
 # defaults.testUserSleep = "boco-super-gabe"
 # defaults.testUserSleep = "national-director"
