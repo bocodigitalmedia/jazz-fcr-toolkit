@@ -199,7 +199,7 @@ module.exports =
 
     '-MR70WcQn_Sf2VBbQoVU':
       'id': '-MR70WcQn_Sf2VBbQoVU'
-      'name': 'Sleep TexOma'
+      'name': 'Sleep South Central'
       'region': '-LzhTmo1WsBymrteELGk'
 
     '-MR70d5-_yKrp4GlEaob':

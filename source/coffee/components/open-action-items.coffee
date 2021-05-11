@@ -64,9 +64,10 @@ module.exports = (angular, defaults) ->
 
           for actionItemId, actionItem of openActionItems
 
-            console.log '---'
-            console.log '%c actionItem ', 'background-color: red; color: #000', actionItem
-            console.log '%c user ', 'background-color: lime; color: #000', user
+            localVerbose = false
+            console.log '---' if localVerbose
+            console.log '%c actionItem ', 'background-color: red; color: #000', actionItem if localVerbose
+            console.log '%c user ', 'background-color: lime; color: #000', user if localVerbose
 
             user = Users.lookup[ actionItem.userId ]
             continue if !user?.districtId?
