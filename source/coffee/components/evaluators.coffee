@@ -98,12 +98,12 @@ module.exports = (angular, defaults) ->
                     evaluatorName: Users.getName evaluator
 
               if Users.active.group.level is 4
-                console.log '%c ------- ', 'background-color: red; color: #000'
-                console.log '%c id ', 'background-color: red; color: #000', id
-                console.log '%c formId ', 'background-color: lime; color: #000', formId
-                console.log '%c form ', 'background-color: lime; color: #000', form
-                console.log '%c person ', 'background-color: lime; color: #000', person
-                console.log '%c Districts.lookupByManagerId[id] ', 'background-color: lime; color: #000', Districts.lookupByManagerId[id]
+                # console.log '%c ------- ', 'background-color: red; color: #000'
+                # console.log '%c id ', 'background-color: red; color: #000', id
+                # console.log '%c formId ', 'background-color: lime; color: #000', formId
+                # console.log '%c form ', 'background-color: lime; color: #000', form
+                # console.log '%c person ', 'background-color: lime; color: #000', person
+                # console.log '%c Districts.lookupByManagerId[id] ', 'background-color: lime; color: #000', Districts.lookupByManagerId[id]
                 if Districts.lookupByManagerId[id]?
                   evaluator = Districts.lookupByManagerId[id].manager
                   evaluatorManagesDistrict = Districts.lookupByManagerId[id]

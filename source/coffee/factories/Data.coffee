@@ -442,8 +442,15 @@ module.exports = (angular, defaults) ->
 
             # look up the EVALUATEE details by email then id
             evaluateeEmail = formData.payload.evaluatee.email
-            evaluateeId = Users.lookupIdByEmail[ evaluateeEmail ]
+            evaluateeId = formData.payload.evaluatee.id
+            evaluateeId = Users.lookupIdByEmail[ evaluateeEmail ] if !evaluateeId?
             evaluateeDetails = Users.lookup[ evaluateeId ]
+
+            console.log '%c formId ', 'background-color: red; color: #000', formId if !evaluateeId? or !evaluateeDetails?
+            console.log '%c formData ', 'background-color: lime; color: #000', formData if !evaluateeId? or !evaluateeDetails?
+            console.log '%c evaluateeEmail ', 'background-color: lime; color: #000', evaluateeEmail if !evaluateeId? or !evaluateeDetails?
+            console.log '%c evaluateeId ', 'background-color: lime; color: #000', evaluateeId if !evaluateeId? or !evaluateeDetails?
+            console.log '%c evaluateeDetails ', 'background-color: lime; color: #000', evaluateeDetails if !evaluateeId? or !evaluateeDetails?
 
             # add districtName to EVALUATEE so we don't have to look it up later
             evaluateeDetails.districtName = defaults.activeDistricts[ evaluateeDetails.districtId ].name if evaluateeDetails.districtId? and defaults.activeDistricts[ evaluateeDetails.districtId ]?
