@@ -59,6 +59,7 @@ angular = require 'angular'
 # defaults.testUserSleep = "manager-southeast"
 # defaults.testUserSleep = "rep-southeast-3"
 # defaults.testUserSleep = "national-director"
+defaults.testUserSleep = "fred-kalush"
 
 # valid users
 # "rep-southeast-1"

@@ -162,6 +162,16 @@ module.exports = (angular, defaults) ->
                       username: 'regional-manager-2'
                       organization: '-M03Bq3CZoyZsNUo0i-D'
 
+                    when 'fred-kalush'
+                      id: '-MGoRk8F-OI9GETce7Mk'
+                      name: 'FRED KALUSH'
+                      email: 'frederick.kalush@jazzpharma.com'
+                      mgrEmail: 'dave.hirsch@jazzpharma.com'
+                      avatar: 'http://bocoweb.bocodigital.com/boco-avatar.png'
+                      groupId: '-LzhVdGiGrnnPzEx6Uto'
+                      username: 'fred-kalush'
+                      organization: '-MR6fgloK4ZfAyw73TcR'
+
                     #? NATIONAL (LEVEL 4)
 
                     when 'national-director'
