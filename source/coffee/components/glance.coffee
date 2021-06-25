@@ -444,7 +444,7 @@ module.exports = (angular, defaults) ->
           # console.log '[ @forms ]', @forms
 
           @info =
-            nationalDirector: defaults.activeTeam.manager.email
+            nationalDirector: defaults.activeTeam.manager.name
             completed: 0
             employees: Users.subordinates.length
             timeToSubmit: {}

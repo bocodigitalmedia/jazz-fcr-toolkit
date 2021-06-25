@@ -5,7 +5,7 @@ module.exports =
   brand: 'sleep'
   language: 'en'
   hasRegions: true
-  isDelphire: false
+  isDelphire: true
   initials:
     active: true
     type: 'brand' # 'team' or 'brand' #~ TEAM = REGIONS / BRAND = GROUPS
@@ -276,7 +276,8 @@ module.exports =
     manager:
       email: 'dave.hirsch@jazzpharma.com'
       id: '-LzhWho4tx2_lyRIEv21'
-      name: 'National Sales Director'
+      # name: 'National Sales Director'
+      name: 'Dave Hirsch'
 
 
   colors: [

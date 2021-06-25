@@ -5,7 +5,7 @@ module.exports =
   brand: 'hemonc'
   language: 'en'
   hasRegions: true
-  isDelphire: false
+  isDelphire: true
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"
@@ -192,7 +192,8 @@ module.exports =
     manager:
       email: 'roddy.mcilwain@jazzpharma.com'
       id: '-Lzhl7ys-TgHOkT6XJY8'
-      name: 'National Sales Director'
+      # name: 'National Sales Director'
+      name: 'Roddy Mcilwain'
 
   colors: [
     '#EB3A6E'
