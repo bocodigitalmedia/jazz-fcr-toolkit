@@ -5,7 +5,7 @@ module.exports =
   brand: 'hemonc'
   language: 'en'
   hasRegions: true
-  isDelphire: true
+  isDelphire: false
   firebase:
     apiKey: "AIzaSyCMBzkklmkwLAvUfrJbiNe0ukseKUJIF_U"
     authDomain: "delphire-jazz-io.firebaseapp.com"

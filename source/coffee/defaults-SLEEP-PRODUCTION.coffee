@@ -5,7 +5,7 @@ module.exports =
   brand: 'sleep'
   language: 'en'
   hasRegions: true
-  isDelphire: true
+  isDelphire: false
   initials:
     active: true
     type: 'brand' # 'team' or 'brand' #~ TEAM = REGIONS / BRAND = GROUPS

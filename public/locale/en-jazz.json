@@ -25,7 +25,7 @@
       "title": "Action Items",
       "flyoutTitle": "Action Item",
       "itemTitle": "Action Item",
-      "viewActionItems": "View Action Items",
+      "viewActionItems": "View Action Items"
     },
     "completed": {
       "fieldRideStart": "FCR Start<br>Date",
@@ -45,14 +45,14 @@
     },
     "evaluatees": {
       "filter": "Filter by Employee",
-      "evaluatee" :"Employee",
-      "evaluator" :"Evaluator",
-      "lastCompletedDate" :"Date of Last<br>Completed FCR",
-      "avgRating" :"Avg.<br>Rating",
-      "minRating" :"Min<br>Rating",
-      "maxRating" :"Max<br>Rating",
-      "totalDays" :"Total<br>Days",
-      "totalCompleted" :"# Completed<br>FCRs",
+      "evaluatee": "Employee",
+      "evaluator": "Evaluator",
+      "lastCompletedDate": "Date of Last<br>Completed FCR",
+      "avgRating": "Avg.<br>Rating",
+      "minRating": "Min<br>Rating",
+      "maxRating": "Max<br>Rating",
+      "totalDays": "Total<br>Days",
+      "totalCompleted": "# Completed<br>FCRs",
       "data": "View Employee Data",
       "allFcrs": "View All Employee's Completed FCRs"
     },
@@ -100,65 +100,65 @@
           "buProductDefitelio": "Defitelio:",
           "buProductSunosi": "Sunosi:",
           "buProductXywav": "Xywav:",
-          "buZepzelca":{
-            "p1":"<strong>Increase awareness of ZEPZELCA benefits with prescribers and key stakeholders</strong>",
-            "p2":"<strong>Actively define the treatment algorithm and patient types with ZEPZELCA as the first post-platinum therapy</strong>",
-            "p3":"<strong>Eliminate adoption barriers by driving reimbursement confidence, supporting patient access, and integrating into protocols / pathways and formularies</strong>",
-            "p4":"Enhance and apply virtual skills during customer engagements",
-            "p1Bullet1":"Exceed established goals for reach and frequency",
-            "p1Bullet2":"Leverage all available resources-speaker programs, product theatres, prospective patient data, Zoom info, etc.-to drive awareness",
-            "p1Bullet3":"Effectively collaborate with RMM to increase conviction amongst KOLs",
-            "p1Bullet4":"Consistently analyze the business to identify trends/issues that can  provide direction to promotional efforts",
-            "p2Bullet1":"Emphasis on providing context around Zepzelca’s clinical profile, ie telling the story",
-            "p2Bullet2":"Effectively overcome objections that hinder utilization in 2L, particularly in the platinum sensitive patient ",
-            "p3Bullet1":"Total office call including support staff, reimbursement specialists, and practice manager(s)",
-            "p3Bullet2":"Effectively collaborate with functional partners to eliminate adoption barriers",
-            "p3Bullet3":"Escalate non local barriers to utilization ie GPO contract/pathway, insurer issues, etc to leverage One Jazz"
+          "buZepzelca": {
+            "p1": "<strong>Increase awareness of ZEPZELCA benefits with prescribers and key stakeholders</strong>",
+            "p2": "<strong>Actively define the treatment algorithm and patient types with ZEPZELCA as the first post-platinum therapy</strong>",
+            "p3": "<strong>Eliminate adoption barriers by driving reimbursement confidence, supporting patient access, and integrating into protocols / pathways and formularies</strong>",
+            "p4": "Enhance and apply virtual skills during customer engagements",
+            "p1Bullet1": "Exceed established goals for reach and frequency",
+            "p1Bullet2": "Leverage all available resources-speaker programs, product theatres, prospective patient data, Zoom info, etc.-to drive awareness",
+            "p1Bullet3": "Effectively collaborate with RMM to increase conviction amongst KOLs",
+            "p1Bullet4": "Consistently analyze the business to identify trends/issues that can  provide direction to promotional efforts",
+            "p2Bullet1": "Emphasis on providing context around Zepzelca’s clinical profile, ie telling the story",
+            "p2Bullet2": "Effectively overcome objections that hinder utilization in 2L, particularly in the platinum sensitive patient ",
+            "p3Bullet1": "Total office call including support staff, reimbursement specialists, and practice manager(s)",
+            "p3Bullet2": "Effectively collaborate with functional partners to eliminate adoption barriers",
+            "p3Bullet3": "Escalate non local barriers to utilization ie GPO contract/pathway, insurer issues, etc to leverage One Jazz"
           },
-          "buVyxeos":{
-            "p1":"Leverage 5-year data to <strong>entrench VYXEOS</strong> as <u>the</u> standard-of-care for newly diagnosed sAML patients eligible for intensive induction",
-            "p2":"<strong>Drive adoption</strong> of VYXEOS in <u>community accounts</u> through expanded reach and increased adoption of outpatient dosing",
-            "p3":"Enhance and apply virtual skills during customer engagements",
-            "p1Bullet1":"Focus on getting the 5 year message out to key target customers; Academic and Community; direct mailers, virtual meetings, phone calls to ensure awareness",
-            "p1Bullet2":"Peer to peer virtual programs, Live programs when allowed",
-            "p1Bullet3":"OneJazz involvement immediately upon faced with customer issues/objections: ARM, MSL, RMM",
-            "p2Bullet1":"Ensure target Community customers receive JCO 301 re-print",
-            "p2Bullet2":"Deliver impactful messaging on out-patient induction",
-            "p2Bullet3":"Increase share of voice in community accounts to raise awareness or reinforce messaging"
+          "buVyxeos": {
+            "p1": "Leverage 5-year data to <strong>entrench VYXEOS</strong> as <u>the</u> standard-of-care for newly diagnosed sAML patients eligible for intensive induction",
+            "p2": "<strong>Drive adoption</strong> of VYXEOS in <u>community accounts</u> through expanded reach and increased adoption of outpatient dosing",
+            "p3": "Enhance and apply virtual skills during customer engagements",
+            "p1Bullet1": "Focus on getting the 5 year message out to key target customers; Academic and Community; direct mailers, virtual meetings, phone calls to ensure awareness",
+            "p1Bullet2": "Peer to peer virtual programs, Live programs when allowed",
+            "p1Bullet3": "OneJazz involvement immediately upon faced with customer issues/objections: ARM, MSL, RMM",
+            "p2Bullet1": "Ensure target Community customers receive JCO 301 re-print",
+            "p2Bullet2": "Deliver impactful messaging on out-patient induction",
+            "p2Bullet3": "Increase share of voice in community accounts to raise awareness or reinforce messaging"
           },
-          "buDefitelio":{
-            "bullet1":"Accelerate Patient Identification – Focus on identifying patients at risk for VOD, create a prepared mindset for inclusion in differential diagnosis",
-            "bullet2":"Uncover Barriers – Identify barriers to Tx initiation and drive urgency to intervene with Defitelio",
-            "bullet3":"Targeted Execution – Maintain and grow the believers while convincing and growing the skeptics/dabblers",
-            "bullet4":"Enhance and apply virtual skills during customer engagements "
+          "buDefitelio": {
+            "bullet1": "Accelerate Patient Identification – Focus on identifying patients at risk for VOD, create a prepared mindset for inclusion in differential diagnosis",
+            "bullet2": "Uncover Barriers – Identify barriers to Tx initiation and drive urgency to intervene with Defitelio",
+            "bullet3": "Targeted Execution – Maintain and grow the believers while convincing and growing the skeptics/dabblers",
+            "bullet4": "Enhance and apply virtual skills during customer engagements "
           },
-          "buSunosi":{
-            "p1":"Objective: Drive new patient SUNOSI starts in EDS by establishing SUNOSI as the Rx of choice",
-            "bullet1":"Maintain a bi - weekly frequency on key accounts",
-            "bullet2":"Using a visual aid, deliver a prevalence, relevance and screening message on each call",
-            "bullet3":"Utilize samples or vouchers and a cost and coverage message on each call",
-            "bullet4":"Gain a commitment for action by asking a “will you” close on each call",
-            "bullet5":"Enhance and apply virtual skills during customer engagements "
+          "buSunosi": {
+            "p1": "Objective: Drive new patient SUNOSI starts in EDS by establishing SUNOSI as the Rx of choice",
+            "bullet1": "Maintain a bi - weekly frequency on key accounts",
+            "bullet2": "Using a visual aid, deliver a prevalence, relevance and screening message on each call",
+            "bullet3": "Utilize samples or vouchers and a cost and coverage message on each call",
+            "bullet4": "Gain a commitment for action by asking a “will you” close on each call",
+            "bullet5": "Enhance and apply virtual skills during customer engagements "
           },
-          "buXywav":{
-            "p1":"Objective: Drive transition of existing Oxybate patients to XYWAV",
-            "bullet1":"Maintain a bi – weekly frequency on key accounts",
-            "bullet2":"Using a visual aid, communicate the increased risk of CV/CM comorbidities narcolepsy patients face and that Xywav has the same active Moiety as Xyrem ",
-            "bullet3":"Gain a commitment for action by asking a “will you” close on each call",
-            "bullet4":"Collaborate with ARMs and MSL to help OC’s pull through each patient",
-            "bullet5":"Enhance and apply virtual skills during customer engagements"
+          "buXywav": {
+            "p1": "Objective: Drive transition of existing Oxybate patients to XYWAV",
+            "bullet1": "Maintain a bi – weekly frequency on key accounts",
+            "bullet2": "Using a visual aid, communicate the increased risk of CV/CM comorbidities narcolepsy patients face and that Xywav has the same active Moiety as Xyrem ",
+            "bullet3": "Gain a commitment for action by asking a “will you” close on each call",
+            "bullet4": "Collaborate with ARMs and MSL to help OC’s pull through each patient",
+            "bullet5": "Enhance and apply virtual skills during customer engagements"
           }
         },
         "sectionB": {
           "sectionTitle": "Current Sales Performance",
-          "table" : {
-            "product"  : "Product",
-            "quarter"  : "Quarter",
-            "metric"   : "Metric",
-            "actual"   : "Actual",
-            "goal"     : "Goal",
+          "table": {
+            "product": "Product",
+            "quarter": "Quarter",
+            "metric": "Metric",
+            "actual": "Actual",
+            "goal": "Goal",
             "territory": "Territory",
-            "region"   : "Area"
+            "region": "Area"
           }
         },
         "sectionC": {
@@ -174,31 +174,31 @@
           "subSection1": {
             "title": "Selling Skills",
             "subs": {
-              "sub1" : {
+              "sub1": {
                 "title": "Pre-Call Planning",
                 "text": "Brings value to each customer interaction by creating SMART call objective(s) with defined outcomes tailored to each customer's/account's unique needs. Applies a customer-centric and patient-focused mindset. Considers any self-limiting beliefs or assumptions that may limit call outcomes. Leverages all approved, applicable resources, internal partners' expertise, brand strategy/marketing messaging, existing customer/account knowledge, and past interactions to effectively prepare for the call."
               },
-              "sub2" : {
+              "sub2": {
                 "title": "Opening/Establishes Rapport",
                 "text": "Engages the customer by opening each call with a focus on their needs and interests; links back to previous discussions to maintain and build on call continuity. Continues to build rapport based on mutual trust and respect."
               },
-              "sub3" : {
+              "sub3": {
                 "title": "Effective Questioning",
                 "text": "Through the use of insightful questions (identified in part during pre-call planning), continues to learn about the customer's and their patients' needs. Probes to uncover any objections or concerns which limit appropriate product utilization (i.e., disease state awareness, experience with diagnosis/patient selection, limited use and/or lack of positive experience with product, use of alternative therapies, cost/reimbursement). Explores if the customer's thinking has changed relative to the disease, diagnosis, and/or treatment, or if anything has impacted their business since the prior call(s) of relevance to interactions with Jazz."
               },
-              "sub4" : {
+              "sub4": {
                 "title": "Product Positioning",
                 "text": "Presents the product features, benefits, and important safety information in the manner that most directly addresses the customer's/patient's needs. Delivers education and key messages on both the product and disease state, supported by approved resources, with the goal to expand appropriate product use to additional patients who may benefit from therapy."
               },
-              "sub5" : {
+              "sub5": {
                 "title": "Handling Objections",
                 "text": "Addresses the customer's objections, resistance, and barriers by acknowledging and responding appropriately. Welcomes the customer's feedback and objections as an opportunity to better understand their needs and concerns. Maintains rapport throughout all customer interactions."
               },
-              "sub6" : {
+              "sub6": {
                 "title": "Gaining Commitment",
                 "text": "Advances the selling process by asking the customer to make a commitment to a specific action (i.e., expand product usage with additional appropriate patient types, utilize a resource to assist in patient diagnosis, other). Summarizes the call outcomes and mutually agreed upon next steps."
               },
-              "sub7" : {
+              "sub7": {
                 "title": "Post-Call Analysis",
                 "text": "Assesses call outcomes to determine impact relative to the specific call objectives and longer-term SMART account goals. Based on outcomes, defines call objectives for the next visit. Ensures that all documentation is completed per company compliance guidelines."
               }
@@ -206,15 +206,15 @@
           },
           "subSection2": {
             "title": "Product / Scientific Knowledge",
-            "text": "<p>Demonstrates clinical knowledge of the disease state and current disease management practices, to include guidelines, protocols, and standards. As applicable to assigned product(s), demonstrates an understanding of prescribing and clinical data, enabling delivery of sound scientific information, while maintaining fair balance.<\/p><br \/><ul><li>Demonstrates an understanding of and is able to communicate clinical knowledge in the following areas:<ul><li>Disease state<\/li><li>Jazz product(s) based on the clinical information contained in the package insert<\/li><\/ul><\/li><li>Appropriately responds to customer’s questions about other approved products/therapies, based on the clinical information contained in the package insert, per company compliance guidelines<\/li><li>Only communicate approved information with external stakeholders<\/li><\/ul>"
+            "text": "<p>Demonstrates clinical knowledge of the disease state and current disease management practices, to include guidelines, protocols, and standards. As applicable to assigned product(s), demonstrates an understanding of prescribing and clinical data, enabling delivery of sound scientific information, while maintaining fair balance.</p><br /><ul><li>Demonstrates an understanding of and is able to communicate clinical knowledge in the following areas:<ul><li>Disease state</li><li>Jazz product(s) based on the clinical information contained in the package insert</li></ul></li><li>Appropriately responds to customer’s questions about other approved products/therapies, based on the clinical information contained in the package insert, per company compliance guidelines</li><li>Only communicate approved information with external stakeholders</li></ul>"
           },
           "subSection3": {
             "title": "Business Analytics and Planning",
-            "text": "<p>Demonstrates an ability to think strategically; understands the current market landscape and drivers/trends impacting customers/accounts from a business perspective. Analyzes applicable data in building actionable territory business plans aligned with the brand strategy. Builds SMART account goals and executes the action plan with a focus on prioritized opportunities to grow the business; measures progress throughout each year.<\/p><br \/><p><strong>Strategy:<\/strong> Demonstrates an understanding of the business and market landscape<\/p><br \/><ul><li>Market Landscape: Understands the market dynamics which impact customers/accounts (patient population, disease prevalence, treatment settings, competitors, emerging trends, other)<\/li><li>Business/Financial Acumen: Understands each customer’s business model, cost impacts of managing patient care, the current reimbursement landscape and processes, payer issues and trends, and other factors which inform the territory business plan<\/li><\/ul><br \/><br \/><p><strong>Analytics and Planning:<\/strong> Drives business growth through data analytics and territory business planning<\/p><ul><li>Data Analytics: Uses all applicable data to identify and prioritize business opportunities (JAMs and Dashboard elements, bottle count, new scripts, PAs, discontinuations, other); considers challenges/threats<\/li><li>Business and Territory Planning: Through an analysis of practice dynamics, customer profiling and targeting, builds and maintains a tailored, actionable territory business plan with clearly defined short- and longer-term SMART goals and tactics to maximize each account’s potential. Implements strategies which position the company’s products for long-term success<\/li><\/ul><br \/><br \/><p><strong>Execution:<\/strong> Develops and implements a set of customized tactics to execute the territory business plan<\/p><br \/><ul><li>Prioritization: Balances time and effort to ensure that existing patient needs are met (i.e., prior authorizations, pharmacy delays) while increasing the number of appropriate patients who can benefit from therapy; leverages all available patient and physician programs; ensures that internal resources are mobilized and are providing customer-centric service<\/li><li>Routing: Implements and continually updates a routing plan to maximize productivity and outcomes, based on up-to-date data and customer needs. Maintains flexibility in order to quickly adapt to new priorities<\/li><li>Accountability: Reviews progress based on defined success metrics; updates plans and tactics based on priorities<\/li><\/ul>"
+            "text": "<p>Demonstrates an ability to think strategically; understands the current market landscape and drivers/trends impacting customers/accounts from a business perspective. Analyzes applicable data in building actionable territory business plans aligned with the brand strategy. Builds SMART account goals and executes the action plan with a focus on prioritized opportunities to grow the business; measures progress throughout each year.</p><br /><p><strong>Strategy:</strong> Demonstrates an understanding of the business and market landscape</p><br /><ul><li>Market Landscape: Understands the market dynamics which impact customers/accounts (patient population, disease prevalence, treatment settings, competitors, emerging trends, other)</li><li>Business/Financial Acumen: Understands each customer’s business model, cost impacts of managing patient care, the current reimbursement landscape and processes, payer issues and trends, and other factors which inform the territory business plan</li></ul><br /><br /><p><strong>Analytics and Planning:</strong> Drives business growth through data analytics and territory business planning</p><ul><li>Data Analytics: Uses all applicable data to identify and prioritize business opportunities (JAMs and Dashboard elements, bottle count, new scripts, PAs, discontinuations, other); considers challenges/threats</li><li>Business and Territory Planning: Through an analysis of practice dynamics, customer profiling and targeting, builds and maintains a tailored, actionable territory business plan with clearly defined short- and longer-term SMART goals and tactics to maximize each account’s potential. Implements strategies which position the company’s products for long-term success</li></ul><br /><br /><p><strong>Execution:</strong> Develops and implements a set of customized tactics to execute the territory business plan</p><br /><ul><li>Prioritization: Balances time and effort to ensure that existing patient needs are met (i.e., prior authorizations, pharmacy delays) while increasing the number of appropriate patients who can benefit from therapy; leverages all available patient and physician programs; ensures that internal resources are mobilized and are providing customer-centric service</li><li>Routing: Implements and continually updates a routing plan to maximize productivity and outcomes, based on up-to-date data and customer needs. Maintains flexibility in order to quickly adapt to new priorities</li><li>Accountability: Reviews progress based on defined success metrics; updates plans and tactics based on priorities</li></ul>"
           },
           "subSection4": {
             "title": "Team and Leadership Effectiveness",
-            "text": "<p>Brings value to each customer/account, the territory, and more broadly across the Business Unit by sharing insights and best practices, collaborating with internal and external partners/customers, and demonstrating leadership through personal initiative and a drive for excellence<\/p><br \/><ul><li>Demonstrates a customer-centric mindset (patients, prescribers, office staff, payers); identifies and delivers on customer’s needs and expectations by ensuring pull-through of programs, resources and customer service<\/li><li>Demonstrates teamwork and leadership across the territory/Business Unit by building and leveraging one’s network, supporting the development of others, and participating and/or leading special projects, meetings, and strategic initiatives focused on enhancing Business Unit sales effectiveness<\/li><\/ul>"
+            "text": "<p>Brings value to each customer/account, the territory, and more broadly across the Business Unit by sharing insights and best practices, collaborating with internal and external partners/customers, and demonstrating leadership through personal initiative and a drive for excellence</p><br /><ul><li>Demonstrates a customer-centric mindset (patients, prescribers, office staff, payers); identifies and delivers on customer’s needs and expectations by ensuring pull-through of programs, resources and customer service</li><li>Demonstrates teamwork and leadership across the territory/Business Unit by building and leveraging one’s network, supporting the development of others, and participating and/or leading special projects, meetings, and strategic initiatives focused on enhancing Business Unit sales effectiveness</li></ul>"
           },
           "subSection5": {
             "title": "Other",
@@ -223,22 +223,22 @@
         },
         "sectionE": {
           "sectionTitle": "Jazz Pharmaceuticals Compliance",
-          "lists" : {
+          "lists": {
             "list1": "Example as follows:",
-            "list1a":"Adheres to Jazz Pharmaceuticals Code of Conduct",
-            "list1b":"Conducts self and business activities within corporate/industry compliance policies and guidelines",
-            "list1c":"Actions aligned with improving patient care",
-            "list1d":"Is truthful in all dealing with internal and external customers"
+            "list1a": "Adheres to Jazz Pharmaceuticals Code of Conduct",
+            "list1b": "Conducts self and business activities within corporate/industry compliance policies and guidelines",
+            "list1c": "Actions aligned with improving patient care",
+            "list1d": "Is truthful in all dealing with internal and external customers"
           },
           "question": "Has employee acted in a compliant manner?"
         },
         "sectionF": {
           "sectionTitle": "Territory Management/Role Expectations",
-          "lists" : {
+          "lists": {
             "list1": "Example as follows:",
-            "list1a":"Timely Submission of Expense Reports",
-            "list1b":"Timely Completion of JazzLearn",
-            "list1c":"Timely Completion of Car Mileage/Maintenance"
+            "list1a": "Timely Submission of Expense Reports",
+            "list1b": "Timely Completion of JazzLearn",
+            "list1c": "Timely Completion of Car Mileage/Maintenance"
           },
           "question": "Is Employee meeting Territory Management/Role Expectation?"
         },
@@ -284,7 +284,7 @@
       "totalDaysOther": "Total Days<br>\"Other\"",
       "employeeData": "View Employee Data",
       "employeeFcrs": "View Employee FCRs",
-      "regionalManager": "Area Manager",
+      "regionalManager": "Area Busniess Director",
       "teamManager": "Team Manager",
       "districtManager": "Region Manager",
       "numReps": "# Reps",
@@ -301,7 +301,7 @@
       "employee": "&nbsp;Employee",
       "district": "&nbsp;Region",
       "region": "&nbsp;Area",
-      "back" : "Back"
+      "back": "Back"
     },
     "proficiencySection": {
       "avgProficiency": "Avg. Proficiency",
@@ -402,59 +402,43 @@
       "vendredi",
       "samedi"
     ],
-    "weekdaysShort": [
-      "dim.",
-      "lun.",
-      "mar.",
-      "mer.",
-      "jeu.",
-      "ven.",
-      "sam."
-    ],
-    "weekdaysMin": [
-      "Di",
-      "Lu",
-      "Ma",
-      "Me",
-      "Je",
-      "Ve",
-      "Sa"
-    ],
+    "weekdaysShort": ["dim.", "lun.", "mar.", "mer.", "jeu.", "ven.", "sam."],
+    "weekdaysMin": ["Di", "Lu", "Ma", "Me", "Je", "Ve", "Sa"],
     "weekdaysParseExact": true,
     "longDateFormat": {
-        "LT": "HH:mm",
-        "LTS": "HH:mm:ss",
-        "L": "DD/MM/YYYY",
-        "LL": "D MMMM YYYY",
-        "LLL": "D MMMM YYYY HH:mm",
-        "LLLL": "dddd D MMMM YYYY HH:mm"
+      "LT": "HH:mm",
+      "LTS": "HH:mm:ss",
+      "L": "DD/MM/YYYY",
+      "LL": "D MMMM YYYY",
+      "LLL": "D MMMM YYYY HH:mm",
+      "LLLL": "dddd D MMMM YYYY HH:mm"
     },
     "calendar": {
-        "sameDay": "[Aujourd’hui à] LT",
-        "nextDay": "[Demain à] LT",
-        "nextWeek": "dddd [à] LT",
-        "lastDay": "[Hier à] LT",
-        "lastWeek": "dddd [dernier à] LT",
-        "sameElse": "L"
+      "sameDay": "[Aujourd’hui à] LT",
+      "nextDay": "[Demain à] LT",
+      "nextWeek": "dddd [à] LT",
+      "lastDay": "[Hier à] LT",
+      "lastWeek": "dddd [dernier à] LT",
+      "sameElse": "L"
     },
     "relativeTime": {
-        "future": "dans %s",
-        "past": "il y a %s",
-        "s": "quelques secondes",
-        "m": "une minute",
-        "mm": "%d minutes",
-        "h": "une heure",
-        "hh": "%d heures",
-        "d": "un jour",
-        "dd": "%d jours",
-        "M": "un mois",
-        "MM": "%d mois",
-        "y": "un an",
-        "yy": "%d ans"
+      "future": "dans %s",
+      "past": "il y a %s",
+      "s": "quelques secondes",
+      "m": "une minute",
+      "mm": "%d minutes",
+      "h": "une heure",
+      "hh": "%d heures",
+      "d": "un jour",
+      "dd": "%d jours",
+      "M": "un mois",
+      "MM": "%d mois",
+      "y": "un an",
+      "yy": "%d ans"
     },
     "week": {
-        "dow": 1,
-        "doy": 4
+      "dow": 1,
+      "doy": 4
     }
   }
 }
