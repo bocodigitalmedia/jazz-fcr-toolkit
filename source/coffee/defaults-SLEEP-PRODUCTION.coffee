@@ -274,10 +274,10 @@ module.exports =
     id: '-MR6fgloK4ZfAyw73TcR'
     name: 'Sleep National'
     manager:
-      email: 'dave.hirsch@jazzpharma.com'
-      id: '-LzhWho4tx2_lyRIEv21'
+      email: 'jorge.gomez@jazzpharma.com'
+      id: '-MZ--l_8Cr1D_YehMkRx'
       # name: 'National Sales Director'
-      name: 'Dave Hirsch'
+      name: 'Jorge Gomez'
 
 
   colors: [
